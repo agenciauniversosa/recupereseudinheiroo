@@ -1,5 +1,5 @@
-import { Shield, DollarSign, Scale, Clock, CheckCircle, ChevronDown, Phone, MessageCircle, ArrowRight, Building2, Users, FileCheck, Gavel } from "lucide-react";
-import { useState } from "react";
+import { Shield, DollarSign, Scale, Clock, CheckCircle, ChevronDown, Phone, MessageCircle, ArrowRight, Building2, Users, FileCheck, Gavel, Calculator } from "lucide-react";
+import { useState, useMemo } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
 import shieldIcon from "@/assets/shield-icon.png";
 
@@ -184,6 +184,145 @@ const HowItWorksSection = () => (
   </section>
 );
 
+const CalculatorSection = () => {
+  const [propertyValue, setPropertyValue] = useState("");
+  const [installmentsPaid, setInstallmentsPaid] = useState("");
+  const [monthlyInstallment, setMonthlyInstallment] = useState("");
+  const [calculated, setCalculated] = useState(false);
+
+  const formatCurrency = (value: string) => {
+    const numbers = value.replace(/\D/g, "");
+    const amount = parseInt(numbers || "0", 10) / 100;
+    return amount.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+  };
+
+  const handleCurrencyInput = (setter: (v: string) => void) => (e: React.ChangeEvent<HTMLInputElement>) => {
+    const raw = e.target.value.replace(/\D/g, "");
+    if (raw.length <= 12) setter(raw);
+    setCalculated(false);
+  };
+
+  const handleInstallments = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const raw = e.target.value.replace(/\D/g, "");
+    if (parseInt(raw || "0", 10) <= 360) setInstallmentsPaid(raw);
+    setCalculated(false);
+  };
+
+  const rawPropertyValue = parseInt(propertyValue || "0", 10) / 100;
+  const rawMonthly = parseInt(monthlyInstallment || "0", 10) / 100;
+  const rawInstallments = parseInt(installmentsPaid || "0", 10);
+
+  const estimate = useMemo(() => {
+    if (rawPropertyValue < 100 || rawInstallments < 1 || rawMonthly < 100) return null;
+    // Estimativa simplificada: juros indevidos ~0.8-1.2% ao mês sobre valor pago
+    const totalPaid = rawMonthly * rawInstallments;
+    const averageRate = 0.01; // ~1% ao mês de juros indevidos estimados
+    const estimatedOvercharge = totalPaid * averageRate * rawInstallments * 0.5;
+    const minValue = Math.round(estimatedOvercharge * 0.6);
+    const maxValue = Math.round(estimatedOvercharge * 1.4);
+    return { min: Math.max(minValue, 500), max: Math.max(maxValue, 2000) };
+  }, [rawPropertyValue, rawInstallments, rawMonthly]);
+
+  const canCalculate = rawPropertyValue >= 10000 && rawInstallments >= 6 && rawMonthly >= 100;
+
+  return (
+    <section className="py-20 md:py-28 bg-background">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <span className="text-gold font-semibold text-sm uppercase tracking-widest">Simulação Gratuita</span>
+          <h2 className="text-3xl md:text-5xl font-display font-black text-navy mt-3 mb-4">
+            Quanto você pode <span className="text-gradient-gold">recuperar?</span>
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Preencha os dados abaixo para ter uma estimativa do valor que pode ser restituído.
+          </p>
+        </div>
+
+        <div className="max-w-2xl mx-auto bg-card rounded-3xl border border-border shadow-navy p-8 md:p-10">
+          <div className="grid gap-6">
+            <div>
+              <label className="block text-sm font-semibold text-navy mb-2">Valor do Imóvel</label>
+              <div className="relative">
+                <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                <input
+                  type="text"
+                  inputMode="numeric"
+                  value={propertyValue ? formatCurrency(propertyValue) : ""}
+                  onChange={handleCurrencyInput(setPropertyValue)}
+                  placeholder="R$ 0,00"
+                  className="w-full pl-12 pr-4 py-4 rounded-xl border border-border bg-background text-foreground text-lg focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-navy mb-2">Valor da Parcela Mensal</label>
+              <div className="relative">
+                <DollarSign className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                <input
+                  type="text"
+                  inputMode="numeric"
+                  value={monthlyInstallment ? formatCurrency(monthlyInstallment) : ""}
+                  onChange={handleCurrencyInput(setMonthlyInstallment)}
+                  placeholder="R$ 0,00"
+                  className="w-full pl-12 pr-4 py-4 rounded-xl border border-border bg-background text-foreground text-lg focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-navy mb-2">Parcelas Já Pagas</label>
+              <div className="relative">
+                <Clock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                <input
+                  type="text"
+                  inputMode="numeric"
+                  value={installmentsPaid}
+                  onChange={handleInstallments}
+                  placeholder="Ex: 24"
+                  maxLength={3}
+                  className="w-full pl-12 pr-4 py-4 rounded-xl border border-border bg-background text-foreground text-lg focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
+                />
+              </div>
+            </div>
+
+            <button
+              onClick={() => setCalculated(true)}
+              disabled={!canCalculate}
+              className="w-full bg-gradient-gold text-accent-foreground font-bold text-lg py-4 rounded-xl shadow-gold hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed"
+            >
+              <Calculator className="w-5 h-5" />
+              Calcular Estimativa
+            </button>
+          </div>
+
+          {calculated && estimate && (
+            <div className="mt-8 p-6 bg-gradient-navy rounded-2xl text-center">
+              <p className="text-primary-foreground/70 text-sm mb-2">Valor estimado de recuperação:</p>
+              <p className="text-3xl md:text-4xl font-display font-black text-gradient-gold mb-2">
+                {estimate.min.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })} a {estimate.max.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}
+              </p>
+              <p className="text-primary-foreground/50 text-xs mt-3 mb-6">
+                *Estimativa simplificada. O valor exato depende da análise completa do contrato.
+              </p>
+              <a
+                href="https://wa.me/5500000000000?text=Olá! Fiz a simulação no site e quero uma análise detalhada do meu caso."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-gradient-gold text-accent-foreground font-bold px-6 py-3 rounded-full shadow-gold hover:scale-105 transition-all"
+              >
+                <MessageCircle className="w-5 h-5" />
+                Quero Análise Gratuita
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const FAQSection = () => {
   const [open, setOpen] = useState<number | null>(null);
   const faqs = [
@@ -277,6 +416,7 @@ const Index = () => (
     <ProblemSection />
     <ZeroCostSection />
     <HowItWorksSection />
+    <CalculatorSection />
     <FAQSection />
     <CTASection />
     <Footer />
