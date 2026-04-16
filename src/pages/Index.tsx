@@ -567,6 +567,7 @@ const ContactFormSection = () => {
   );
 };
 
+const Footer = () => (
   <footer className="bg-navy-dark text-primary-foreground/50 py-10">
     <div className="container mx-auto px-4 text-center">
       <p className="text-sm mb-2">
