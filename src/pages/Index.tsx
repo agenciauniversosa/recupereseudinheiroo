@@ -780,12 +780,9 @@ const Footer = () => (
   <footer className="bg-background border-t border-border py-12 px-6 md:px-8">
     <div className="max-w-7xl mx-auto">
       <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
-        <div className="flex items-center gap-2.5">
-          <div className="w-3 h-3 bg-gold" />
-          <span className="font-display font-bold text-lg tracking-tight text-navy">
-            Recupere<span className="text-gold-dark">.</span>
-          </span>
-        </div>
+        <a href="#" className="flex items-center" aria-label="Recupere Seu Dinheiro">
+          <img src={logo} alt="Recupere Seu Dinheiro" className="h-10 w-auto" />
+        </a>
         <div className="flex flex-wrap justify-center gap-6 text-sm text-navy/60">
           <a href="#como-funciona" className="hover:text-gold-dark transition-colors">Como Funciona</a>
           <a href="#calculadora" className="hover:text-gold-dark transition-colors">Calculadora</a>
