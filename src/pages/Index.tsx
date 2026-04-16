@@ -77,16 +77,39 @@ const Navbar = () => {
 /* ---------- HERO ---------- */
 const HeroSection = () => {
   const [count, setCount] = useState(0);
+  const heroRef = useRef<HTMLElement | null>(null);
+
   useEffect(() => {
+    const node = heroRef.current;
+    if (!node) return;
+
     let raf: number;
-    const start = performance.now();
-    const animate = (now: number) => {
-      const progress = Math.min((now - start) / 1500, 1);
-      setCount(Math.floor(80000 * (1 - Math.pow(1 - progress, 3))));
-      if (progress < 1) raf = requestAnimationFrame(animate);
+    const runCountUp = () => {
+      cancelAnimationFrame(raf);
+      setCount(0);
+      const start = performance.now();
+      const animate = (now: number) => {
+        const progress = Math.min((now - start) / 1500, 1);
+        setCount(Math.floor(80000 * (1 - Math.pow(1 - progress, 3))));
+        if (progress < 1) raf = requestAnimationFrame(animate);
+      };
+      raf = requestAnimationFrame(animate);
     };
-    raf = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(raf);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) runCountUp();
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(node);
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(raf);
+    };
   }, []);
 
   return (
