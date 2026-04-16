@@ -133,7 +133,7 @@ const HeroSection = () => {
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-6 animate-fade-up delay-300">
             <a
               href="#contato"
-              className="group relative bg-navy text-primary-foreground px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wider overflow-hidden transition-all hover:scale-105 hover:shadow-2xl hover:shadow-navy/30 inline-flex items-center justify-center gap-3 w-full sm:w-auto"
+              className="group relative bg-navy text-primary-foreground px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-[13px] sm:text-sm font-bold uppercase tracking-wide sm:tracking-wider overflow-hidden transition-all hover:scale-105 hover:shadow-2xl hover:shadow-navy/30 inline-flex items-center justify-center gap-2 sm:gap-3 w-full sm:w-auto"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-gold to-gold-dark opacity-0 group-hover:opacity-100 transition-opacity" />
               <span className="relative group-hover:text-navy transition-colors">Quero Recuperar Meu Dinheiro</span>
