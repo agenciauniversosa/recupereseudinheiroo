@@ -113,7 +113,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <header className="relative pt-32 md:pt-40 pb-24 md:pb-32 px-6 md:px-8 overflow-hidden bg-background">
+    <header ref={heroRef} className="relative pt-32 md:pt-40 pb-24 md:pb-32 px-6 md:px-8 overflow-hidden bg-background">
       {/* Background image with transparency */}
       <div
         className="absolute inset-0 bg-cover bg-center opacity-20 pointer-events-none animate-fade-in-soft"
