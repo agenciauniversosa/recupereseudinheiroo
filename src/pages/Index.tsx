@@ -797,8 +797,19 @@ const Footer = () => (
 const WhatsAppFAB = () => {
   const [visible, setVisible] = useState(false);
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 600);
+    const onScroll = () => {
+      const scrolled = window.scrollY > 600;
+      // Hide when contato section is in view (avoids covering form fields)
+      const contato = document.getElementById("contato");
+      let inContato = false;
+      if (contato) {
+        const rect = contato.getBoundingClientRect();
+        inContato = rect.top < window.innerHeight * 0.8 && rect.bottom > 0;
+      }
+      setVisible(scrolled && !inContato);
+    };
     window.addEventListener("scroll", onScroll);
+    onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
   return (
