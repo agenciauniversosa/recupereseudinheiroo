@@ -803,6 +803,28 @@ const Footer = () => (
   </footer>
 );
 
+/* ---------- WHATSAPP FLOATING BUTTON ---------- */
+const WhatsAppFAB = () => {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 600);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  return (
+    <a
+      href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Olá! Quero saber mais sobre a recuperação de juros.")}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Falar no WhatsApp"
+      className={`fixed bottom-6 right-6 z-40 w-14 h-14 md:w-16 md:h-16 rounded-full bg-gold text-navy shadow-2xl shadow-gold/40 flex items-center justify-center transition-all duration-500 hover:scale-110 hover:bg-gold-dark hover:text-primary-foreground ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8 pointer-events-none"}`}
+    >
+      <span className="absolute inset-0 rounded-full bg-gold animate-ping opacity-30" />
+      <MessageCircle className="relative w-6 h-6 md:w-7 md:h-7" />
+    </a>
+  );
+};
+
 const Index = () => (
   <div className="bg-background min-h-screen overflow-x-hidden">
     <Navbar />
@@ -817,6 +839,7 @@ const Index = () => (
     <ContactFormSection />
     <CTASection />
     <Footer />
+    <WhatsAppFAB />
   </div>
 );
 
