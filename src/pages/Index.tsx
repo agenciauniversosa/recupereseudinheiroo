@@ -212,31 +212,95 @@ const MarqueeSection = () => {
 };
 
 /* ---------- STATS ---------- */
+type StatItem = {
+  target: number;
+  prefix?: string;
+  suffix?: string;
+  format?: "compact" | "currency-compact" | "plain";
+  label: string;
+  icon: typeof Building2;
+};
+
+const formatStat = (value: number, stat: StatItem) => {
+  if (stat.format === "compact") {
+    if (value >= 1_000_000) return `${(value / 1_000_000).toFixed(value % 1_000_000 === 0 ? 0 : 1)}M`;
+    if (value >= 1_000) return `${Math.floor(value / 1_000)}mil`;
+    return `${value}`;
+  }
+  if (stat.format === "currency-compact") {
+    if (value >= 1_000) return `R$ ${Math.floor(value / 1_000)}mil`;
+    return `R$ ${value}`;
+  }
+  return `${value}`;
+};
+
+const AnimatedStatCard = ({ stat, delay }: { stat: StatItem; delay: number }) => {
+  const cardRef = useRef<HTMLDivElement | null>(null);
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    const node = cardRef.current;
+    if (!node) return;
+    let raf: number;
+    const run = () => {
+      cancelAnimationFrame(raf);
+      setValue(0);
+      const start = performance.now();
+      const tick = (now: number) => {
+        const progress = Math.min((now - start) / 1500, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        setValue(Math.floor(stat.target * eased));
+        if (progress < 1) raf = requestAnimationFrame(tick);
+      };
+      raf = requestAnimationFrame(tick);
+    };
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.isIntersecting && run()),
+      { threshold: 0.4 }
+    );
+    observer.observe(node);
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(raf);
+    };
+  }, [stat.target]);
+
+  const rendered =
+    stat.format === "plain"
+      ? `${value}${stat.suffix ?? ""}`
+      : `${stat.prefix ?? ""}${formatStat(value, stat)}${stat.suffix ?? ""}`;
+
+  return (
+    <div
+      ref={cardRef}
+      className="group relative bg-card border border-border rounded-2xl p-6 md:p-8 hover:border-gold-dark hover:-translate-y-2 transition-all duration-500 cursor-default overflow-hidden"
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      <div className="relative">
+        <div className="w-12 h-12 rounded-xl bg-gold/15 flex items-center justify-center mb-5 group-hover:bg-gold-dark group-hover:scale-110 transition-all">
+          <stat.icon className="w-6 h-6 text-gold-dark group-hover:text-primary-foreground transition-colors" />
+        </div>
+        <div className="text-3xl md:text-4xl font-display font-bold text-navy tabular-nums">{rendered}</div>
+        <div className="text-xs md:text-sm text-navy/60 mt-2">{stat.label}</div>
+      </div>
+    </div>
+  );
+};
+
 const StatsSection = () => {
   const ref = useReveal<HTMLDivElement>();
+  const stats: StatItem[] = [
+    { target: 2, suffix: "M+", format: "plain", label: "Imóveis vendidos na planta", icon: Building2 },
+    { target: 300_000, format: "compact", suffix: "+", label: "Potenciais lesados no Brasil", icon: Users },
+    { target: 80_000, format: "currency-compact", label: "Recuperado em caso real", icon: DollarSign },
+    { target: 5, suffix: " anos", format: "plain", label: "Prazo para reivindicar", icon: Clock },
+  ];
   return (
     <section className="py-20 md:py-24 bg-background">
       <div ref={ref} className="reveal max-w-7xl mx-auto px-6 md:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-          {[
-            { value: "2M+", label: "Imóveis vendidos na planta", icon: Building2 },
-            { value: "300mil+", label: "Potenciais lesados no Brasil", icon: Users },
-            { value: "R$ 80mil", label: "Recuperado em caso real", icon: DollarSign },
-            { value: "5 anos", label: "Prazo para reivindicar", icon: Clock },
-          ].map((stat, i) => (
-            <div
-              key={stat.label}
-              className="group relative bg-card border border-border rounded-2xl p-6 md:p-8 hover:border-gold-dark hover:-translate-y-2 transition-all duration-500 cursor-default overflow-hidden"
-              style={{ transitionDelay: `${i * 80}ms` }}
-            >
-              <div className="relative">
-                <div className="w-12 h-12 rounded-xl bg-gold/15 flex items-center justify-center mb-5 group-hover:bg-gold-dark group-hover:scale-110 transition-all">
-                  <stat.icon className="w-6 h-6 text-gold-dark group-hover:text-primary-foreground transition-colors" />
-                </div>
-                <div className="text-3xl md:text-4xl font-display font-bold text-navy tabular-nums">{stat.value}</div>
-                <div className="text-xs md:text-sm text-navy/60 mt-2">{stat.label}</div>
-              </div>
-            </div>
+          {stats.map((stat, i) => (
+            <AnimatedStatCard key={stat.label} stat={stat} delay={i * 80} />
           ))}
         </div>
       </div>
