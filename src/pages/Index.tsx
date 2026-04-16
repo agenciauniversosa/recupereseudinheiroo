@@ -59,11 +59,12 @@ const Navbar = () => {
       </div>
       {open && (
         <div className="lg:hidden bg-background/95 backdrop-blur-xl border-t border-border animate-fade-in-soft">
-          <div className="px-6 py-6 flex flex-col gap-4">
+          <div className="px-6 py-6 flex flex-col gap-2">
             {links.map((l) => (
-              <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-navy/80 hover:text-gold-dark transition-colors py-2 font-medium">{l.label}</a>
+              <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-navy/80 hover:text-gold-dark hover:bg-muted/50 transition-all py-3 px-4 -mx-4 rounded-xl font-medium">{l.label}</a>
             ))}
-            <a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noopener noreferrer" className="bg-navy text-primary-foreground px-5 py-3 rounded-full text-sm font-semibold text-center mt-2">
+            <a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noopener noreferrer" className="bg-navy text-primary-foreground px-5 py-3.5 rounded-full text-sm font-semibold text-center mt-3 inline-flex items-center justify-center gap-2 hover:bg-gold hover:text-navy transition-colors">
+              <MessageCircle className="w-4 h-4" />
               Falar no WhatsApp
             </a>
           </div>
