@@ -233,7 +233,7 @@ const ProblemSection = () => {
       <div ref={ref} className="reveal max-w-7xl mx-auto px-6 md:px-8 relative">
         <div className="mb-16 max-w-3xl">
           <span className="inline-block text-gold-dark text-xs font-bold tracking-[0.2em] uppercase mb-4 px-3 py-1 bg-gold/10 rounded-full">Entenda o Problema</span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-navy leading-[1.05]">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-navy leading-[1.05]">
             Construtoras cobram juros{" "}
             <span className="relative inline-block">
               <span className="relative z-10 text-gold-dark">ilegais</span>
@@ -284,7 +284,7 @@ const ZeroCostSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div>
             <span className="inline-block text-gold-dark text-xs font-bold tracking-[0.2em] uppercase mb-4 px-3 py-1 bg-gold/10 rounded-full">Risco Zero</span>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-8 leading-[1.05]">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-8 leading-[1.05]">
               Você não paga{" "}
               <span className="relative inline-block">
                 <span className="relative z-10 text-gold-dark italic">nada</span>
@@ -351,7 +351,7 @@ const HowItWorksSection = () => {
       <div ref={ref} className="reveal max-w-7xl mx-auto px-6 md:px-8">
         <div className="mb-16 max-w-3xl">
           <span className="inline-block text-gold-dark text-xs font-bold tracking-[0.2em] uppercase mb-4 px-3 py-1 bg-gold/10 rounded-full">Como Funciona</span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-navy leading-[1.05]">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-navy leading-[1.05]">
             Simples, rápido e <span className="text-gold-dark italic">sem risco.</span>
           </h2>
         </div>
@@ -443,7 +443,7 @@ const CalculatorSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <div className="lg:sticky lg:top-32">
             <span className="inline-block text-gold-dark text-xs font-bold tracking-[0.2em] uppercase mb-4 px-3 py-1 bg-gold/10 rounded-full">Simulação Gratuita</span>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-8 leading-[1.05]">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-8 leading-[1.05]">
               Quanto você pode <span className="text-gold-dark italic">recuperar?</span>
             </h2>
             <p className="text-navy/70 text-lg leading-relaxed mb-10 max-w-xl">
@@ -562,7 +562,7 @@ const FAQSection = () => {
         <div className="grid lg:grid-cols-3 gap-12 lg:gap-16">
           <div>
             <span className="inline-block text-gold-dark text-xs font-bold tracking-[0.2em] uppercase mb-4 px-3 py-1 bg-gold/10 rounded-full">FAQ</span>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-navy leading-[1.05]">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-navy leading-[1.05]">
               Tire suas <span className="text-gold-dark italic">dúvidas.</span>
             </h2>
             <p className="text-navy/60 mt-6 leading-relaxed">
@@ -637,7 +637,7 @@ const ContactFormSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <div>
             <span className="inline-block text-gold-dark text-xs font-bold tracking-[0.2em] uppercase mb-4 px-3 py-1 bg-gold/10 rounded-full">Análise Gratuita</span>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-8 leading-[1.05]">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-8 leading-[1.05]">
               Solicite sua <span className="text-gold-dark italic">avaliação.</span>
             </h2>
             <p className="text-navy/70 text-lg leading-relaxed mb-10 max-w-xl">
@@ -743,7 +743,7 @@ const CTASection = () => (
     <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'linear-gradient(hsl(var(--gold)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--gold)) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
 
     <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10 text-center">
-      <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mb-8 leading-[1.05] max-w-4xl mx-auto">
+      <h2 className="font-display text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mb-8 leading-[1.05] max-w-4xl mx-auto">
         Não deixe seu dinheiro nas mãos da{" "}
         <span className="inline-block bg-gradient-to-r from-gold-light via-gold to-gold-light bg-clip-text text-transparent animate-gradient-shift italic">
           construtora.
