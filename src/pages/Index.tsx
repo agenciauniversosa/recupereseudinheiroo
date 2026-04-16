@@ -89,6 +89,15 @@ const HeroSection = () => {
 
   return (
     <header className="relative pt-32 md:pt-40 pb-24 md:pb-32 px-6 md:px-8 overflow-hidden bg-background">
+      {/* Background image with transparency */}
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-20 pointer-events-none animate-fade-in-soft"
+        style={{ backgroundImage: `url(${heroBg})` }}
+      />
+      {/* Soft gradient overlays for legibility */}
+      <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background pointer-events-none" />
+
       {/* Animated blobs */}
       <div className="absolute top-20 right-0 lg:right-1/4 w-[500px] h-[500px] bg-gold/20 rounded-full blur-3xl animate-blob pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-navy/10 rounded-full blur-3xl animate-blob pointer-events-none" style={{ animationDelay: "5s" }} />
