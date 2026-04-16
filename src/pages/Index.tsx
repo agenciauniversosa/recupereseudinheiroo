@@ -101,9 +101,6 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background pointer-events-none" />
 
       {/* Animated blobs */}
-      <div className="absolute top-20 right-0 lg:right-1/4 w-[420px] h-[420px] bg-gold/8 rounded-full blur-3xl animate-blob pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-navy/10 rounded-full blur-3xl animate-blob pointer-events-none" style={{ animationDelay: "5s" }} />
-      <div className="absolute top-1/3 left-1/3 w-[260px] h-[260px] bg-gold-light/10 rounded-full blur-3xl animate-blob pointer-events-none" style={{ animationDelay: "10s" }} />
 
       {/* Grid pattern */}
       <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{ backgroundImage: 'linear-gradient(hsl(var(--navy)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--navy)) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
@@ -209,7 +206,6 @@ const StatsSection = () => {
               className="group relative bg-card border border-border rounded-2xl p-6 md:p-8 hover:border-gold-dark hover:-translate-y-2 transition-all duration-500 cursor-default overflow-hidden"
               style={{ transitionDelay: `${i * 80}ms` }}
             >
-              <div className="absolute -top-12 -right-12 w-24 h-24 bg-gold/5 rounded-full blur-2xl group-hover:bg-gold/20 transition-colors" />
               <div className="relative">
                 <div className="w-12 h-12 rounded-xl bg-gold/15 flex items-center justify-center mb-5 group-hover:bg-gold-dark group-hover:scale-110 transition-all">
                   <stat.icon className="w-6 h-6 text-gold-dark group-hover:text-primary-foreground transition-colors" />
@@ -230,7 +226,6 @@ const ProblemSection = () => {
   const ref = useReveal<HTMLDivElement>();
   return (
     <section className="py-24 md:py-32 bg-muted/50 relative overflow-hidden">
-      <div className="absolute top-1/2 right-0 w-80 h-80 bg-gold/5 rounded-full blur-3xl animate-blob" />
       <div ref={ref} className="reveal max-w-7xl mx-auto px-6 md:px-8 relative">
         <div className="mb-16 max-w-3xl">
           <span className="inline-block text-gold-dark text-xs font-bold tracking-[0.2em] uppercase mb-4 px-3 py-1 bg-gold/10 rounded-full">Entenda o Problema</span>
@@ -318,7 +313,7 @@ const ZeroCostSection = () => {
 
           <div className="relative">
             {/* Glow */}
-            <div className="absolute -inset-4 bg-gradient-to-br from-gold/30 to-navy/20 rounded-3xl blur-2xl opacity-70 animate-blob" />
+            <div className="absolute -inset-4 bg-navy/5 rounded-3xl blur-2xl" />
             <div className="relative bg-card border border-border rounded-3xl p-10 md:p-12 shadow-2xl shadow-navy/10">
               <div className="absolute -top-6 -right-6 w-16 h-16 rounded-2xl bg-gold flex items-center justify-center shadow-lg shadow-gold/30 animate-float">
                 <Shield className="w-8 h-8 text-navy" />
@@ -437,8 +432,6 @@ const CalculatorSection = () => {
 
   return (
     <section id="calculadora" className="py-24 md:py-32 bg-background relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-80 h-80 bg-gold/5 rounded-full blur-3xl animate-blob" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-navy/10 rounded-full blur-3xl animate-blob" style={{ animationDelay: "8s" }} />
 
       <div ref={ref} className="reveal max-w-7xl mx-auto px-6 md:px-8 relative">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
@@ -469,7 +462,7 @@ const CalculatorSection = () => {
           </div>
 
           <div className="relative">
-            <div className="absolute -inset-4 bg-gradient-to-br from-gold/20 to-navy/10 rounded-3xl blur-2xl" />
+            <div className="absolute -inset-4 bg-navy/5 rounded-3xl blur-2xl" />
             <div className="relative bg-card border border-border rounded-3xl p-8 md:p-10 shadow-2xl shadow-navy/10">
               <div className="space-y-7">
                 {[
@@ -633,7 +626,6 @@ const ContactFormSection = () => {
 
   return (
     <section id="contato" className="py-24 md:py-32 bg-background relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-[420px] h-[420px] bg-gold/6 rounded-full blur-3xl animate-blob" />
       <div ref={ref} className="reveal max-w-7xl mx-auto px-6 md:px-8 relative">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <div>
@@ -657,7 +649,7 @@ const ContactFormSection = () => {
           </div>
 
           <div className="relative">
-            <div className="absolute -inset-4 bg-gradient-to-br from-gold/20 to-navy/10 rounded-3xl blur-2xl" />
+            <div className="absolute -inset-4 bg-navy/5 rounded-3xl blur-2xl" />
             {submitted ? (
               <div className="relative bg-card border border-border rounded-3xl p-10 text-center shadow-2xl shadow-navy/10 animate-scale-in">
                 <div className="w-20 h-20 rounded-full bg-gold/20 flex items-center justify-center mx-auto mb-6 animate-float">
@@ -739,8 +731,6 @@ const CTASection = () => (
     />
     <div className="absolute inset-0 bg-gradient-to-b from-navy/90 via-navy/85 to-navy/95 pointer-events-none" />
 
-    <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gold/15 rounded-full blur-3xl animate-blob" />
-    <div className="absolute bottom-0 right-1/4 w-[420px] h-[420px] bg-gold/10 rounded-full blur-3xl animate-blob" style={{ animationDelay: "6s" }} />
     <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'linear-gradient(hsl(var(--gold)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--gold)) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
 
     <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10 text-center">
