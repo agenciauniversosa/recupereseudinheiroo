@@ -119,7 +119,7 @@ const HeroSection = () => {
             </span>
           </div>
 
-          <h1 className="font-display text-5xl md:text-7xl lg:text-[5.5rem] font-bold leading-[0.95] tracking-tight text-navy mb-8 animate-fade-up delay-100">
+          <h1 className="font-display text-[2.5rem] sm:text-5xl md:text-7xl lg:text-[5.5rem] font-bold leading-[1] md:leading-[0.95] tracking-tight text-navy mb-6 md:mb-8 animate-fade-up delay-100">
             Comprou imóvel <br className="hidden md:block" />na planta?
             <br />
             <span className="inline-block bg-gradient-to-r from-gold-dark via-gold to-gold-dark bg-clip-text text-transparent animate-gradient-shift">
@@ -132,10 +132,10 @@ const HeroSection = () => {
             A lei está do seu lado — e nós entramos com a ação <strong className="text-gold-dark font-semibold">sem você pagar nada até ganhar.</strong>
           </p>
 
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 animate-fade-up delay-300">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-6 animate-fade-up delay-300">
             <a
               href="#contato"
-              className="group relative bg-navy text-primary-foreground px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wider overflow-hidden transition-all hover:scale-105 hover:shadow-2xl hover:shadow-navy/30 inline-flex items-center gap-3"
+              className="group relative bg-navy text-primary-foreground px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wider overflow-hidden transition-all hover:scale-105 hover:shadow-2xl hover:shadow-navy/30 inline-flex items-center justify-center gap-3 w-full sm:w-auto"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-gold to-gold-dark opacity-0 group-hover:opacity-100 transition-opacity" />
               <span className="relative group-hover:text-navy transition-colors">Quero Recuperar Meu Dinheiro</span>
