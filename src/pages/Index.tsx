@@ -2,6 +2,7 @@ import { Shield, DollarSign, Scale, Clock, CheckCircle, ChevronDown, Phone, Mess
 import { useState, useMemo, useEffect, useRef } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { useReveal } from "@/hooks/use-reveal";
+import logo from "@/assets/logo.png";
 
 const WHATSAPP = "5500000000000";
 
@@ -26,14 +27,12 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled ? "bg-background/80 backdrop-blur-xl border-b border-border shadow-sm" : "bg-transparent border-b border-transparent"}`}>
       <div className="max-w-7xl mx-auto px-6 md:px-8 py-4 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2.5 group">
-          <div className="relative">
-            <div className="w-3 h-3 bg-gold transition-transform duration-300 group-hover:rotate-45" />
-            <div className="absolute inset-0 w-3 h-3 bg-gold blur-md opacity-50 group-hover:opacity-100 transition-opacity" />
-          </div>
-          <span className="font-display font-bold text-base md:text-lg tracking-tight text-navy">
-            Recupere<span className="text-gold-dark">.</span>
-          </span>
+        <a href="#" className="flex items-center group" aria-label="Recupere Seu Dinheiro">
+          <img
+            src={logo}
+            alt="Recupere Seu Dinheiro"
+            className="h-8 md:h-10 w-auto transition-transform duration-300 group-hover:scale-105"
+          />
         </a>
         <div className="hidden lg:flex items-center gap-8 text-sm font-medium text-navy/70">
           {links.map((l) => (
