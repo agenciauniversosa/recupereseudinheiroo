@@ -4,6 +4,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useReveal } from "@/hooks/use-reveal";
 import logo from "@/assets/logo.png";
 import heroBg from "@/assets/hero-construction.jpg";
+import ctaBg from "@/assets/cta-blueprint.jpg";
 
 const WHATSAPP = "5500000000000";
 
@@ -730,6 +731,13 @@ const ContactFormSection = () => {
 /* ---------- CTA ---------- */
 const CTASection = () => (
   <section className="py-24 md:py-32 bg-navy relative overflow-hidden">
+    {/* Blueprint background image with overlay */}
+    <div
+      className="absolute inset-0 bg-cover bg-center opacity-25 pointer-events-none animate-fade-in-soft"
+      style={{ backgroundImage: `url(${ctaBg})` }}
+    />
+    <div className="absolute inset-0 bg-gradient-to-b from-navy/80 via-navy/70 to-navy/90 pointer-events-none" />
+
     <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-gold/30 rounded-full blur-3xl animate-blob" />
     <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-gold/20 rounded-full blur-3xl animate-blob" style={{ animationDelay: "6s" }} />
     <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'linear-gradient(hsl(var(--gold)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--gold)) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
