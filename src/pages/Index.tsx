@@ -59,11 +59,12 @@ const Navbar = () => {
       </div>
       {open && (
         <div className="lg:hidden bg-background/95 backdrop-blur-xl border-t border-border animate-fade-in-soft">
-          <div className="px-6 py-6 flex flex-col gap-4">
+          <div className="px-6 py-6 flex flex-col gap-2">
             {links.map((l) => (
-              <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-navy/80 hover:text-gold-dark transition-colors py-2 font-medium">{l.label}</a>
+              <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-navy/80 hover:text-gold-dark hover:bg-muted/50 transition-all py-3 px-4 -mx-4 rounded-xl font-medium">{l.label}</a>
             ))}
-            <a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noopener noreferrer" className="bg-navy text-primary-foreground px-5 py-3 rounded-full text-sm font-semibold text-center mt-2">
+            <a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noopener noreferrer" className="bg-navy text-primary-foreground px-5 py-3.5 rounded-full text-sm font-semibold text-center mt-3 inline-flex items-center justify-center gap-2 hover:bg-gold hover:text-navy transition-colors">
+              <MessageCircle className="w-4 h-4" />
               Falar no WhatsApp
             </a>
           </div>
@@ -119,7 +120,7 @@ const HeroSection = () => {
             </span>
           </div>
 
-          <h1 className="font-display text-5xl md:text-7xl lg:text-[5.5rem] font-bold leading-[0.95] tracking-tight text-navy mb-8 animate-fade-up delay-100">
+          <h1 className="font-display text-[2.5rem] sm:text-5xl md:text-7xl lg:text-[5.5rem] font-bold leading-[1] md:leading-[0.95] tracking-tight text-navy mb-6 md:mb-8 animate-fade-up delay-100">
             Comprou imóvel <br className="hidden md:block" />na planta?
             <br />
             <span className="inline-block bg-gradient-to-r from-gold-dark via-gold to-gold-dark bg-clip-text text-transparent animate-gradient-shift">
@@ -132,10 +133,10 @@ const HeroSection = () => {
             A lei está do seu lado — e nós entramos com a ação <strong className="text-gold-dark font-semibold">sem você pagar nada até ganhar.</strong>
           </p>
 
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 animate-fade-up delay-300">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-6 animate-fade-up delay-300">
             <a
               href="#contato"
-              className="group relative bg-navy text-primary-foreground px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wider overflow-hidden transition-all hover:scale-105 hover:shadow-2xl hover:shadow-navy/30 inline-flex items-center gap-3"
+              className="group relative bg-navy text-primary-foreground px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wider overflow-hidden transition-all hover:scale-105 hover:shadow-2xl hover:shadow-navy/30 inline-flex items-center justify-center gap-3 w-full sm:w-auto"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-gold to-gold-dark opacity-0 group-hover:opacity-100 transition-opacity" />
               <span className="relative group-hover:text-navy transition-colors">Quero Recuperar Meu Dinheiro</span>
@@ -233,7 +234,7 @@ const ProblemSection = () => {
       <div ref={ref} className="reveal max-w-7xl mx-auto px-6 md:px-8 relative">
         <div className="mb-16 max-w-3xl">
           <span className="inline-block text-gold-dark text-xs font-bold tracking-[0.2em] uppercase mb-4 px-3 py-1 bg-gold/10 rounded-full">Entenda o Problema</span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-navy leading-[1.05]">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-navy leading-[1.05]">
             Construtoras cobram juros{" "}
             <span className="relative inline-block">
               <span className="relative z-10 text-gold-dark">ilegais</span>
@@ -284,7 +285,7 @@ const ZeroCostSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div>
             <span className="inline-block text-gold-dark text-xs font-bold tracking-[0.2em] uppercase mb-4 px-3 py-1 bg-gold/10 rounded-full">Risco Zero</span>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-8 leading-[1.05]">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-8 leading-[1.05]">
               Você não paga{" "}
               <span className="relative inline-block">
                 <span className="relative z-10 text-gold-dark italic">nada</span>
@@ -351,7 +352,7 @@ const HowItWorksSection = () => {
       <div ref={ref} className="reveal max-w-7xl mx-auto px-6 md:px-8">
         <div className="mb-16 max-w-3xl">
           <span className="inline-block text-gold-dark text-xs font-bold tracking-[0.2em] uppercase mb-4 px-3 py-1 bg-gold/10 rounded-full">Como Funciona</span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-navy leading-[1.05]">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-navy leading-[1.05]">
             Simples, rápido e <span className="text-gold-dark italic">sem risco.</span>
           </h2>
         </div>
@@ -443,7 +444,7 @@ const CalculatorSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <div className="lg:sticky lg:top-32">
             <span className="inline-block text-gold-dark text-xs font-bold tracking-[0.2em] uppercase mb-4 px-3 py-1 bg-gold/10 rounded-full">Simulação Gratuita</span>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-8 leading-[1.05]">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-8 leading-[1.05]">
               Quanto você pode <span className="text-gold-dark italic">recuperar?</span>
             </h2>
             <p className="text-navy/70 text-lg leading-relaxed mb-10 max-w-xl">
@@ -562,7 +563,7 @@ const FAQSection = () => {
         <div className="grid lg:grid-cols-3 gap-12 lg:gap-16">
           <div>
             <span className="inline-block text-gold-dark text-xs font-bold tracking-[0.2em] uppercase mb-4 px-3 py-1 bg-gold/10 rounded-full">FAQ</span>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-navy leading-[1.05]">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-navy leading-[1.05]">
               Tire suas <span className="text-gold-dark italic">dúvidas.</span>
             </h2>
             <p className="text-navy/60 mt-6 leading-relaxed">
@@ -637,7 +638,7 @@ const ContactFormSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <div>
             <span className="inline-block text-gold-dark text-xs font-bold tracking-[0.2em] uppercase mb-4 px-3 py-1 bg-gold/10 rounded-full">Análise Gratuita</span>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-8 leading-[1.05]">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-8 leading-[1.05]">
               Solicite sua <span className="text-gold-dark italic">avaliação.</span>
             </h2>
             <p className="text-navy/70 text-lg leading-relaxed mb-10 max-w-xl">
@@ -743,7 +744,7 @@ const CTASection = () => (
     <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'linear-gradient(hsl(var(--gold)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--gold)) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
 
     <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10 text-center">
-      <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mb-8 leading-[1.05] max-w-4xl mx-auto">
+      <h2 className="font-display text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mb-8 leading-[1.05] max-w-4xl mx-auto">
         Não deixe seu dinheiro nas mãos da{" "}
         <span className="inline-block bg-gradient-to-r from-gold-light via-gold to-gold-light bg-clip-text text-transparent animate-gradient-shift italic">
           construtora.
@@ -802,6 +803,28 @@ const Footer = () => (
   </footer>
 );
 
+/* ---------- WHATSAPP FLOATING BUTTON ---------- */
+const WhatsAppFAB = () => {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 600);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  return (
+    <a
+      href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Olá! Quero saber mais sobre a recuperação de juros.")}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Falar no WhatsApp"
+      className={`fixed bottom-6 right-6 z-40 w-14 h-14 md:w-16 md:h-16 rounded-full bg-gold text-navy shadow-2xl shadow-gold/40 flex items-center justify-center transition-all duration-500 hover:scale-110 hover:bg-gold-dark hover:text-primary-foreground ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8 pointer-events-none"}`}
+    >
+      <span className="absolute inset-0 rounded-full bg-gold animate-ping opacity-30" />
+      <MessageCircle className="relative w-6 h-6 md:w-7 md:h-7" />
+    </a>
+  );
+};
+
 const Index = () => (
   <div className="bg-background min-h-screen overflow-x-hidden">
     <Navbar />
@@ -816,6 +839,7 @@ const Index = () => (
     <ContactFormSection />
     <CTASection />
     <Footer />
+    <WhatsAppFAB />
   </div>
 );
 
