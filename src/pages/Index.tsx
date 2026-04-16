@@ -1,5 +1,6 @@
-import { Shield, DollarSign, Scale, Clock, CheckCircle, ChevronDown, Phone, MessageCircle, ArrowRight, Building2, Users, FileCheck, Gavel, Calculator } from "lucide-react";
+import { Shield, DollarSign, Scale, Clock, CheckCircle, ChevronDown, Phone, MessageCircle, ArrowRight, Building2, Users, FileCheck, Gavel, Calculator, Mail, User, MapPin, Send } from "lucide-react";
 import { useState, useMemo } from "react";
+import { useToast } from "@/hooks/use-toast";
 import heroBg from "@/assets/hero-bg.jpg";
 import shieldIcon from "@/assets/shield-icon.png";
 
@@ -395,7 +396,177 @@ const CTASection = () => (
   </section>
 );
 
-const Footer = () => (
+const ContactFormSection = () => {
+  const { toast } = useToast();
+  const [form, setForm] = useState({ name: "", phone: "", email: "", city: "", propertyValue: "", details: "" });
+  const [submitted, setSubmitted] = useState(false);
+
+  const formatPhone = (value: string) => {
+    const digits = value.replace(/\D/g, "").slice(0, 11);
+    if (digits.length <= 2) return digits;
+    if (digits.length <= 7) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
+    return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
+  };
+
+  const handleChange = (field: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const value = field === "phone" ? formatPhone(e.target.value) : e.target.value;
+    setForm((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const isValid = form.name.trim().length >= 2 && form.phone.replace(/\D/g, "").length >= 10 && form.email.includes("@") && form.email.includes(".");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!isValid) return;
+
+    const message = encodeURIComponent(
+      `Olá! Preenchi o formulário no site.\n\nNome: ${form.name.trim()}\nTelefone: ${form.phone}\nE-mail: ${form.email.trim()}\nCidade: ${form.city.trim()}\nValor do Imóvel: ${form.propertyValue.trim()}\nDetalhes: ${form.details.trim()}`
+    );
+    window.open(`https://wa.me/5500000000000?text=${message}`, "_blank");
+
+    setSubmitted(true);
+    toast({ title: "Dados enviados!", description: "Você será redirecionado ao WhatsApp para finalizar o contato." });
+  };
+
+  if (submitted) {
+    return (
+      <section className="py-20 md:py-28 bg-muted" id="contato">
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl mx-auto text-center bg-card rounded-3xl border border-border shadow-navy p-10">
+            <CheckCircle className="w-16 h-16 text-success mx-auto mb-6" />
+            <h2 className="text-3xl font-display font-black text-navy mb-4">Recebemos seus dados!</h2>
+            <p className="text-muted-foreground mb-6">Nossa equipe entrará em contato em breve para fazer a análise gratuita do seu caso.</p>
+            <button onClick={() => { setSubmitted(false); setForm({ name: "", phone: "", email: "", city: "", propertyValue: "", details: "" }); }} className="text-gold font-semibold hover:underline">
+              Enviar outro contato
+            </button>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <section className="py-20 md:py-28 bg-muted" id="contato">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <span className="text-gold font-semibold text-sm uppercase tracking-widest">Análise Gratuita</span>
+          <h2 className="text-3xl md:text-5xl font-display font-black text-navy mt-3 mb-4">
+            Solicite sua <span className="text-gradient-gold">avaliação</span>
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Preencha o formulário e nossa equipe fará uma análise completa e gratuita do seu caso.
+          </p>
+        </div>
+
+        <form onSubmit={handleSubmit} className="max-w-2xl mx-auto bg-card rounded-3xl border border-border shadow-navy p-8 md:p-10">
+          <div className="grid gap-5">
+            <div className="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label className="block text-sm font-semibold text-navy mb-2">Nome Completo *</label>
+                <div className="relative">
+                  <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                  <input
+                    type="text"
+                    value={form.name}
+                    onChange={handleChange("name")}
+                    placeholder="Seu nome"
+                    maxLength={100}
+                    className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-navy mb-2">Telefone *</label>
+                <div className="relative">
+                  <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                  <input
+                    type="tel"
+                    value={form.phone}
+                    onChange={handleChange("phone")}
+                    placeholder="(00) 00000-0000"
+                    className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label className="block text-sm font-semibold text-navy mb-2">E-mail *</label>
+                <div className="relative">
+                  <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                  <input
+                    type="email"
+                    value={form.email}
+                    onChange={handleChange("email")}
+                    placeholder="seu@email.com"
+                    maxLength={255}
+                    className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-navy mb-2">Cidade / Estado</label>
+                <div className="relative">
+                  <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                  <input
+                    type="text"
+                    value={form.city}
+                    onChange={handleChange("city")}
+                    placeholder="Ex: São Paulo - SP"
+                    maxLength={100}
+                    className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-navy mb-2">Valor Aproximado do Imóvel</label>
+              <div className="relative">
+                <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                <input
+                  type="text"
+                  value={form.propertyValue}
+                  onChange={handleChange("propertyValue")}
+                  placeholder="Ex: R$ 500.000"
+                  maxLength={30}
+                  className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-navy mb-2">Detalhes do Imóvel</label>
+              <textarea
+                value={form.details}
+                onChange={handleChange("details")}
+                placeholder="Construtora, nome do empreendimento, ano da compra, quantidade de parcelas..."
+                maxLength={500}
+                rows={3}
+                className="w-full px-4 py-3.5 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors resize-none"
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={!isValid}
+              className="w-full bg-gradient-gold text-accent-foreground font-bold text-lg py-4 rounded-xl shadow-gold hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed"
+            >
+              <Send className="w-5 h-5" />
+              Solicitar Análise Gratuita
+            </button>
+
+            <p className="text-xs text-muted-foreground text-center">
+              Seus dados estão seguros e serão utilizados apenas para análise do seu caso.
+            </p>
+          </div>
+        </form>
+      </div>
+    </section>
+  );
+};
+
   <footer className="bg-navy-dark text-primary-foreground/50 py-10">
     <div className="container mx-auto px-4 text-center">
       <p className="text-sm mb-2">
@@ -418,6 +589,7 @@ const Index = () => (
     <HowItWorksSection />
     <CalculatorSection />
     <FAQSection />
+    <ContactFormSection />
     <CTASection />
     <Footer />
   </>
