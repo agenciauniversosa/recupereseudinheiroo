@@ -206,7 +206,6 @@ const StatsSection = () => {
               className="group relative bg-card border border-border rounded-2xl p-6 md:p-8 hover:border-gold-dark hover:-translate-y-2 transition-all duration-500 cursor-default overflow-hidden"
               style={{ transitionDelay: `${i * 80}ms` }}
             >
-              <div className="absolute -top-12 -right-12 w-24 h-24 bg-gold/5 rounded-full blur-2xl group-hover:bg-gold/20 transition-colors" />
               <div className="relative">
                 <div className="w-12 h-12 rounded-xl bg-gold/15 flex items-center justify-center mb-5 group-hover:bg-gold-dark group-hover:scale-110 transition-all">
                   <stat.icon className="w-6 h-6 text-gold-dark group-hover:text-primary-foreground transition-colors" />
@@ -314,7 +313,7 @@ const ZeroCostSection = () => {
 
           <div className="relative">
             {/* Glow */}
-            <div className="absolute -inset-4 bg-gradient-to-br from-gold/30 to-navy/20 rounded-3xl blur-2xl opacity-70 animate-blob" />
+            <div className="absolute -inset-4 bg-navy/5 rounded-3xl blur-2xl" />
             <div className="relative bg-card border border-border rounded-3xl p-10 md:p-12 shadow-2xl shadow-navy/10">
               <div className="absolute -top-6 -right-6 w-16 h-16 rounded-2xl bg-gold flex items-center justify-center shadow-lg shadow-gold/30 animate-float">
                 <Shield className="w-8 h-8 text-navy" />
@@ -463,7 +462,7 @@ const CalculatorSection = () => {
           </div>
 
           <div className="relative">
-            <div className="absolute -inset-4 bg-gradient-to-br from-gold/20 to-navy/10 rounded-3xl blur-2xl" />
+            <div className="absolute -inset-4 bg-navy/5 rounded-3xl blur-2xl" />
             <div className="relative bg-card border border-border rounded-3xl p-8 md:p-10 shadow-2xl shadow-navy/10">
               <div className="space-y-7">
                 {[
@@ -650,7 +649,7 @@ const ContactFormSection = () => {
           </div>
 
           <div className="relative">
-            <div className="absolute -inset-4 bg-gradient-to-br from-gold/20 to-navy/10 rounded-3xl blur-2xl" />
+            <div className="absolute -inset-4 bg-navy/5 rounded-3xl blur-2xl" />
             {submitted ? (
               <div className="relative bg-card border border-border rounded-3xl p-10 text-center shadow-2xl shadow-navy/10 animate-scale-in">
                 <div className="w-20 h-20 rounded-full bg-gold/20 flex items-center justify-center mx-auto mb-6 animate-float">
