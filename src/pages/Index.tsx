@@ -3,6 +3,7 @@ import { useState, useMemo, useEffect, useRef } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { useReveal } from "@/hooks/use-reveal";
 import logo from "@/assets/logo.png";
+import heroBg from "@/assets/hero-construction.jpg";
 
 const WHATSAPP = "5500000000000";
 
