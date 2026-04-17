@@ -244,7 +244,7 @@ const StatsSection = () => {
   const ref = useReveal<HTMLDivElement>();
   const stats: StatItem[] = [
     { target: 2, suffix: "M+", format: "plain", label: "Imóveis vendidos na planta", icon: Building2 },
-    { target: 300_000, format: "compact", suffix: "+", label: "Potenciais lesados no Brasil", icon: Users },
+    { target: 300_000, format: "compact", suffix: "+", label: "Compradores potencialmente afetados", icon: Users },
     { target: 100, suffix: "%", format: "plain", label: "Remoto · Atendimento em todo Brasil", icon: MapPin },
   ];
   return (
