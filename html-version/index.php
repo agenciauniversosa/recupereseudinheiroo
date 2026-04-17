@@ -102,8 +102,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
         <span>Sem custo até ganhar • Risco Zero</span>
       </div>
       <h1 class="hero-title fade-up delay-100">
-        Quem comprou imóvel <br class="hide-mobile" />na planta<br />
-        <span class="text-gradient-gold">quase sempre pagou a mais.</span>
+        Quem compra imóvel <br class="hide-mobile" />na planta<br />
+        <span class="text-gradient-gold">nem sempre economiza.</span>
       </h1>
       <p class="hero-desc fade-up delay-200">
         Veja como podemos <strong>recuperar parte do seu investimento</strong> em contratos com <strong>juros indevidos</strong>.

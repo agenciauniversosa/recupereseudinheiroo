@@ -105,10 +105,10 @@ const HeroSection = () => {
           </div>
 
           <h1 className="font-display text-[2.5rem] sm:text-5xl md:text-7xl lg:text-[5.5rem] font-bold leading-[1] md:leading-[0.95] tracking-tight text-navy mb-6 md:mb-8 animate-fade-up delay-100">
-            Quem comprou imóvel <br className="hidden md:block" />na planta
+            Quem compra imóvel <br className="hidden md:block" />na planta
             <br />
             <span className="inline-block bg-gradient-to-r from-gold-dark via-gold to-gold-dark bg-clip-text text-transparent animate-gradient-shift">
-              quase sempre pagou a mais.
+              nem sempre economiza.
             </span>
           </h1>
 
