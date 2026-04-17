@@ -141,16 +141,16 @@ const HeroSection = () => {
           </div>
 
           <h1 className="font-display text-[2.5rem] sm:text-5xl md:text-7xl lg:text-[5.5rem] font-bold leading-[1] md:leading-[0.95] tracking-tight text-navy mb-6 md:mb-8 animate-fade-up delay-100">
-            Comprou imóvel <br className="hidden md:block" />na planta?
+            Quem comprou imóvel <br className="hidden md:block" />na planta
             <br />
             <span className="inline-block bg-gradient-to-r from-gold-dark via-gold to-gold-dark bg-clip-text text-transparent animate-gradient-shift">
-              Recupere seu dinheiro.
+              quase sempre pagou a mais.
             </span>
           </h1>
 
           <p className="text-lg md:text-xl text-navy/70 max-w-2xl leading-relaxed mb-12 animate-fade-up delay-200">
-            Milhares de brasileiros pagaram <strong className="text-navy font-semibold">juros indevidos</strong> em seus contratos.
-            A lei está do seu lado — e nós entramos com a ação <strong className="text-gold-dark font-semibold">sem você pagar nada até ganhar.</strong>
+            Veja como podemos <strong className="text-navy font-semibold">recuperar parte do seu investimento</strong> em contratos com <strong className="text-navy font-semibold">juros indevidos</strong>.
+            A lei está do seu lado — e <strong className="text-gold-dark font-semibold">você não paga nada até ganhar.</strong>
           </p>
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-6 animate-fade-up delay-300">
