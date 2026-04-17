@@ -245,13 +245,12 @@ const StatsSection = () => {
   const stats: StatItem[] = [
     { target: 2, suffix: "M+", format: "plain", label: "Imóveis vendidos na planta", icon: Building2 },
     { target: 300_000, format: "compact", suffix: "+", label: "Potenciais lesados no Brasil", icon: Users },
-    { target: 80_000, format: "currency-compact", label: "Recuperado em caso real", icon: DollarSign },
     { target: 5, suffix: " anos", format: "plain", label: "Prazo para reivindicar", icon: Clock },
   ];
   return (
     <section className="py-20 md:py-24 bg-background">
       <div ref={ref} className="reveal max-w-7xl mx-auto px-6 md:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
           {stats.map((stat, i) => (
             <AnimatedStatCard key={stat.label} stat={stat} delay={i * 80} />
           ))}
