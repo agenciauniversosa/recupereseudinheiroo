@@ -114,13 +114,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
           <span>Quero Recuperar Meu Dinheiro</span>
           <i data-lucide="arrow-right"></i>
         </a>
-        <div class="hero-stat">
-          <div class="hero-stat-icon"><i data-lucide="trending-up"></i></div>
-          <div>
-            <div class="hero-stat-value tabular-nums" id="heroCount">R$ 0+</div>
-            <div class="hero-stat-label">Recuperado em caso real</div>
-          </div>
-        </div>
       </div>
       <div class="hero-checks fade-up delay-500">
         <div><i data-lucide="check-circle"></i><span>Sem custo até ganhar</span></div>
