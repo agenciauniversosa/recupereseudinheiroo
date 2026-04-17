@@ -141,7 +141,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
         <div class="stat-card" data-target="300000" data-format="compact" data-suffix="+">
           <div class="stat-icon"><i data-lucide="users"></i></div>
           <div class="stat-value tabular-nums">0</div>
-          <div class="stat-label">Potenciais lesados no Brasil</div>
+          <div class="stat-label">Compradores potencialmente afetados</div>
         </div>
         <div class="stat-card" data-target="100" data-format="plain" data-suffix="%">
           <div class="stat-icon"><i data-lucide="map-pin"></i></div>
