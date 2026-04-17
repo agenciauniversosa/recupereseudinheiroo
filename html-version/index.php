@@ -143,10 +143,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
           <div class="stat-value tabular-nums">0</div>
           <div class="stat-label">Potenciais lesados no Brasil</div>
         </div>
-        <div class="stat-card" data-target="5" data-format="plain" data-suffix=" anos">
-          <div class="stat-icon"><i data-lucide="clock"></i></div>
+        <div class="stat-card" data-target="100" data-format="plain" data-suffix="%">
+          <div class="stat-icon"><i data-lucide="map-pin"></i></div>
           <div class="stat-value tabular-nums">0</div>
-          <div class="stat-label">Prazo para reivindicar</div>
+          <div class="stat-label">Remoto · Atendimento em todo Brasil</div>
         </div>
       </div>
     </div>
