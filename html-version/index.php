@@ -102,12 +102,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
         <span>Sem custo até ganhar • Risco Zero</span>
       </div>
       <h1 class="hero-title fade-up delay-100">
-        Comprou imóvel <br class="hide-mobile" />na planta?<br />
-        <span class="text-gradient-gold">Recupere seu dinheiro.</span>
+        Quem comprou imóvel <br class="hide-mobile" />na planta<br />
+        <span class="text-gradient-gold">quase sempre pagou a mais.</span>
       </h1>
       <p class="hero-desc fade-up delay-200">
-        Milhares de brasileiros pagaram <strong>juros indevidos</strong> em seus contratos.
-        A lei está do seu lado — e nós entramos com a ação <strong class="text-gold-dark">sem você pagar nada até ganhar.</strong>
+        Veja como podemos <strong>recuperar parte do seu investimento</strong> em contratos com <strong>juros indevidos</strong>.
+        A lei está do seu lado — e <strong class="text-gold-dark">você não paga nada até ganhar.</strong>
       </p>
       <div class="hero-actions fade-up delay-300">
         <a href="#contato" class="btn-primary">
