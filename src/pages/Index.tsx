@@ -77,7 +77,7 @@ const Navbar = () => {
 /* ---------- HERO ---------- */
 const HeroSection = () => {
   return (
-    <header ref={heroRef} className="relative pt-32 md:pt-40 pb-24 md:pb-32 px-6 md:px-8 overflow-hidden bg-background">
+    <header className="relative pt-32 md:pt-40 pb-24 md:pb-32 px-6 md:px-8 overflow-hidden bg-background">
       {/* Background image with transparency */}
       <div
         className="absolute inset-0 bg-cover bg-center opacity-20 pointer-events-none animate-fade-in-soft"
@@ -126,17 +126,6 @@ const HeroSection = () => {
               <span className="relative group-hover:text-navy transition-colors">Quero Recuperar Meu Dinheiro</span>
               <ArrowRight className="relative w-4 h-4 group-hover:translate-x-1 group-hover:text-navy transition-all" />
             </a>
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center">
-                <TrendingUp className="w-5 h-5 text-gold-dark" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-2xl md:text-3xl font-display font-bold text-navy tabular-nums">
-                  R$ {count.toLocaleString("pt-BR")}+
-                </span>
-                <span className="text-xs text-navy/50 tracking-wider uppercase">Recuperado em caso real</span>
-              </div>
-            </div>
           </div>
 
           <div className="mt-16 flex flex-wrap gap-x-10 gap-y-3 text-sm text-navy/60 animate-fade-up delay-500">
