@@ -106,8 +106,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
         <span class="text-gradient-gold">nem sempre economiza.</span>
       </h1>
       <p class="hero-desc fade-up delay-200">
-        Veja como podemos <strong>recuperar parte do seu investimento</strong> em contratos com <strong>juros indevidos</strong>.
-        A lei está do seu lado — e <strong class="text-gold-dark">você não paga nada até ganhar.</strong>
+        Muitos contratos escondem <strong>juros indevidos</strong> que podem ser revertidos a seu favor.
+        Mostramos o caminho para <strong>recuperar parte do que você pagou</strong> — e <strong class="text-gold-dark">você só paga quando ganhar.</strong>
       </p>
       <div class="hero-actions fade-up delay-300">
         <a href="#contato" class="btn-primary">
