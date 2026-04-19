@@ -239,16 +239,16 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .stats-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
 @media (min-width: 640px) { .stats-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (min-width: 768px) { .stats-grid { gap: 1.5rem; } }
-.stat-card { background: hsl(var(--card)); border: 1px solid hsl(var(--border)); border-radius: 1rem; padding: 1.5rem; transition: all 0.5s; overflow: hidden; }
+.stat-card { background: hsl(var(--card)); border: 1px solid hsl(var(--border)); border-radius: 1rem; padding: 1.5rem; transition: all 0.5s; overflow: hidden; display: flex; flex-direction: column; align-items: center; text-align: center; }
 @media (min-width: 768px) { .stat-card { padding: 2rem; } }
 .stat-card:hover { border-color: hsl(var(--gold-dark)); transform: translateY(-8px); }
 .stat-icon { width: 3rem; height: 3rem; border-radius: 0.75rem; background: hsl(var(--gold) / 0.15); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; transition: all 0.3s; }
 .stat-card:hover .stat-icon { background: hsl(var(--gold-dark)); transform: scale(1.1); }
-.stat-icon i { width: 1.5rem; height: 1.5rem; color: hsl(var(--gold-dark)); transition: color 0.3s; }
-.stat-card:hover .stat-icon i { color: hsl(var(--primary-foreground)); }
+.stat-icon i, .stat-icon svg { width: 1.5rem; height: 1.5rem; color: hsl(var(--gold-dark)); transition: color 0.3s; }
+.stat-card:hover .stat-icon i, .stat-card:hover .stat-icon svg { color: hsl(var(--primary-foreground)); }
 .stat-value { font-family: 'Space Grotesk', sans-serif; font-size: 1.875rem; font-weight: 700; color: hsl(var(--navy)); }
 @media (min-width: 768px) { .stat-value { font-size: 2.25rem; } }
-.stat-label { font-size: 0.75rem; color: hsl(var(--navy) / 0.6); margin-top: 0.5rem; }
+.stat-label { font-size: 0.75rem; color: hsl(var(--navy) / 0.6); margin-top: 0.5rem; max-width: 18rem; }
 @media (min-width: 768px) { .stat-label { font-size: 0.875rem; } }
 
 /* ===== Section heads ===== */
