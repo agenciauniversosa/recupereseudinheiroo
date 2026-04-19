@@ -171,6 +171,8 @@ type StatItem = {
   suffix?: string;
   format?: "compact" | "currency-compact" | "plain";
   label: string;
+  caption: string;
+  badge: string;
   icon: typeof Building2;
 };
 
@@ -187,7 +189,13 @@ const formatStat = (value: number, stat: StatItem) => {
   return `${value}`;
 };
 
-const AnimatedStatCard = ({ stat, delay }: { stat: StatItem; delay: number }) => {
+const splitNumberSuffix = (rendered: string) => {
+  const match = rendered.match(/^(.*?)([A-Za-z%+]+)$/);
+  if (!match) return { value: rendered, unit: "" };
+  return { value: match[1], unit: match[2] };
+};
+
+const AnimatedStatCard = ({ stat, index, delay }: { stat: StatItem; index: number; delay: number }) => {
   const cardRef = useRef<HTMLDivElement | null>(null);
   const [value, setValue] = useState(0);
 
@@ -222,37 +230,119 @@ const AnimatedStatCard = ({ stat, delay }: { stat: StatItem; delay: number }) =>
     stat.format === "plain"
       ? `${value}${stat.suffix ?? ""}`
       : `${stat.prefix ?? ""}${formatStat(value, stat)}${stat.suffix ?? ""}`;
+  const { value: numValue, unit } = splitNumberSuffix(rendered);
 
   return (
-    <div
+    <article
       ref={cardRef}
-      className="group relative bg-card border border-border rounded-2xl p-6 md:p-8 hover:border-gold-dark hover:-translate-y-2 transition-all duration-500 cursor-default overflow-hidden"
+      className="group relative bg-card border border-border rounded-3xl p-8 md:p-10 overflow-hidden hover:-translate-y-2 hover:border-gold/60 hover:shadow-2xl hover:shadow-navy/10 transition-all duration-500"
       style={{ transitionDelay: `${delay}ms` }}
     >
-      <div className="relative">
-        <div className="w-12 h-12 rounded-xl bg-gold/15 flex items-center justify-center mb-5 group-hover:bg-gold-dark group-hover:scale-110 transition-all">
-          <stat.icon className="w-6 h-6 text-gold-dark group-hover:text-primary-foreground transition-colors" />
+      <div className="absolute -top-24 -right-24 w-56 h-56 rounded-full bg-gold/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+
+      <div className="relative flex items-center justify-between mb-10">
+        <span className="font-display text-xs font-bold tracking-[0.25em] text-navy/30 tabular-nums">
+          0{index + 1} / 03
+        </span>
+        <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-gold/10 border border-gold/30">
+          <stat.icon className="w-3.5 h-3.5 text-gold-dark" />
+          <span className="text-[10px] font-bold tracking-[0.18em] uppercase text-gold-dark">
+            {stat.badge}
+          </span>
         </div>
-        <div className="text-3xl md:text-4xl font-display font-bold text-navy tabular-nums">{rendered}</div>
-        <div className="text-xs md:text-sm text-navy/60 mt-2">{stat.label}</div>
       </div>
-    </div>
+
+      <div className="relative flex items-baseline gap-1 mb-6">
+        <span className="font-display font-bold text-navy text-6xl md:text-7xl lg:text-8xl tracking-tighter tabular-nums leading-none">
+          {numValue}
+        </span>
+        {unit && (
+          <span className="font-display font-bold text-3xl md:text-4xl tracking-tight bg-gradient-to-r from-gold-dark via-gold to-gold-dark bg-clip-text text-transparent">
+            {unit}
+          </span>
+        )}
+      </div>
+
+      <h3 className="relative text-navy font-display font-bold text-lg md:text-xl leading-snug mb-2 max-w-[22ch]">
+        {stat.label}
+      </h3>
+      <p className="relative text-navy/55 text-sm leading-relaxed max-w-[34ch]">
+        {stat.caption}
+      </p>
+
+      <div className="absolute left-0 right-0 bottom-0 h-1 bg-border/60 overflow-hidden">
+        <div className="h-full w-full bg-gradient-to-r from-gold-dark via-gold to-gold-dark scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-700 ease-out" />
+      </div>
+    </article>
   );
 };
 
 const StatsSection = () => {
   const ref = useReveal<HTMLDivElement>();
   const stats: StatItem[] = [
-    { target: 2, suffix: "M+", format: "plain", label: "Imóveis vendidos na planta", icon: Building2 },
-    { target: 300_000, format: "compact", suffix: "+", label: "Compradores potencialmente afetados", icon: Users },
-    { target: 100, suffix: "%", format: "plain", label: "Remoto · Atendimento em todo Brasil", icon: MapPin },
+    {
+      target: 2,
+      suffix: "M+",
+      format: "plain",
+      label: "Imóveis vendidos na planta",
+      caption: "Volume movimentado nos últimos anos no mercado brasileiro de incorporações.",
+      badge: "Volume de mercado",
+      icon: Building2,
+    },
+    {
+      target: 300_000,
+      format: "compact",
+      suffix: "+",
+      label: "Compradores potencialmente afetados",
+      caption: "Famílias e investidores expostos a cobranças indevidas em contratos na planta.",
+      badge: "Risco identificado",
+      icon: Users,
+    },
+    {
+      target: 100,
+      suffix: "%",
+      format: "plain",
+      label: "Remoto · Atendimento em todo Brasil",
+      caption: "Operação 100% digital, sem deslocamento, com a mesma tese aplicada em todo o país.",
+      badge: "Cobertura nacional",
+      icon: MapPin,
+    },
   ];
   return (
-    <section className="py-20 md:py-24 bg-background">
-      <div ref={ref} className="reveal max-w-7xl mx-auto px-6 md:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
+    <section className="py-24 md:py-32 bg-background relative overflow-hidden">
+      <div
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(hsl(var(--navy)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--navy)) 1px, transparent 1px)",
+          backgroundSize: "64px 64px",
+        }}
+      />
+      <div ref={ref} className="reveal max-w-7xl mx-auto px-6 md:px-8 relative">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-14 md:mb-20">
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-10 h-[2px] bg-gold-dark" />
+              <span className="text-gold-dark text-xs font-bold tracking-[0.25em] uppercase">
+                Panorama do mercado
+              </span>
+            </div>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-navy leading-[1.05] tracking-tight">
+              A escala do problema —{" "}
+              <span className="bg-gradient-to-r from-gold-dark via-gold to-gold-dark bg-clip-text text-transparent">
+                e do seu direito.
+              </span>
+            </h2>
+          </div>
+          <p className="text-navy/60 text-base md:text-lg leading-relaxed max-w-md">
+            Três indicadores que mostram por que tantos compradores de imóvel na planta
+            podem reaver parte do que pagaram.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
           {stats.map((stat, i) => (
-            <AnimatedStatCard key={stat.label} stat={stat} delay={i * 80} />
+            <AnimatedStatCard key={stat.label} stat={stat} index={i} delay={i * 80} />
           ))}
         </div>
       </div>
