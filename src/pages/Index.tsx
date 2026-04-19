@@ -113,8 +113,8 @@ const HeroSection = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-navy/70 max-w-2xl leading-relaxed mb-12 animate-fade-up delay-200">
-            Veja como podemos <strong className="text-navy font-semibold">recuperar parte do seu investimento</strong> em contratos com <strong className="text-navy font-semibold">juros indevidos</strong>.
-            A lei está do seu lado — e <strong className="text-gold-dark font-semibold">você não paga nada até ganhar.</strong>
+            Muitos contratos escondem <strong className="text-navy font-semibold">juros indevidos</strong> que podem ser revertidos a seu favor.
+            Mostramos o caminho para <strong className="text-navy font-semibold">recuperar parte do que você pagou</strong> — e <strong className="text-gold-dark font-semibold">você só paga quando ganhar.</strong>
           </p>
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-6 animate-fade-up delay-300">
