@@ -3,8 +3,7 @@
    ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Lucide
-  if (window.lucide) window.lucide.createIcons();
+  renderIcons();
 
   initNavbar();
   initMarquee();
