@@ -131,11 +131,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 @media (min-width: 768px) { .nav-cta { display: inline-flex; } }
 .nav-cta:hover { background: hsl(var(--gold)); color: hsl(var(--navy)); transform: scale(1.05); box-shadow: 0 8px 24px hsl(var(--navy) / 0.2); }
-.nav-cta i, .nav-cta-mobile i { width: 1rem; height: 1rem; }
+.nav-cta i, .nav-cta-mobile i, , .nav-cta-mobile svg { width: 1rem; height: 1rem; }
 
 .nav-toggle { display: inline-flex; color: hsl(var(--navy)); }
 @media (min-width: 1024px) { .nav-toggle { display: none; } }
-.nav-toggle i { width: 1.5rem; height: 1.5rem; }
+.nav-toggle i, .nav-toggle svg { width: 1.5rem; height: 1.5rem; }
 
 .nav-mobile {
   display: none;
@@ -206,31 +206,31 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .btn-primary:hover { transform: scale(1.05); box-shadow: 0 20px 40px hsl(var(--navy) / 0.3); color: hsl(var(--navy)); }
 .btn-primary:hover::before { opacity: 1; }
 .btn-primary > * { position: relative; z-index: 1; }
-.btn-primary i { width: 1rem; height: 1rem; transition: transform 0.3s; }
+.btn-primary i, .btn-primary svg { width: 1rem; height: 1rem; transition: transform 0.3s; }
 .btn-primary:hover i { transform: translateX(4px); }
 
 .hero-stat { display: flex; align-items: center; gap: 0.75rem; }
 .hero-stat-icon { width: 3rem; height: 3rem; border-radius: 9999px; background: hsl(var(--gold) / 0.2); display: flex; align-items: center; justify-content: center; }
-.hero-stat-icon i { width: 1.25rem; height: 1.25rem; color: hsl(var(--gold-dark)); }
+.hero-stat-icon i, .hero-stat-icon svg { width: 1.25rem; height: 1.25rem; color: hsl(var(--gold-dark)); }
 .hero-stat-value { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; color: hsl(var(--navy)); }
 @media (min-width: 768px) { .hero-stat-value { font-size: 1.875rem; } }
 .hero-stat-label { font-size: 0.75rem; color: hsl(var(--navy) / 0.5); letter-spacing: 0.05em; text-transform: uppercase; }
 
 .hero-checks { margin-top: 4rem; display: flex; flex-wrap: wrap; gap: 0.75rem 2.5rem; font-size: 0.875rem; color: hsl(var(--navy) / 0.6); }
 .hero-checks > div { display: flex; align-items: center; gap: 0.5rem; }
-.hero-checks i { width: 1rem; height: 1rem; color: hsl(var(--gold-dark)); transition: transform 0.3s; }
+.hero-checks i, .hero-checks svg { width: 1rem; height: 1rem; color: hsl(var(--gold-dark)); transition: transform 0.3s; }
 .hero-checks > div:hover i { transform: scale(1.25); }
 .hero-checks > div:hover span { color: hsl(var(--navy)); }
 
 .scroll-ind { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); animation: bounce 1s infinite; display: none; }
 @media (min-width: 768px) { .scroll-ind { display: block; } }
-.scroll-ind i { width: 1.5rem; height: 1.5rem; color: hsl(var(--navy) / 0.3); }
+.scroll-ind i, .scroll-ind svg { width: 1.5rem; height: 1.5rem; color: hsl(var(--navy) / 0.3); }
 
 /* ===== MARQUEE ===== */
 .marquee { background: hsl(var(--navy)); padding: 1.5rem 0; overflow: hidden; border-top: 4px solid hsl(var(--gold)); border-bottom: 4px solid hsl(var(--gold)); }
 .marquee-track { display: flex; white-space: nowrap; animation: marquee 5s linear infinite; }
 .marquee-item { display: inline-flex; align-items: center; gap: 1rem; margin: 0 2rem; flex-shrink: 0; }
-.marquee-item i { width: 1rem; height: 1rem; color: hsl(var(--gold)); flex-shrink: 0; }
+.marquee-item i, .marquee-item svg { width: 1rem; height: 1rem; color: hsl(var(--gold)); flex-shrink: 0; }
 .marquee-item span { color: hsl(var(--primary-foreground)); font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.125rem; text-transform: uppercase; letter-spacing: 0.05em; }
 
 /* ===== STATS ===== */
@@ -272,7 +272,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .problem-card:hover .problem-num { color: hsl(var(--gold) / 0.3); }
 .problem-icon { width: 3.5rem; height: 3.5rem; border-radius: 1rem; background: hsl(var(--navy)); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; transition: all 0.5s; }
 .problem-card:hover .problem-icon { background: hsl(var(--gold-dark)); transform: rotate(6deg); }
-.problem-icon i { width: 1.75rem; height: 1.75rem; color: hsl(var(--primary-foreground)); }
+.problem-icon i, .problem-icon svg { width: 1.75rem; height: 1.75rem; color: hsl(var(--primary-foreground)); }
 .problem-card h3 { font-size: 1.5rem; font-weight: 700; color: hsl(var(--navy)); margin-bottom: 0.75rem; }
 .problem-card p { color: hsl(var(--navy) / 0.6); line-height: 1.7; }
 
@@ -286,7 +286,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .check-list li { display: flex; align-items: flex-start; gap: 1rem; }
 .check-ic { width: 2.5rem; height: 2.5rem; border-radius: 0.75rem; background: hsl(var(--gold) / 0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.3s; }
 .check-list li:hover .check-ic { background: hsl(var(--gold-dark)); transform: scale(1.1); }
-.check-ic i { width: 1.25rem; height: 1.25rem; color: hsl(var(--gold-dark)); transition: color 0.3s; }
+.check-ic i, .check-ic svg { width: 1.25rem; height: 1.25rem; color: hsl(var(--gold-dark)); transition: color 0.3s; }
 .check-list li:hover .check-ic i { color: hsl(var(--primary-foreground)); }
 .check-list strong { display: block; color: hsl(var(--navy)); font-size: 1rem; margin-bottom: 0.25rem; }
 .check-list span { color: hsl(var(--navy) / 0.6); font-size: 0.875rem; }
@@ -299,7 +299,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .quote-card { position: relative; background: hsl(var(--card)); border: 1px solid hsl(var(--border)); border-radius: 1.5rem; padding: 2.5rem; box-shadow: 0 20px 40px hsl(var(--navy) / 0.1); }
 @media (min-width: 768px) { .quote-card { padding: 3rem; } }
 .quote-shield { position: absolute; top: -1.5rem; right: -1.5rem; width: 4rem; height: 4rem; border-radius: 1rem; background: hsl(var(--gold)); display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px hsl(var(--gold) / 0.3); }
-.quote-shield i { width: 2rem; height: 2rem; color: hsl(var(--navy)); }
+.quote-shield i, .quote-shield svg { width: 2rem; height: 2rem; color: hsl(var(--navy)); }
 .quote-kicker { color: hsl(var(--navy) / 0.5); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 1rem; font-weight: 600; }
 .quote-text { font-family: 'Space Grotesk', sans-serif; color: hsl(var(--navy)); font-size: 1.5rem; font-weight: 700; line-height: 1.3; margin-bottom: 2rem; }
 @media (min-width: 768px) { .quote-text { font-size: 1.875rem; } }
@@ -307,7 +307,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .quote-foot-kicker { font-size: 0.75rem; color: hsl(var(--navy) / 0.5); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; font-weight: 600; }
 .quote-foot-value { color: hsl(var(--gold-dark)); font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; }
 .quote-gavel { width: 3.5rem; height: 3.5rem; border-radius: 0.75rem; background: hsl(var(--navy)); display: flex; align-items: center; justify-content: center; }
-.quote-gavel i { width: 1.75rem; height: 1.75rem; color: hsl(var(--gold)); }
+.quote-gavel i, .quote-gavel svg { width: 1.75rem; height: 1.75rem; color: hsl(var(--gold)); }
 
 /* ===== HOW IT WORKS ===== */
 .how { padding: 6rem 0; background: hsl(var(--muted) / 0.5); }
@@ -320,7 +320,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .how-icon-wrap { position: relative; width: 4rem; height: 4rem; margin: 0 auto 1.5rem; }
 .how-icon { position: relative; width: 4rem; height: 4rem; border-radius: 9999px; background: hsl(var(--navy)); display: flex; align-items: center; justify-content: center; transition: background 0.3s; }
 .how-card:hover .how-icon { background: hsl(var(--gold-dark)); }
-.how-icon i { width: 1.75rem; height: 1.75rem; color: hsl(var(--primary-foreground)); }
+.how-icon i, .how-icon svg { width: 1.75rem; height: 1.75rem; color: hsl(var(--primary-foreground)); }
 .how-step { position: absolute; top: -0.5rem; right: -0.5rem; width: 1.75rem; height: 1.75rem; border-radius: 9999px; background: hsl(var(--gold)); display: flex; align-items: center; justify-content: center; color: hsl(var(--navy)); font-weight: 700; font-size: 0.75rem; box-shadow: 0 4px 12px hsl(var(--gold) / 0.3); }
 .how-card h3 { font-size: 1.25rem; font-weight: 700; color: hsl(var(--navy)); margin-bottom: 0.75rem; text-align: center; }
 .how-card p { color: hsl(var(--navy) / 0.6); font-size: 0.875rem; line-height: 1.7; text-align: center; }
@@ -350,7 +350,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   display: flex; align-items: center; justify-content: center; gap: 0.75rem;
   transition: all 0.2s;
 }
-.btn-dark i { width: 1.25rem; height: 1.25rem; }
+.btn-dark i, .btn-dark svg { width: 1.25rem; height: 1.25rem; }
 .btn-dark:hover:not(:disabled) { background: hsl(var(--gold)); color: hsl(var(--navy)); transform: scale(1.02); }
 .btn-dark:disabled { opacity: 0.3; cursor: not-allowed; }
 
@@ -374,7 +374,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .faq-q { width: 100%; text-align: left; padding: 1.25rem 1.75rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: hsl(var(--navy)); font-size: 1.125rem; }
 .faq-q-icon { flex-shrink: 0; width: 2.25rem; height: 2.25rem; border-radius: 9999px; background: hsl(var(--muted)); display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
 .faq-item.open .faq-q-icon { background: hsl(var(--gold-dark)); transform: rotate(180deg); }
-.faq-q-icon i { width: 1rem; height: 1rem; color: hsl(var(--navy)); transition: color 0.3s; }
+.faq-q-icon i, .faq-q-icon svg { width: 1rem; height: 1rem; color: hsl(var(--navy)); transition: color 0.3s; }
 .faq-item.open .faq-q-icon i { color: hsl(var(--primary-foreground)); }
 .faq-a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.5s ease, opacity 0.5s; opacity: 0; }
 .faq-item.open .faq-a { grid-template-rows: 1fr; opacity: 1; }
@@ -386,7 +386,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 @media (min-width: 768px) { .contato { padding: 8rem 0; } }
 .check-simple { display: flex; flex-direction: column; gap: 1rem; }
 .check-simple > div { display: flex; align-items: center; gap: 1rem; }
-.check-simple i { width: 1rem; height: 1rem; color: hsl(var(--gold-dark)); }
+.check-simple i, .check-simple svg { width: 1rem; height: 1rem; color: hsl(var(--gold-dark)); }
 .check-simple span { color: hsl(var(--navy) / 0.7); }
 
 .form-card-wrap { position: relative; }
@@ -429,7 +429,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   transition: all 0.3s;
 }
 .btn-gold:hover { transform: scale(1.05); box-shadow: 0 20px 40px hsl(var(--gold) / 0.4); }
-.btn-gold i { width: 1.25rem; height: 1.25rem; transition: transform 0.3s; }
+.btn-gold i, .btn-gold svg { width: 1.25rem; height: 1.25rem; transition: transform 0.3s; }
 .btn-gold i:last-child { width: 1rem; height: 1rem; }
 .btn-gold:hover i:last-child { transform: translateX(4px); }
 .btn-outline-light {
@@ -441,7 +441,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   transition: all 0.2s;
 }
 .btn-outline-light:hover { background: hsl(var(--primary-foreground) / 0.1); border-color: hsl(var(--primary-foreground)); }
-.btn-outline-light i { width: 1.25rem; height: 1.25rem; }
+.btn-outline-light i, .btn-outline-light svg { width: 1.25rem; height: 1.25rem; }
 
 /* ===== FOOTER ===== */
 .footer { background: hsl(var(--background)); border-top: 1px solid hsl(var(--border)); padding: 3rem 1.5rem; }
@@ -470,5 +470,5 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .fab.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
 .fab:hover { transform: scale(1.1); background: hsl(var(--gold-dark)); color: hsl(var(--primary-foreground)); }
 .fab-ping { position: absolute; inset: 0; border-radius: 9999px; background: hsl(var(--gold)); animation: ping 1s cubic-bezier(0,0,0.2,1) infinite; opacity: 0.3; }
-.fab i { position: relative; width: 1.5rem; height: 1.5rem; }
+.fab i, .fab svg { position: relative; width: 1.5rem; height: 1.5rem; }
 @media (min-width: 768px) { .fab i { width: 1.75rem; height: 1.75rem; } }
