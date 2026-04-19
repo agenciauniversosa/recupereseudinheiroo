@@ -130,22 +130,71 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
   <!-- ================= STATS ================= -->
   <section class="stats">
     <div class="container">
+      <div class="stats-head">
+        <div>
+          <div class="stats-kicker-row">
+            <span class="stats-kicker-line"></span>
+            <span class="stats-kicker">Panorama do mercado</span>
+          </div>
+          <h2 class="stats-title">
+            A escala do problema —
+            <span class="text-gradient-gold">e do seu direito.</span>
+          </h2>
+        </div>
+        <p class="stats-lead">
+          Três indicadores que mostram por que tantos compradores de imóvel na planta
+          podem reaver parte do que pagaram.
+        </p>
+      </div>
       <div class="stats-grid">
-        <div class="stat-card" data-target="2" data-format="plain" data-suffix="M+">
-          <div class="stat-icon"><i data-lucide="building-2"></i></div>
-          <div class="stat-value tabular-nums">0</div>
-          <div class="stat-label">Imóveis vendidos na planta</div>
-        </div>
-        <div class="stat-card" data-target="300000" data-format="compact" data-suffix="+">
-          <div class="stat-icon"><i data-lucide="users"></i></div>
-          <div class="stat-value tabular-nums">0</div>
-          <div class="stat-label">Compradores potencialmente afetados</div>
-        </div>
-        <div class="stat-card" data-target="100" data-format="plain" data-suffix="%">
-          <div class="stat-icon"><i data-lucide="map-pin"></i></div>
-          <div class="stat-value tabular-nums">0</div>
-          <div class="stat-label">Remoto · Atendimento em todo Brasil</div>
-        </div>
+        <article class="stat-card" data-target="2" data-format="plain" data-suffix="M+" data-index="01">
+          <div class="stat-glow"></div>
+          <div class="stat-top">
+            <span class="stat-index">01 / 03</span>
+            <div class="stat-badge">
+              <i data-lucide="building-2"></i>
+              <span>Volume de mercado</span>
+            </div>
+          </div>
+          <div class="stat-num">
+            <span class="stat-value tabular-nums">0</span>
+          </div>
+          <h3 class="stat-label-strong">Imóveis vendidos na planta</h3>
+          <p class="stat-caption">Volume movimentado nos últimos anos no mercado brasileiro de incorporações.</p>
+          <div class="stat-rule"><span></span></div>
+        </article>
+        <article class="stat-card" data-target="300000" data-format="compact" data-suffix="+" data-index="02">
+          <div class="stat-glow"></div>
+          <div class="stat-top">
+            <span class="stat-index">02 / 03</span>
+            <div class="stat-badge">
+              <i data-lucide="users"></i>
+              <span>Risco identificado</span>
+            </div>
+          </div>
+          <div class="stat-num">
+            <span class="stat-value tabular-nums">0</span>
+          </div>
+          <h3 class="stat-label-strong">Compradores potencialmente afetados</h3>
+          <p class="stat-caption">Famílias e investidores expostos a cobranças indevidas em contratos na planta.</p>
+          <div class="stat-rule"><span></span></div>
+        </article>
+        <article class="stat-card" data-target="100" data-format="plain" data-suffix="%" data-index="03">
+          <div class="stat-glow"></div>
+          <div class="stat-top">
+            <span class="stat-index">03 / 03</span>
+            <div class="stat-badge">
+              <i data-lucide="map-pin"></i>
+              <span>Cobertura nacional</span>
+            </div>
+          </div>
+          <div class="stat-num">
+            <span class="stat-value tabular-nums">0</span>
+          </div>
+          <h3 class="stat-label-strong">Remoto · Atendimento em todo Brasil</h3>
+          <p class="stat-caption">Operação 100% digital, sem deslocamento, com a mesma tese aplicada em todo o país.</p>
+          <div class="stat-rule"><span></span></div>
+        </article>
       </div>
     </div>
   </section>
