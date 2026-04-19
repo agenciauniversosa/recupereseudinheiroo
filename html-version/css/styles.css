@@ -36,8 +36,9 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.05;
 }
 img { max-width: 100%; display: block; }
-svg { display: inline-block; vertical-align: middle; }
-[data-lucide] { width: 1em; height: 1em; stroke-width: 2; stroke: currentColor; fill: none; }
+svg { display: inline-block; vertical-align: middle; flex-shrink: 0; }
+/* Fallback enquanto o Lucide ainda não substituiu o <i> pelo <svg> */
+i[data-lucide] { display: inline-block; width: 1em; height: 1em; }
 a { color: inherit; text-decoration: none; }
 button { font-family: inherit; cursor: pointer; border: none; background: none; }
 ::selection { background: hsl(var(--gold) / 0.4); color: hsl(var(--navy)); }
