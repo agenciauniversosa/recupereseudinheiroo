@@ -131,7 +131,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 @media (min-width: 768px) { .nav-cta { display: inline-flex; } }
 .nav-cta:hover { background: hsl(var(--gold)); color: hsl(var(--navy)); transform: scale(1.05); box-shadow: 0 8px 24px hsl(var(--navy) / 0.2); }
-.nav-cta i, .nav-cta-mobile i, , .nav-cta-mobile svg { width: 1rem; height: 1rem; }
+.nav-cta i, .nav-cta-mobile i, .nav-cta svg, .nav-cta-mobile svg { width: 1rem; height: 1rem; }
 
 .nav-toggle { display: inline-flex; color: hsl(var(--navy)); }
 @media (min-width: 1024px) { .nav-toggle { display: none; } }
