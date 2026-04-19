@@ -234,9 +234,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* ===== STATS ===== */
 .stats { padding: 5rem 0; background: hsl(var(--background)); }
 @media (min-width: 768px) { .stats { padding: 6rem 0; } }
-.stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+.stats-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+@media (min-width: 640px) { .stats-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (min-width: 768px) { .stats-grid { gap: 1.5rem; } }
-@media (min-width: 1024px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
 .stat-card { background: hsl(var(--card)); border: 1px solid hsl(var(--border)); border-radius: 1rem; padding: 1.5rem; transition: all 0.5s; overflow: hidden; }
 @media (min-width: 768px) { .stat-card { padding: 2rem; } }
 .stat-card:hover { border-color: hsl(var(--gold-dark)); transform: translateY(-8px); }
