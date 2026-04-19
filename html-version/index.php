@@ -53,10 +53,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Lucide icons (sem defer para garantir que window.lucide esteja disponível antes do script.js) -->
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-
   <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/icons.js" defer></script>
 </head>
 <body>
   <!-- ================= NAVBAR ================= -->

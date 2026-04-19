@@ -3,8 +3,7 @@
    ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Lucide
-  if (window.lucide) window.lucide.createIcons();
+  renderIcons();
 
   initNavbar();
   initMarquee();
@@ -34,14 +33,14 @@ function initNavbar() {
     mobile.classList.toggle("open");
     const icon = mobile.classList.contains("open") ? "x" : "menu";
     toggle.innerHTML = `<i data-lucide="${icon}"></i>`;
-    if (window.lucide) window.lucide.createIcons();
+    renderIcons();
   });
 
   mobile.querySelectorAll("a").forEach((a) =>
     a.addEventListener("click", () => {
       mobile.classList.remove("open");
       toggle.innerHTML = `<i data-lucide="menu"></i>`;
-      if (window.lucide) window.lucide.createIcons();
+      renderIcons();
     })
   );
 }
@@ -56,7 +55,7 @@ function initMarquee() {
       (t) => `<div class="marquee-item"><i data-lucide="sparkles"></i><span>${t}</span></div>`
     )
     .join("");
-  if (window.lucide) window.lucide.createIcons();
+  renderIcons();
 }
 
 /* ---------- HERO COUNT-UP ---------- */
@@ -170,7 +169,7 @@ function initFAQ() {
       </div>`
     )
     .join("");
-  if (window.lucide) window.lucide.createIcons();
+  renderIcons();
 
   list.querySelectorAll(".faq-item").forEach((item) => {
     item.querySelector(".faq-q").addEventListener("click", () => {
@@ -258,7 +257,7 @@ function initCalculator() {
         </a>
       </div>`;
     resultArea.insertAdjacentHTML("beforeend", html);
-    if (window.lucide) window.lucide.createIcons();
+    renderIcons();
   });
 }
 
