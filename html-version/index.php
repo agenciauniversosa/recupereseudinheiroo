@@ -210,7 +210,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
           <span class="problem-num">01</span>
           <div class="problem-icon"><i data-lucide="file-check"></i></div>
           <h3>Cobrança Indevida</h3>
-          <p>Correção monetária mensal aplicada onde a lei proíbe — direto no seu bolso.</p>
+          <p>Correção monetária mensal aplicada onde a lei proíbe direto no seu bolso.</p>
         </article>
         <article class="problem-card">
           <span class="problem-num">02</span>
