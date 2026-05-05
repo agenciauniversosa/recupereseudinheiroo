@@ -114,7 +114,7 @@ const HeroSection = () => {
 
           <p className="text-lg md:text-xl text-navy/70 max-w-2xl leading-relaxed mb-12 animate-fade-up delay-200">
             Muitos contratos escondem <strong className="text-navy font-semibold">juros indevidos</strong> que podem ser revertidos a seu favor.
-            Mostramos o caminho para <strong className="text-navy font-semibold">recuperar parte do que você pagou</strong> — e <strong className="text-gold-dark font-semibold">você só paga quando ganhar.</strong>
+            Mostramos o caminho para <strong className="text-navy font-semibold">recuperar parte do que você pagou.</strong>
           </p>
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-6 animate-fade-up delay-300">
@@ -328,7 +328,7 @@ const StatsSection = () => {
               </span>
             </div>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-navy leading-[1.05] tracking-tight">
-              A escala do problema —{" "}
+              A escala do problema <br />
               <span className="bg-gradient-to-r from-gold-dark via-gold to-gold-dark bg-clip-text text-transparent">
                 e do seu direito.
               </span>
