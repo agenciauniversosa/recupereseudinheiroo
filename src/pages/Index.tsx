@@ -1038,7 +1038,6 @@ const Index = () => (
     <ProblemSection />
     <ZeroCostSection />
     <HowItWorksSection />
-    <CalculatorSection />
     <FAQSection />
     <ContactFormSection />
     <CTASection />
