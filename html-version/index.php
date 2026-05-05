@@ -40,14 +40,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Recupere Seu Dinheiro | Juros Indevidos em Imóvel na Planta</title>
-  <meta name="description" content="Comprou imóvel na planta nos últimos 5 anos? Você pode ter pago juros indevidos. Recupere seu dinheiro sem pagar nada até ganhar. Todo o Brasil." />
+  <meta name="description" content="Comprou imóvel na planta nos últimos 5 anos? Você pode ter pago juros indevidos. Análise gratuita e sem compromisso. Todo o Brasil." />
   <meta name="author" content="Universo S.A." />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Recupere Seu Dinheiro | Juros Indevidos em Imóvel na Planta" />
-  <meta property="og:description" content="Comprou imóvel na planta nos últimos 5 anos? Você pode ter pago juros indevidos. Recupere seu dinheiro sem pagar nada até ganhar. Todo o Brasil." />
+  <meta property="og:description" content="Comprou imóvel na planta nos últimos 5 anos? Você pode ter pago juros indevidos. Análise gratuita e sem compromisso. Todo o Brasil." />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Recupere Seu Dinheiro | Juros Indevidos em Imóvel na Planta" />
-  <meta name="twitter:description" content="Comprou imóvel na planta nos últimos 5 anos? Você pode ter pago juros indevidos. Recupere seu dinheiro sem pagar nada até ganhar. Todo o Brasil." />
+  <meta name="twitter:description" content="Comprou imóvel na planta nos últimos 5 anos? Você pode ter pago juros indevidos. Análise gratuita e sem compromisso. Todo o Brasil." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
