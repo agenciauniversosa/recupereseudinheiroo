@@ -22,7 +22,6 @@ const Navbar = () => {
 
   const links = [
     { label: "Como Funciona", href: "#como-funciona" },
-    { label: "Calculadora", href: "#calculadora" },
     { label: "FAQ", href: "#faq" },
     { label: "Contato", href: "#contato" },
   ];
@@ -979,7 +978,6 @@ const Footer = () => (
         </a>
         <div className="flex flex-wrap justify-center gap-6 text-sm text-navy/60">
           <a href="#como-funciona" className="hover:text-gold-dark transition-colors">Como Funciona</a>
-          <a href="#calculadora" className="hover:text-gold-dark transition-colors">Calculadora</a>
           <a href="#contato" className="hover:text-gold-dark transition-colors">Contato</a>
         </div>
       </div>
@@ -1038,7 +1036,6 @@ const Index = () => (
     <ProblemSection />
     <ZeroCostSection />
     <HowItWorksSection />
-    <CalculatorSection />
     <FAQSection />
     <ContactFormSection />
     <CTASection />
