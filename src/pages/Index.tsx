@@ -1036,8 +1036,8 @@ const Index = () => (
     <ProblemSection />
     <ZeroCostSection />
     <HowItWorksSection />
-    <FAQSection />
     <ContactFormSection />
+    <FAQSection />
     <CTASection />
     <Footer />
     <WhatsAppFAB />
