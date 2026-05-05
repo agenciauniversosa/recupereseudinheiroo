@@ -524,6 +524,22 @@ const CalculatorSection = () => {
   const [installmentsPaid, setInstallmentsPaid] = useState("");
   const [monthlyInstallment, setMonthlyInstallment] = useState("");
   const [calculated, setCalculated] = useState(false);
+  const [showLeadForm, setShowLeadForm] = useState(false);
+  const [lead, setLead] = useState({ name: "", email: "", phone: "" });
+  const { toast } = useToast();
+
+  const formatPhoneLead = (value: string) => {
+    const d = value.replace(/\D/g, "").slice(0, 11);
+    if (d.length <= 2) return d;
+    if (d.length <= 7) return `(${d.slice(0, 2)}) ${d.slice(2)}`;
+    return `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}`;
+  };
+
+  const leadValid =
+    lead.name.trim().length >= 2 &&
+    lead.email.includes("@") &&
+    lead.email.includes(".") &&
+    lead.phone.replace(/\D/g, "").length >= 10;
 
   const formatCurrency = (value: string) => {
     const numbers = value.replace(/\D/g, "");
@@ -638,7 +654,9 @@ const CalculatorSection = () => {
                       <p className="text-primary-foreground/40 text-xs mt-3">*Estimativa simplificada</p>
                     </div>
                     <a
-                      href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Olá! Fiz a simulação no site e quero uma análise detalhada.")}`}
+                      href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(
+                        `Olá! Fiz a simulação no site e quero uma análise detalhada.\n\nNome: ${lead.name.trim()}\nE-mail: ${lead.email.trim()}\nTelefone: ${lead.phone}`
+                      )}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-full bg-navy text-primary-foreground py-4 rounded-xl text-sm font-bold uppercase tracking-wider hover:bg-gold hover:text-navy transition-all hover:scale-[1.02] flex items-center justify-center gap-3"
@@ -647,9 +665,75 @@ const CalculatorSection = () => {
                       Quero Análise Gratuita
                     </a>
                   </div>
+                ) : showLeadForm ? (
+                  <form
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      if (!leadValid) return;
+                      setCalculated(true);
+                      toast({ title: "Pronto!", description: "Veja sua estimativa abaixo." });
+                    }}
+                    className="animate-fade-up space-y-4"
+                  >
+                    <div className="text-center mb-2">
+                      <p className="text-xs font-bold uppercase tracking-wider text-gold-dark mb-2">Última etapa</p>
+                      <h4 className="font-display font-bold text-navy text-xl">Para ver sua estimativa</h4>
+                      <p className="text-navy/60 text-sm mt-1">Preencha seus dados — é rápido e gratuito.</p>
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-navy/60 mb-2">Nome *</label>
+                      <input
+                        type="text"
+                        value={lead.name}
+                        maxLength={100}
+                        onChange={(e) => setLead({ ...lead, name: e.target.value })}
+                        className="w-full bg-muted/50 border-2 border-border rounded-xl px-4 py-3 text-navy placeholder:text-navy/30 focus:outline-none focus:border-gold-dark focus:bg-background transition-all"
+                        placeholder="Seu nome"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-navy/60 mb-2">E-mail *</label>
+                      <input
+                        type="email"
+                        value={lead.email}
+                        maxLength={255}
+                        onChange={(e) => setLead({ ...lead, email: e.target.value })}
+                        className="w-full bg-muted/50 border-2 border-border rounded-xl px-4 py-3 text-navy placeholder:text-navy/30 focus:outline-none focus:border-gold-dark focus:bg-background transition-all"
+                        placeholder="voce@email.com"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-navy/60 mb-2">Telefone *</label>
+                      <input
+                        type="tel"
+                        value={lead.phone}
+                        onChange={(e) => setLead({ ...lead, phone: formatPhoneLead(e.target.value) })}
+                        className="w-full bg-muted/50 border-2 border-border rounded-xl px-4 py-3 text-navy placeholder:text-navy/30 focus:outline-none focus:border-gold-dark focus:bg-background transition-all"
+                        placeholder="(00) 00000-0000"
+                        required
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      disabled={!leadValid}
+                      className="w-full bg-navy text-primary-foreground py-4 rounded-xl text-sm font-bold uppercase tracking-wider hover:bg-gold hover:text-navy transition-all hover:scale-[1.02] flex items-center justify-center gap-3 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:scale-100"
+                    >
+                      <Calculator className="w-5 h-5" />
+                      Ver Minha Estimativa
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setShowLeadForm(false)}
+                      className="w-full text-navy/50 hover:text-navy text-xs uppercase tracking-wider font-semibold transition-colors"
+                    >
+                      ← Voltar
+                    </button>
+                  </form>
                 ) : (
                   <button
-                    onClick={() => setCalculated(true)}
+                    onClick={() => setShowLeadForm(true)}
                     disabled={!canCalculate}
                     className="w-full bg-navy text-primary-foreground py-4 rounded-xl text-sm font-bold uppercase tracking-wider hover:bg-gold hover:text-navy transition-all hover:scale-[1.02] flex items-center justify-center gap-3 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:scale-100"
                   >
