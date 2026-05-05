@@ -216,7 +216,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
           <span class="problem-num">02</span>
           <div class="problem-icon"><i data-lucide="scale"></i></div>
           <h3>Seus Direitos</h3>
-          <p>A legislação garante o ressarcimento — muitas vezes em dobro do que foi pago.</p>
+          <p>A legislação garante o ressarcimento muitas vezes em dobro do que foi pago.</p>
         </article>
         <article class="problem-card">
           <span class="problem-num">03</span>
