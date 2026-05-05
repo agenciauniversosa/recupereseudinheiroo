@@ -291,20 +291,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
     </div>
   </section>
 
-  <!-- ================= FAQ ================= -->
-  <section id="faq" class="faq reveal">
-    <div class="container faq-grid">
-      <div>
-        <span class="kicker">FAQ</span>
-        <h2>Tire suas <span class="highlight italic">dúvidas.</span></h2>
-        <p class="lead">Reunimos as perguntas mais frequentes para ajudar você a entender todo o processo.</p>
-      </div>
-      <div class="faq-list" id="faqList">
-        <!-- itens injetados via JS -->
-      </div>
-    </div>
-  </section>
-
   <!-- ================= CONTACT FORM ================= -->
   <section id="contato" class="contato reveal">
     <div class="container two-col">
@@ -340,6 +326,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
           </button>
           <p class="form-hint">Seus dados são confidenciais e usados apenas para análise do seu caso.</p>
         </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section id="faq" class="faq reveal">
+    <div class="container faq-grid">
+      <div>
+        <span class="kicker">FAQ</span>
+        <h2>Tire suas <span class="highlight italic">dúvidas.</span></h2>
+        <p class="lead">Reunimos as perguntas mais frequentes para ajudar você a entender todo o processo.</p>
+      </div>
+      <div class="faq-list" id="faqList">
+        <!-- itens injetados via JS -->
       </div>
     </div>
   </section>
