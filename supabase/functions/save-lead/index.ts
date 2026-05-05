@@ -1,4 +1,7 @@
-import { corsHeaders } from "@supabase/supabase-js/cors";
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+};
 
 const SPREADSHEET_ID = "1ga1kQH39-8DYjvouguLz1Fjp28Mv4xtqjLO3chKeoJo";
 const SHEET_NAME = "LEADS";
