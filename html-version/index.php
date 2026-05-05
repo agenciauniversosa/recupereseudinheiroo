@@ -97,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
     <div class="container hero-content">
       <div class="hero-badge fade-up">
         <span class="ping-dot"><span></span><span></span></span>
-        <span>Sem custo até ganhar • Risco Zero</span>
+        <span>Análise Gratuita • Sem Compromisso</span>
       </div>
       <h1 class="hero-title fade-up delay-100">
         Quem compra imóvel <br class="hide-mobile" />na planta<br />
@@ -114,7 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
         </a>
       </div>
       <div class="hero-checks fade-up delay-500">
-        <div><i data-lucide="check-circle"></i><span>Sem custo até ganhar</span></div>
+        <div><i data-lucide="check-circle"></i><span>Análise gratuita</span></div>
         <div><i data-lucide="check-circle"></i><span>100% dentro da Lei</span></div>
         <div><i data-lucide="check-circle"></i><span>Para todo o Brasil</span></div>
       </div>
@@ -234,11 +234,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
   <section class="zero-cost reveal">
     <div class="container two-col">
       <div>
-        <span class="kicker">Risco Zero</span>
-        <h2>Você não paga <span class="highlight italic">nada</span> até ganhar a ação.</h2>
-        <p class="lead">Nosso modelo é 100% baseado no êxito. Você só paga honorários quando receber a restituição. Sem risco, sem surpresas, sem adiantamentos.</p>
+        <span class="kicker">Análise Gratuita</span>
+        <h2>Avaliamos seu caso <span class="highlight italic">sem compromisso</span>.</h2>
+        <p class="lead">Nossa equipe analisa seu contrato gratuitamente e mostra se você tem direito à restituição. Tese fundamentada em lei, com casos reais vencidos no Brasil.</p>
         <ul class="check-list">
-          <li><div class="check-ic"><i data-lucide="check-circle"></i></div><div><strong>Risco Zero Real</strong><span>Você não gasta nenhum centavo do seu bolso para iniciar o processo.</span></div></li>
+          <li><div class="check-ic"><i data-lucide="check-circle"></i></div><div><strong>Análise Gratuita</strong><span>Avaliamos seu contrato sem qualquer custo ou compromisso inicial.</span></div></li>
           <li><div class="check-ic"><i data-lucide="check-circle"></i></div><div><strong>Base Legal Sólida</strong><span>Tese fundamentada na Lei nº 10.931/2004, com casos vencidos no Brasil.</span></div></li>
           <li><div class="check-ic"><i data-lucide="check-circle"></i></div><div><strong>100% Remoto</strong><span>Atendemos clientes em todo o território nacional, sem precisar sair de casa.</span></div></li>
         </ul>
@@ -248,11 +248,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
         <div class="quote-card">
           <div class="quote-shield float"><i data-lucide="shield"></i></div>
           <p class="quote-kicker">Nosso Compromisso</p>
-          <p class="quote-text">"Se não recuperarmos seu dinheiro, você não paga absolutamente nada."</p>
+          <p class="quote-text">"Estudamos cada contrato em detalhe para identificar o que pode ser revertido a seu favor."</p>
           <div class="quote-foot">
             <div>
-              <p class="quote-foot-kicker">Honorários</p>
-              <p class="quote-foot-value">Apenas no êxito</p>
+              <p class="quote-foot-kicker">Avaliação inicial</p>
+              <p class="quote-foot-value">Gratuita e sigilosa</p>
             </div>
             <div class="quote-gavel"><i data-lucide="gavel"></i></div>
           </div>
@@ -287,7 +287,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
         <article class="how-card">
           <div class="how-icon-wrap"><div class="how-icon"><i data-lucide="dollar-sign"></i></div><span class="how-step">04</span></div>
           <h3>Receba de Volta</h3>
-          <p>Você recebe a restituição e só então paga nossos honorários.</p>
+          <p>Após a decisão favorável, você recebe a restituição do que pagou a mais.</p>
         </article>
       </div>
     </div>
