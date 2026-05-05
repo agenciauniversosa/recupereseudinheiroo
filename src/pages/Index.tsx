@@ -375,7 +375,7 @@ const ProblemSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
             { icon: FileCheck, title: "Cobrança Indevida", desc: "Correção monetária mensal aplicada onde a lei proíbe direto no seu bolso." },
-            { icon: Scale, title: "Seus Direitos", desc: "A legislação garante o ressarcimento — muitas vezes em dobro do que foi pago." },
+            { icon: Scale, title: "Seus Direitos", desc: "A legislação garante o ressarcimento muitas vezes em dobro do que foi pago." },
             { icon: DollarSign, title: "Restituição Real", desc: "Valores que podem chegar a R$ 80.000 ou mais, dependendo do contrato." },
           ].map((item, i) => (
             <div
