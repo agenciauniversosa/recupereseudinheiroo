@@ -2,6 +2,7 @@ import { Shield, DollarSign, Scale, Clock, CheckCircle, ChevronDown, Phone, Mess
 import { useState, useMemo, useEffect, useRef } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { useReveal } from "@/hooks/use-reveal";
+import { supabase } from "@/integrations/supabase/client";
 import logo from "@/assets/logo.png";
 import heroBg from "@/assets/hero-construction.jpg";
 import ctaBg from "@/assets/cta-blueprint.jpg";
@@ -666,9 +667,25 @@ const CalculatorSection = () => {
                   </div>
                 ) : showLeadForm ? (
                   <form
-                    onSubmit={(e) => {
+                    onSubmit={async (e) => {
                       e.preventDefault();
                       if (!leadValid) return;
+                      try {
+                        await supabase.functions.invoke("save-lead", {
+                          body: {
+                            name: lead.name.trim(),
+                            email: lead.email.trim(),
+                            phone: lead.phone,
+                            propertyValue: rawPropertyValue,
+                            monthlyInstallment: rawMonthly,
+                            installmentsPaid: rawInstallments,
+                            estimateMin: estimate?.min ?? "",
+                            estimateMax: estimate?.max ?? "",
+                          },
+                        });
+                      } catch (err) {
+                        console.error("save-lead failed:", err);
+                      }
                       setCalculated(true);
                       toast({ title: "Pronto!", description: "Veja sua estimativa abaixo." });
                     }}
