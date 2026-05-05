@@ -105,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
       </h1>
       <p class="hero-desc fade-up delay-200">
         Muitos contratos escondem <strong>juros indevidos</strong> que podem ser revertidos a seu favor.
-        Mostramos o caminho para <strong>recuperar parte do que você pagou</strong> — e <strong class="text-gold-dark">você só paga quando ganhar.</strong>
+        Mostramos o caminho para <strong>recuperar parte do que você pagou.</strong>
       </p>
       <div class="hero-actions fade-up delay-300">
         <a href="#contato" class="btn-primary">
@@ -137,7 +137,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
             <span class="stats-kicker">Panorama do mercado</span>
           </div>
           <h2 class="stats-title">
-            A escala do problema —
+            A escala do problema <br>
             <span class="text-gradient-gold">e do seu direito.</span>
           </h2>
         </div>
