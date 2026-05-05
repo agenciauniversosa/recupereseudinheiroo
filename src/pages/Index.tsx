@@ -579,33 +579,7 @@ const CalculatorSection = () => {
     <section id="calculadora" className="py-24 md:py-32 bg-background relative overflow-hidden">
 
       <div ref={ref} className="reveal max-w-7xl mx-auto px-6 md:px-8 relative">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-          <div className="lg:sticky lg:top-32">
-            <span className="inline-block text-gold-dark text-xs font-bold tracking-[0.2em] uppercase mb-4 px-3 py-1 bg-gold/10 rounded-full">Simulação Gratuita</span>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-8 leading-[1.05]">
-              Quanto você pode <span className="text-gold-dark italic">recuperar?</span>
-            </h2>
-            <p className="text-navy/70 text-lg leading-relaxed mb-10 max-w-xl">
-              Faça uma estimativa rápida e gratuita do valor que pode ser restituído. Sem compromisso.
-            </p>
-            <ul className="space-y-4">
-              {[
-                { icon: Shield, title: "100% Confidencial", desc: "Seus dados não são armazenados sem consentimento." },
-                { icon: Zap, title: "Estimativa Rápida", desc: "Resultado em segundos, baseado em casos reais." },
-              ].map((item) => (
-                <li key={item.title} className="flex items-start gap-4 group">
-                  <div className="w-10 h-10 rounded-xl bg-gold/15 flex items-center justify-center shrink-0 group-hover:bg-gold-dark transition-colors">
-                    <item.icon className="w-5 h-5 text-gold-dark group-hover:text-primary-foreground transition-colors" />
-                  </div>
-                  <div>
-                    <strong className="block text-navy mb-1">{item.title}</strong>
-                    <span className="text-navy/60 text-sm">{item.desc}</span>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-
+        <div className="max-w-2xl mx-auto">
           <div className="relative">
             <div className="absolute -inset-4 bg-navy/5 rounded-3xl blur-2xl" />
             <div className="relative bg-card border border-border rounded-3xl p-8 md:p-10 shadow-2xl shadow-navy/10">
