@@ -22,7 +22,6 @@ const Navbar = () => {
 
   const links = [
     { label: "Como Funciona", href: "#como-funciona" },
-    { label: "Calculadora", href: "#calculadora" },
     { label: "FAQ", href: "#faq" },
     { label: "Contato", href: "#contato" },
   ];
