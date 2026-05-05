@@ -100,7 +100,7 @@ const HeroSection = () => {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-gold-dark" />
             </span>
             <span className="text-gold-dark text-xs font-bold tracking-wide uppercase">
-              Sem custo até ganhar • Risco Zero
+              Análise Gratuita • Sem Compromisso
             </span>
           </div>
 
@@ -129,7 +129,7 @@ const HeroSection = () => {
           </div>
 
           <div className="mt-16 flex flex-wrap gap-x-10 gap-y-3 text-sm text-navy/60 animate-fade-up delay-500">
-            {["Sem custo até ganhar", "100% dentro da Lei", "Para todo o Brasil"].map((t, i) => (
+            {["Análise gratuita", "100% dentro da Lei", "Para todo o Brasil"].map((t, i) => (
               <div key={t} className="flex items-center gap-2 group cursor-default">
                 <CheckCircle className="w-4 h-4 text-gold-dark group-hover:scale-125 transition-transform" />
                 <span className="group-hover:text-navy transition-colors">{t}</span>
@@ -149,7 +149,7 @@ const HeroSection = () => {
 
 /* ---------- MARQUEE ---------- */
 const MarqueeSection = () => {
-  const items = ["Lei nº 10.931/2004", "Risco Zero", "Análise Gratuita", "100% Remoto", "Pague só no êxito", "Para todo Brasil", "Casos Reais Vencidos", "Sem Adiantamentos"];
+  const items = ["Lei nº 10.931/2004", "Análise Gratuita", "100% Remoto", "Sem Compromisso", "Para todo Brasil", "Casos Reais Vencidos", "Atendimento Especializado", "Tese Consolidada"];
   return (
     <section className="bg-navy py-6 overflow-hidden border-y-4 border-gold">
       <div className="flex animate-marquee whitespace-nowrap">
@@ -408,22 +408,21 @@ const ZeroCostSection = () => {
       <div ref={ref} className="reveal max-w-7xl mx-auto px-6 md:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div>
-            <span className="inline-block text-gold-dark text-xs font-bold tracking-[0.2em] uppercase mb-4 px-3 py-1 bg-gold/10 rounded-full">Risco Zero</span>
+            <span className="inline-block text-gold-dark text-xs font-bold tracking-[0.2em] uppercase mb-4 px-3 py-1 bg-gold/10 rounded-full">Análise Gratuita</span>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-8 leading-[1.05]">
-              Você não paga{" "}
+              Avaliamos seu caso{" "}
               <span className="relative inline-block">
-                <span className="relative z-10 text-gold-dark italic">nada</span>
+                <span className="relative z-10 text-gold-dark italic">sem compromisso</span>
                 <span className="absolute bottom-2 left-0 right-0 h-3 bg-gold/30 -z-0" />
-              </span>{" "}
-              até ganhar a ação.
+              </span>.
             </h2>
             <p className="text-navy/70 text-lg leading-relaxed mb-10 max-w-xl">
-              Nosso modelo é 100% baseado no êxito. Você só paga honorários quando receber a restituição.
-              Sem risco, sem surpresas, sem adiantamentos.
+              Nossa equipe analisa seu contrato gratuitamente e mostra se você tem direito à restituição.
+              Tese fundamentada em lei, com casos reais vencidos no Brasil.
             </p>
             <ul className="space-y-5">
               {[
-                { title: "Risco Zero Real", desc: "Você não gasta nenhum centavo do seu bolso para iniciar o processo." },
+                { title: "Análise Gratuita", desc: "Avaliamos seu contrato sem qualquer custo ou compromisso inicial." },
                 { title: "Base Legal Sólida", desc: "Tese fundamentada na Lei nº 10.931/2004, com casos vencidos no Brasil." },
                 { title: "100% Remoto", desc: "Atendemos clientes em todo o território nacional, sem precisar sair de casa." },
               ].map((item) => (
@@ -449,12 +448,12 @@ const ZeroCostSection = () => {
               </div>
               <p className="text-navy/50 text-xs uppercase tracking-[0.2em] mb-4 font-semibold">Nosso Compromisso</p>
               <p className="text-navy font-display text-2xl md:text-3xl leading-tight mb-8 font-bold">
-                "Se não recuperarmos seu dinheiro, você não paga absolutamente nada."
+                "Estudamos cada contrato em detalhe para identificar o que pode ser revertido a seu favor."
               </p>
               <div className="border-t border-border pt-6 flex items-center justify-between">
                 <div>
-                  <p className="text-xs text-navy/50 uppercase tracking-wider mb-1 font-semibold">Honorários</p>
-                  <p className="text-gold-dark font-display text-2xl font-bold">Apenas no êxito</p>
+                  <p className="text-xs text-navy/50 uppercase tracking-wider mb-1 font-semibold">Avaliação inicial</p>
+                  <p className="text-gold-dark font-display text-2xl font-bold">Gratuita e sigilosa</p>
                 </div>
                 <div className="w-14 h-14 rounded-xl bg-navy flex items-center justify-center">
                   <Gavel className="w-7 h-7 text-gold" />
@@ -490,7 +489,7 @@ const HowItWorksSection = () => {
               { step: "01", title: "Entre em Contato", desc: "Fale conosco pelo WhatsApp ou formulário e envie os dados do seu contrato.", icon: MessageCircle },
               { step: "02", title: "Análise Gratuita", desc: "Nossa equipe verifica se há cobrança indevida — sem nenhum custo.", icon: FileCheck },
               { step: "03", title: "Ação Judicial", desc: "Entramos com o processo para recuperar seus valores pagos a mais.", icon: Gavel },
-              { step: "04", title: "Receba de Volta", desc: "Você recebe a restituição e só então paga nossos honorários.", icon: DollarSign },
+              { step: "04", title: "Receba de Volta", desc: "Após a decisão favorável, você recebe a restituição do que pagou a mais.", icon: DollarSign },
             ].map((item, i) => (
               <div
                 key={item.step}
@@ -756,7 +755,7 @@ const FAQSection = () => {
   const [open, setOpen] = useState<number | null>(0);
   const faqs = [
     { q: "Quem tem direito à restituição?", a: "Qualquer pessoa que comprou um imóvel na planta nos últimos 5 anos e pagou parcelas com correção monetária mensal em contratos quitados em prazo inferior a 36 meses." },
-    { q: "Preciso pagar algo para iniciar o processo?", a: "Não! Você não paga absolutamente nada até ganhar a ação. Nosso modelo é 100% baseado no êxito — só cobramos honorários quando você receber a restituição." },
+    { q: "A análise inicial tem algum custo?", a: "Não. A análise do seu contrato é totalmente gratuita e sem compromisso. Avaliamos sua documentação e explicamos suas opções antes de qualquer próximo passo." },
     { q: "Qual o valor médio que posso recuperar?", a: "Depende do contrato, mas casos reais já resultaram em restituições de R$ 50.000 a R$ 80.000 ou mais. Nossa equipe faz uma análise gratuita para estimar seu caso." },
     { q: "Isso é legal? É seguro?", a: "Totalmente! A tese é baseada na Lei nº 10.931/2004 e já foi aplicada com sucesso em diversos tribunais brasileiros. Seu direito está 100% amparado pela legislação." },
     { q: "Funciona para qualquer cidade do Brasil?", a: "Sim! Atendemos clientes em todo o território nacional. Todo o processo pode ser feito de forma remota." },
