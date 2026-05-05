@@ -47,7 +47,7 @@ function initNavbar() {
 
 /* ---------- MARQUEE ---------- */
 function initMarquee() {
-  const items = ["Lei nº 10.931/2004", "Risco Zero", "Análise Gratuita", "100% Remoto", "Pague só no êxito", "Para todo Brasil", "Casos Reais Vencidos", "Sem Adiantamentos"];
+  const items = ["Lei nº 10.931/2004", "Análise Gratuita", "100% Remoto", "Sem Compromisso", "Para todo Brasil", "Casos Reais Vencidos", "Atendimento Especializado", "Tese Consolidada"];
   const track = document.getElementById("marqueeTrack");
   const all = [...items, ...items, ...items];
   track.innerHTML = all
@@ -149,7 +149,7 @@ function initReveal() {
 function initFAQ() {
   const faqs = [
     { q: "Quem tem direito à restituição?", a: "Qualquer pessoa que comprou um imóvel na planta nos últimos 5 anos e pagou parcelas com correção monetária mensal em contratos quitados em prazo inferior a 36 meses." },
-    { q: "Preciso pagar algo para iniciar o processo?", a: "Não! Você não paga absolutamente nada até ganhar a ação. Nosso modelo é 100% baseado no êxito — só cobramos honorários quando você receber a restituição." },
+    { q: "A análise inicial tem algum custo?", a: "Não. A análise do seu contrato é totalmente gratuita e sem compromisso. Avaliamos sua documentação e explicamos suas opções antes de qualquer próximo passo." },
     { q: "Qual o valor médio que posso recuperar?", a: "Depende do contrato, mas casos reais já resultaram em restituições de R$ 50.000 a R$ 80.000 ou mais. Nossa equipe faz uma análise gratuita para estimar seu caso." },
     { q: "Isso é legal? É seguro?", a: "Totalmente! A tese é baseada na Lei nº 10.931/2004 e já foi aplicada com sucesso em diversos tribunais brasileiros. Seu direito está 100% amparado pela legislação." },
     { q: "Funciona para qualquer cidade do Brasil?", a: "Sim! Atendemos clientes em todo o território nacional. Todo o processo pode ser feito de forma remota." },
