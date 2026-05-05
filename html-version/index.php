@@ -326,6 +326,29 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
             <button id="calcBtn" class="btn-dark" disabled>
               <i data-lucide="calculator"></i> Calcular Estimativa
             </button>
+            <form id="calcLeadForm" class="calc-lead-form" style="display:none;">
+              <div class="calc-lead-head">
+                <p class="calc-lead-kicker">Última etapa</p>
+                <h4>Para ver sua estimativa</h4>
+                <p class="calc-lead-sub">Preencha seus dados — é rápido e gratuito.</p>
+              </div>
+              <div>
+                <label>Nome *</label>
+                <input type="text" id="leadName" maxlength="100" placeholder="Seu nome" required />
+              </div>
+              <div>
+                <label>E-mail *</label>
+                <input type="email" id="leadEmail" maxlength="255" placeholder="voce@email.com" required />
+              </div>
+              <div>
+                <label>Telefone *</label>
+                <input type="tel" id="leadPhone" placeholder="(00) 00000-0000" required />
+              </div>
+              <button type="submit" id="leadSubmit" class="btn-dark" disabled>
+                <i data-lucide="calculator"></i> Ver Minha Estimativa
+              </button>
+              <button type="button" id="leadBack" class="calc-lead-back">← Voltar</button>
+            </form>
           </div>
         </div>
       </div>

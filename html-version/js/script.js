@@ -187,6 +187,12 @@ function initCalculator() {
   const instEl = document.getElementById("calcInstallments");
   const btn = document.getElementById("calcBtn");
   const resultArea = document.getElementById("calcResultArea");
+  const leadForm = document.getElementById("calcLeadForm");
+  const leadName = document.getElementById("leadName");
+  const leadEmail = document.getElementById("leadEmail");
+  const leadPhone = document.getElementById("leadPhone");
+  const leadSubmit = document.getElementById("leadSubmit");
+  const leadBack = document.getElementById("leadBack");
 
   const state = { prop: "", month: "", inst: "" };
 
@@ -223,13 +229,50 @@ function initCalculator() {
     const r = document.getElementById("calcResultBox");
     if (r) r.remove();
     btn.style.display = "flex";
+    if (leadForm) leadForm.style.display = "none";
   };
 
   propEl.addEventListener("input", handleCurrency(propEl, "prop"));
   monthEl.addEventListener("input", handleCurrency(monthEl, "month"));
   instEl.addEventListener("input", handleInst);
 
-  btn.addEventListener("click", () => {
+  const formatPhoneLead = (v) => {
+    const d = v.replace(/\D/g, "").slice(0, 11);
+    if (d.length <= 2) return d;
+    if (d.length <= 7) return `(${d.slice(0, 2)}) ${d.slice(2)}`;
+    return `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}`;
+  };
+
+  const validateLead = () => {
+    const name = leadName.value.trim();
+    const email = leadEmail.value.trim();
+    const phone = leadPhone.value;
+    const ok =
+      name.length >= 2 &&
+      email.includes("@") &&
+      email.includes(".") &&
+      phone.replace(/\D/g, "").length >= 10;
+    leadSubmit.disabled = !ok;
+    return ok;
+  };
+
+  if (leadPhone) {
+    leadPhone.addEventListener("input", (e) => {
+      e.target.value = formatPhoneLead(e.target.value);
+      validateLead();
+    });
+    leadName.addEventListener("input", validateLead);
+    leadEmail.addEventListener("input", validateLead);
+  }
+
+  if (leadBack) {
+    leadBack.addEventListener("click", () => {
+      leadForm.style.display = "none";
+      btn.style.display = "flex";
+    });
+  }
+
+  const showResult = () => {
     const prop = parseInt(state.prop || "0", 10) / 100;
     const month = parseInt(state.month || "0", 10) / 100;
     const inst = parseInt(state.inst || "0", 10);
@@ -242,9 +285,15 @@ function initCalculator() {
     const max = Math.max(Math.round(overcharge * 1.4), 2000);
 
     const fmt = (v) => v.toLocaleString("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 0 });
-    const msg = encodeURIComponent("Olá! Fiz a simulação no site e quero uma análise detalhada.");
+    const name = leadName ? leadName.value.trim() : "";
+    const email = leadEmail ? leadEmail.value.trim() : "";
+    const phoneVal = leadPhone ? leadPhone.value : "";
+    const msg = encodeURIComponent(
+      `Olá! Fiz a simulação no site e quero uma análise detalhada.\n\nNome: ${name}\nE-mail: ${email}\nTelefone: ${phoneVal}`
+    );
 
     btn.style.display = "none";
+    if (leadForm) leadForm.style.display = "none";
     const html = `
       <div class="calc-result" id="calcResultBox">
         <div class="calc-result-box">
@@ -258,7 +307,23 @@ function initCalculator() {
       </div>`;
     resultArea.insertAdjacentHTML("beforeend", html);
     renderIcons();
+  };
+
+  btn.addEventListener("click", () => {
+    if (btn.disabled) return;
+    btn.style.display = "none";
+    leadForm.style.display = "flex";
+    validateLead();
+    setTimeout(() => leadName && leadName.focus(), 50);
   });
+
+  if (leadForm) {
+    leadForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (!validateLead()) return;
+      showResult();
+    });
+  }
 }
 
 /* ---------- CONTACT FORM (formatação telefone) ---------- */
