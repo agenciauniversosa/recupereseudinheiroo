@@ -65,7 +65,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
       </a>
       <div class="nav-links">
         <a href="#como-funciona">Como Funciona</a>
-        <a href="#calculadora">Calculadora</a>
         <a href="#faq">FAQ</a>
         <a href="#contato">Contato</a>
       </div>
@@ -78,7 +77,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
     </div>
     <div class="nav-mobile" id="navMobile">
       <a href="#como-funciona">Como Funciona</a>
-      <a href="#calculadora">Calculadora</a>
       <a href="#faq">FAQ</a>
       <a href="#contato">Contato</a>
       <a href="https://wa.me/<?= htmlspecialchars($WHATSAPP) ?>" target="_blank" rel="noopener" class="nav-cta-mobile">
@@ -293,68 +291,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
     </div>
   </section>
 
-  <!-- ================= CALCULATOR ================= -->
-  <section id="calculadora" class="calc reveal">
-    <div class="container two-col">
-      <div class="calc-intro">
-        <span class="kicker">Simulação Gratuita</span>
-        <h2>Quanto você pode <span class="highlight italic">recuperar?</span></h2>
-        <p class="lead">Faça uma estimativa rápida e gratuita do valor que pode ser restituído. Sem compromisso.</p>
-        <ul class="check-list">
-          <li><div class="check-ic"><i data-lucide="shield"></i></div><div><strong>100% Confidencial</strong><span>Seus dados não são armazenados sem consentimento.</span></div></li>
-          <li><div class="check-ic"><i data-lucide="zap"></i></div><div><strong>Estimativa Rápida</strong><span>Resultado em segundos, baseado em casos reais.</span></div></li>
-        </ul>
-      </div>
-      <div class="calc-card-wrap">
-        <div class="quote-glow"></div>
-        <div class="calc-card">
-          <div class="calc-fields">
-            <div>
-              <label>Valor do Imóvel</label>
-              <input type="text" inputmode="numeric" id="calcPropValue" placeholder="R$ 0,00" />
-            </div>
-            <div>
-              <label>Valor da Parcela Mensal</label>
-              <input type="text" inputmode="numeric" id="calcMonthly" placeholder="R$ 0,00" />
-            </div>
-            <div>
-              <label>Parcelas Já Pagas</label>
-              <input type="text" inputmode="numeric" id="calcInstallments" maxlength="3" placeholder="Ex: 24" />
-            </div>
-          </div>
-          <div class="calc-result-area" id="calcResultArea">
-            <button id="calcBtn" class="btn-dark" disabled>
-              <i data-lucide="calculator"></i> Calcular Estimativa
-            </button>
-            <form id="calcLeadForm" class="calc-lead-form" style="display:none;">
-              <div class="calc-lead-head">
-                <p class="calc-lead-kicker">Última etapa</p>
-                <h4>Para ver sua estimativa</h4>
-                <p class="calc-lead-sub">Preencha seus dados — é rápido e gratuito.</p>
-              </div>
-              <div>
-                <label>Nome *</label>
-                <input type="text" id="leadName" maxlength="100" placeholder="Seu nome" required />
-              </div>
-              <div>
-                <label>E-mail *</label>
-                <input type="email" id="leadEmail" maxlength="255" placeholder="voce@email.com" required />
-              </div>
-              <div>
-                <label>Telefone *</label>
-                <input type="tel" id="leadPhone" placeholder="(00) 00000-0000" required />
-              </div>
-              <button type="submit" id="leadSubmit" class="btn-dark" disabled>
-                <i data-lucide="calculator"></i> Ver Minha Estimativa
-              </button>
-              <button type="button" id="leadBack" class="calc-lead-back">← Voltar</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ================= FAQ ================= -->
   <section id="faq" class="faq reveal">
     <div class="container faq-grid">
@@ -434,7 +370,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
         <a href="#" class="footer-logo"><img src="assets/logo.png" alt="Recupere Seu Dinheiro" /></a>
         <div class="footer-links">
           <a href="#como-funciona">Como Funciona</a>
-          <a href="#calculadora">Calculadora</a>
           <a href="#contato">Contato</a>
         </div>
       </div>
