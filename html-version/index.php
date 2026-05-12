@@ -202,7 +202,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
     <div class="container">
       <div class="section-head">
         <span class="kicker">Entenda o Problema</span>
-        <h2>Construtoras cobram juros <span class="highlight">ilegais</span> em imóveis na planta</h2>
+        <h2>Construtoras PODEM ESTAR COBRANDO juros <span class="highlight">ilegais</span> em imóveis na planta</h2>
         <p>A <strong>Lei nº 10.931/2004</strong> proíbe a cobrança de correção monetária mensal em contratos quitados em prazo inferior a 36 meses. Mesmo assim, milhares de construtoras continuam aplicando esses juros.</p>
       </div>
       <div class="problem-grid">
