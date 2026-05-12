@@ -359,7 +359,7 @@ const ProblemSection = () => {
         <div className="mb-16 max-w-3xl">
           <span className="inline-block text-gold-dark text-xs font-bold tracking-[0.2em] uppercase mb-4 px-3 py-1 bg-gold/10 rounded-full">Entenda o Problema</span>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-navy leading-[1.05]">
-            Construtoras cobram juros{" "}
+            Construtoras PODEM ESTAR COBRANDO juros{" "}
             <span className="relative inline-block">
               <span className="relative z-10 text-gold-dark">ilegais</span>
               <span className="absolute bottom-2 left-0 right-0 h-3 bg-gold/30 -z-0" />
