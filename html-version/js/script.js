@@ -149,12 +149,23 @@ function initReveal() {
 function initFAQ() {
   const faqs = [
     { q: "Quem tem direito à restituição?", a: "Qualquer pessoa que comprou um imóvel na planta nos últimos 5 anos e pagou parcelas com correção monetária mensal em contratos quitados em prazo inferior a 36 meses." },
-    { q: "A análise inicial tem algum custo?", a: "Não. A análise do seu contrato é totalmente gratuita e sem compromisso. Avaliamos sua documentação e explicamos suas opções antes de qualquer próximo passo." },
-    { q: "Preciso pagar algo para iniciar o processo?", a: "Você pagará apenas as custas judiciais e o laudo do perito contábil, documento fundamental para a ação. Quanto aos honorários, você não paga absolutamente nada até ganhar a ação. Nosso modelo é 100% baseado no êxito — só cobramos honorários quando você receber a restituição." },
-    { q: "Qual o valor médio que posso recuperar?", a: "Depende do contrato, mas casos reais já resultaram em restituições de R$ 50.000 a R$ 80.000 ou mais. Nossa equipe faz uma análise gratuita para estimar seu caso." },
+    { q: "A análise inicial tem algum custo?", a: "Sim. A análise do seu contrato depende de um parecer de um perito contábil que tem um custo simbólico perante os valores que podem ser recuperados. Avaliamos sua documentação e explicamos suas opções antes de qualquer próximo passo." },
+    { q: "Qual o valor médio que posso recuperar?", a: "Depende do contrato, mas casos reais já resultaram em restituições de valores substanciais. A equipe faz uma análise para estimar seu caso." },
     { q: "Isso é legal? É seguro?", a: "Totalmente! A tese é baseada na Lei nº 10.931/2004 e já foi aplicada com sucesso em diversos tribunais brasileiros. Seu direito está 100% amparado pela legislação." },
+    { q: "Meu imóvel está financiado pelo banco, tenho direito assim mesmo?", a: "Sim! Muitos possuem imóveis financiados através de instituições financeiras, e isso não impede em nada no direito de recuperar seu dinheiro." },
     { q: "Funciona para qualquer cidade do Brasil?", a: "Sim! Atendemos clientes em todo o território nacional. Todo o processo pode ser feito de forma remota." },
     { q: "Quanto tempo demora o processo?", a: "O prazo varia, mas muitos casos são resolvidos em meses. Nossa equipe utiliza tecnologia para acelerar cada etapa." },
+    { q: "Preciso ter documentação específica para solicitar a análise?", a: "Sim, é necessário o extrato financeiro do contrato com a construtora e o próprio contrato. A partir do envio desses documentos, nossa equipe faz a análise de viabilidade da ação." },
+    { q: "E se o imóvel já foi entregue? Ainda tenho direito?", a: "Sim! O direito à restituição não depende do status de entrega do imóvel. Se você pagou parcelas com correção monetária mensal indevida em um contrato quitado em prazo inferior a 36 meses, você pode ter direito à recuperação." },
+    { q: "Qual é o prazo máximo para solicitar a restituição?", a: "O prazo é de 5 anos a contar da data em que você pagou a parcela indevida. Por isso é importante agir rápido, pois cada dia que passa é um dia a menos do seu direito." },
+    { q: "Como funciona o pagamento dos honorários da Recupere Seu Dinheiro?", a: "Nosso modelo é baseado em sucesso. Você só paga se ganhar o processo. Os honorários são cobrados apenas quando há recuperação efetiva dos valores." },
+    { q: "Posso ter mais de um imóvel na planta? Posso recuperar valores de todos?", a: "Sim! Se você comprou múltiplos imóveis na planta e pagou juros indevidos em mais de um contrato, cada caso pode ser analisado e recuperado independentemente. Basta informar todos os imóveis na sua solicitação." },
+    { q: "O que acontece se a construtora não tiver mais recursos para pagar?", a: "A ação é movida contra a construtora, e se houver sentença favorável, existem mecanismos legais para execução da dívida. Nossa equipe está familiarizada com esses procedimentos e ajuda em todas as etapas." },
+    { q: "Existe alguma restrição de valor mínimo ou máximo para solicitar a análise?", a: "Não! Analisamos casos de qualquer valor. Se você pagou juros indevidos, independentemente do montante, você pode ter direito à restituição. Desde pequenas quantias até recuperações de milhares de centenas de reais." },
+    { q: "Posso fazer a solicitação de análise por telefone ou apenas pelo formulário?", a: "Você pode entrar em contato pelo formulário do site ou via WhatsApp. Escolha o canal que for mais conveniente para você. Todos levam ao mesmo atendimento especializado." },
+    { q: "Se eu já tentei resolver isso com a construtora, ainda posso contar com vocês?", a: "Sim! Muitos clientes já tentaram negociar diretamente com a construtora sem sucesso. Nossa equipe tem experiência em casos que já passaram por tentativas de resolução prévia e consegue reverter a situação a seu favor através de ação judicial." },
+    { q: "Sobre o Laudo pericial contábil, qual o custo dele?", a: "O valor cobrado pelos especialistas parceiros é de em média R$ 1.000,00 (mil reais) que podem ser pagos com cartão de crédito em até 5 parcelas sem juros." },
+    { q: "Vocês garantem o resultado?", a: "Apesar de praticamente 100% das ações terem resultado positivo para o cliente, ainda dependemos de uma decisão judicial." },
   ];
 
   const list = document.getElementById("faqList");
