@@ -744,7 +744,7 @@ const FAQSection = () => {
   const ref = useReveal<HTMLDivElement>();
   const [open, setOpen] = useState<number | null>(0);
   const faqs = [
-    { q: "Quem tem direito à restituição?", a: "Qualquer pessoa que comprou um imóvel na planta nos últimos 5 anos e pagou parcelas com correção monetária mensal em contratos quitados em prazo inferior a 36 meses." },
+    { q: "Quem tem direito à restituição?", a: "Qualquer pessoa que tenha adquirido imóvel na planta nos últimos 5 anos e pago parcelas com correção monetária mensal em contratos quitados perante a construtora em prazo inferior a 36 meses, independentemente de a quitação ter ocorrido por meio de financiamento bancário." },
     { q: "A análise inicial tem algum custo?", a: "Sim. A análise do seu contrato depende de um parecer de um perito contábil que tem um custo simbólico perante os valores que podem ser recuperados. Avaliamos sua documentação e explicamos suas opções antes de qualquer próximo passo." },
     { q: "Qual o valor médio que posso recuperar?", a: "Depende do contrato, mas casos reais já resultaram em restituições de valores substanciais. A equipe faz uma análise para estimar seu caso." },
     { q: "Isso é legal? É seguro?", a: "Totalmente! A tese é baseada na Lei nº 10.931/2004 e já foi aplicada com sucesso em diversos tribunais brasileiros. Seu direito está 100% amparado pela legislação." },
