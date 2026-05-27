@@ -368,7 +368,7 @@ const ProblemSection = () => {
           </h2>
           <p className="text-navy/70 text-lg leading-relaxed mt-6">
             A <strong className="text-navy">Lei nº 10.931/2004</strong> proíbe a cobrança de correção monetária mensal em contratos quitados em prazo
-            inferior a 36 meses. Mesmo assim, milhares de construtoras continuam aplicando esses juros.
+            inferior a 36 meses. Mesmo assim, milhares de construtoras continuam aplicando essas cobranças.
           </p>
         </div>
 
