@@ -39,15 +39,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Recupere Seu Dinheiro | Juros Indevidos em Imóvel na Planta</title>
-  <meta name="description" content="Comprou imóvel na planta nos últimos 5 anos? Você pode ter pago juros indevidos. Análise gratuita e sem compromisso. Todo o Brasil." />
+  <title>Recupere Seu Dinheiro | Cobranças Ilegais em Imóvel na Planta</title>
+  <meta name="description" content="Comprou imóvel na planta nos últimos 5 anos? Você pode ter sofrido cobranças ilegais. Análise gratuita e sem compromisso. Todo o Brasil." />
   <meta name="author" content="Universo S.A." />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Recupere Seu Dinheiro | Juros Indevidos em Imóvel na Planta" />
-  <meta property="og:description" content="Comprou imóvel na planta nos últimos 5 anos? Você pode ter pago juros indevidos. Análise gratuita e sem compromisso. Todo o Brasil." />
+  <meta property="og:title" content="Recupere Seu Dinheiro | Cobranças Ilegais em Imóvel na Planta" />
+  <meta property="og:description" content="Comprou imóvel na planta nos últimos 5 anos? Você pode ter sofrido cobranças ilegais. Análise gratuita e sem compromisso. Todo o Brasil." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Recupere Seu Dinheiro | Juros Indevidos em Imóvel na Planta" />
-  <meta name="twitter:description" content="Comprou imóvel na planta nos últimos 5 anos? Você pode ter pago juros indevidos. Análise gratuita e sem compromisso. Todo o Brasil." />
+  <meta name="twitter:title" content="Recupere Seu Dinheiro | Cobranças Ilegais em Imóvel na Planta" />
+  <meta name="twitter:description" content="Comprou imóvel na planta nos últimos 5 anos? Você pode ter sofrido cobranças ilegais. Análise gratuita e sem compromisso. Todo o Brasil." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -102,7 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
         <span class="text-gradient-gold">nem sempre economiza.</span>
       </h1>
       <p class="hero-desc fade-up delay-200">
-        Muitos contratos escondem <strong>juros indevidos</strong> que podem ser revertidos a seu favor.
+        Muitos contratos escondem <strong>cobranças ilegais</strong> que podem ser revertidos a seu favor.
         Mostramos o caminho para <strong>recuperar parte do que você pagou.</strong>
       </p>
       <div class="hero-actions fade-up delay-300">
@@ -203,7 +203,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
       <div class="section-head">
         <span class="kicker">Entenda o Problema</span>
         <h2>Construtoras PODEM ESTAR FAZENDO cobranças <span class="highlight">ilegais</span> em imóveis na planta</h2>
-        <p>A <strong>Lei nº 10.931/2004</strong> proíbe a cobrança de correção monetária mensal em contratos quitados em prazo inferior a 36 meses. Mesmo assim, milhares de construtoras continuam aplicando esses juros.</p>
+        <p>A <strong>Lei nº 10.931/2004</strong> proíbe a cobrança de correção monetária mensal em contratos quitados em prazo inferior a 36 meses. Mesmo assim, milhares de construtoras continuam aplicando essas cobranças.</p>
       </div>
       <div class="problem-grid">
         <article class="problem-card">
