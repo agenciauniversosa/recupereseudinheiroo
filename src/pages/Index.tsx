@@ -1027,7 +1027,7 @@ const WhatsAppFAB = () => {
   }, []);
   return (
     <a
-      href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Olá! Quero saber mais sobre a recuperação de juros.")}`}
+      href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Olá! Quero saber mais sobre a recuperação de cobranças ilegais.")}`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Falar no WhatsApp"

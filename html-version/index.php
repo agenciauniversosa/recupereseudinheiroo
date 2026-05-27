@@ -381,7 +381,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
   </footer>
 
   <!-- ================= WHATSAPP FAB ================= -->
-  <a href="https://wa.me/<?= htmlspecialchars($WHATSAPP) ?>?text=<?= rawurlencode('Olá! Quero saber mais sobre a recuperação de juros.') ?>" target="_blank" rel="noopener" class="fab" id="waFab" aria-label="Falar no WhatsApp">
+  <a href="https://wa.me/<?= htmlspecialchars($WHATSAPP) ?>?text=<?= rawurlencode('Olá! Quero saber mais sobre a recuperação de cobranças ilegais.') ?>" target="_blank" rel="noopener" class="fab" id="waFab" aria-label="Falar no WhatsApp">
     <span class="fab-ping"></span>
     <i data-lucide="message-circle"></i>
   </a>
