@@ -113,7 +113,7 @@ const HeroSection = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-navy/70 max-w-2xl leading-relaxed mb-12 animate-fade-up delay-200">
-            Muitos contratos escondem <strong className="text-navy font-semibold">juros indevidos</strong> que podem ser revertidos a seu favor.
+            Muitos contratos escondem <strong className="text-navy font-semibold">cobranças ilegais</strong> que podem ser revertidos a seu favor.
             Mostramos o caminho para <strong className="text-navy font-semibold">recuperar parte do que você pagou.</strong>
           </p>
 
@@ -368,7 +368,7 @@ const ProblemSection = () => {
           </h2>
           <p className="text-navy/70 text-lg leading-relaxed mt-6">
             A <strong className="text-navy">Lei nº 10.931/2004</strong> proíbe a cobrança de correção monetária mensal em contratos quitados em prazo
-            inferior a 36 meses. Mesmo assim, milhares de construtoras continuam aplicando esses juros.
+            inferior a 36 meses. Mesmo assim, milhares de construtoras continuam aplicando essas cobranças.
           </p>
         </div>
 
@@ -755,9 +755,9 @@ const FAQSection = () => {
     { q: "E se o imóvel já foi entregue? Ainda tenho direito?", a: "Sim! O direito à restituição não depende do status de entrega do imóvel. Se você pagou parcelas com correção monetária mensal indevida em um contrato quitado em prazo inferior a 36 meses, você pode ter direito à recuperação." },
     { q: "Qual é o prazo máximo para solicitar a restituição?", a: "O prazo é de 5 anos a contar da data em que você pagou a parcela indevida. Por isso é importante agir rápido, pois cada dia que passa é um dia a menos do seu direito." },
     { q: "Como funciona o pagamento dos honorários da Recupere Seu Dinheiro?", a: "Nosso modelo é baseado em sucesso. Você só paga se ganhar o processo. Os honorários são cobrados apenas quando há recuperação efetiva dos valores." },
-    { q: "Posso ter mais de um imóvel na planta? Posso recuperar valores de todos?", a: "Sim! Se você comprou múltiplos imóveis na planta e pagou juros indevidos em mais de um contrato, cada caso pode ser analisado e recuperado independentemente. Basta informar todos os imóveis na sua solicitação." },
+    { q: "Posso ter mais de um imóvel na planta? Posso recuperar valores de todos?", a: "Sim! Se você comprou múltiplos imóveis na planta e pagou cobranças ilegais em mais de um contrato, cada caso pode ser analisado e recuperado independentemente. Basta informar todos os imóveis na sua solicitação." },
     { q: "O que acontece se a construtora não tiver mais recursos para pagar?", a: "A ação é movida contra a construtora, e se houver sentença favorável, existem mecanismos legais para execução da dívida. Nossa equipe está familiarizada com esses procedimentos e ajuda em todas as etapas." },
-    { q: "Existe alguma restrição de valor mínimo ou máximo para solicitar a análise?", a: "Não! Analisamos casos de qualquer valor. Se você pagou juros indevidos, independentemente do montante, você pode ter direito à restituição. Desde pequenas quantias até recuperações de milhares de centenas de reais." },
+    { q: "Existe alguma restrição de valor mínimo ou máximo para solicitar a análise?", a: "Não! Analisamos casos de qualquer valor. Se você pagou cobranças ilegais, independentemente do montante, você pode ter direito à restituição. Desde pequenas quantias até recuperações de milhares de centenas de reais." },
     { q: "Posso fazer a solicitação de análise por telefone ou apenas pelo formulário?", a: "Você pode entrar em contato pelo formulário do site ou via WhatsApp. Escolha o canal que for mais conveniente para você. Todos levam ao mesmo atendimento especializado." },
     { q: "Se eu já tentei resolver isso com a construtora, ainda posso contar com vocês?", a: "Sim! Muitos clientes já tentaram negociar diretamente com a construtora sem sucesso. Nossa equipe tem experiência em casos que já passaram por tentativas de resolução prévia e consegue reverter a situação a seu favor através de ação judicial." },
     { q: "Sobre o Laudo pericial contábil, qual o custo dele?", a: "O valor cobrado pelos especialistas parceiros é de em média R$ 1.000,00 (mil reais) que podem ser pagos com cartão de crédito em até 5 parcelas sem juros." },
@@ -1027,7 +1027,7 @@ const WhatsAppFAB = () => {
   }, []);
   return (
     <a
-      href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Olá! Quero saber mais sobre a recuperação de juros.")}`}
+      href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Olá! Quero saber mais sobre a recuperação de cobranças ilegais.")}`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Falar no WhatsApp"
