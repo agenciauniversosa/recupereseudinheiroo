@@ -47,7 +47,7 @@ function initNavbar() {
 
 /* ---------- MARQUEE ---------- */
 function initMarquee() {
-  const items = ["Lei nº 10.931/2004", "Análise Gratuita", "100% Remoto", "Sem Compromisso", "Para todo Brasil", "Casos Reais Vencidos", "Atendimento Especializado", "Tese Consolidada"];
+  const items = ["Lei nº 10.931/2004", "Avaliação Especializada", "100% Remoto", "Sem Compromisso", "Para todo Brasil", "Casos Reais Vencidos", "Atendimento Especializado", "Tese Consolidada"];
   const track = document.getElementById("marqueeTrack");
   const all = [...items, ...items, ...items];
   track.innerHTML = all
@@ -314,7 +314,7 @@ function initCalculator() {
           <p class="note">*Estimativa simplificada</p>
         </div>
         <a href="https://wa.me/${window.WHATSAPP}?text=${msg}" target="_blank" rel="noopener" class="btn-dark" style="text-decoration:none;">
-          <i data-lucide="message-circle"></i> Quero Análise Gratuita
+          <i data-lucide="message-circle"></i> Quero Análise Detalhada
         </a>
       </div>`;
     resultArea.insertAdjacentHTML("beforeend", html);
