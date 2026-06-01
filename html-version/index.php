@@ -322,7 +322,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
           <div><label>Valor do Imóvel</label><input type="text" name="propertyValue" id="fProp" maxlength="30" placeholder="Ex: R$ 500.000" /></div>
           <div><label>Detalhes do Imóvel</label><textarea name="details" id="fDetails" maxlength="500" rows="3" placeholder="Construtora, empreendimento, ano da compra, parcelas..."></textarea></div>
           <button type="submit" class="btn-dark" id="submitBtn">
-            <i data-lucide="send"></i> Solicitar Análise Gratuita
+            <i data-lucide="send"></i> Solicitar Avaliação
           </button>
           <p class="form-hint">Seus dados são confidenciais e usados apenas para análise do seu caso.</p>
         </form>
