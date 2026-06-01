@@ -635,7 +635,7 @@ const CalculatorSection = () => {
                       className="w-full bg-navy text-primary-foreground py-4 rounded-xl text-sm font-bold uppercase tracking-wider hover:bg-gold hover:text-navy transition-all hover:scale-[1.02] flex items-center justify-center gap-3"
                     >
                       <MessageCircle className="w-5 h-5" />
-                      Quero Análise Gratuita
+                      Quero Análise Detalhada
                     </a>
                   </div>
                 ) : showLeadForm ? (
@@ -667,7 +667,7 @@ const CalculatorSection = () => {
                     <div className="text-center mb-2">
                       <p className="text-xs font-bold uppercase tracking-wider text-gold-dark mb-2">Última etapa</p>
                       <h4 className="font-display font-bold text-navy text-xl">Para ver sua estimativa</h4>
-                      <p className="text-navy/60 text-sm mt-1">Preencha seus dados — é rápido e gratuito.</p>
+                      <p className="text-navy/60 text-sm mt-1">Preencha seus dados — é rápido.</p>
                     </div>
                     <div>
                       <label className="block text-xs font-bold uppercase tracking-wider text-navy/60 mb-2">Nome *</label>
@@ -745,7 +745,7 @@ const FAQSection = () => {
   const [open, setOpen] = useState<number | null>(0);
   const faqs = [
     { q: "Quem tem direito à restituição?", a: "Qualquer pessoa que tenha adquirido imóvel na planta nos últimos 5 anos e pago parcelas com correção monetária mensal em contratos quitados perante a construtora em prazo inferior a 36 meses, independentemente de a quitação ter ocorrido por meio de financiamento bancário." },
-    { q: "A análise inicial tem algum custo?", a: "A análise jurídica inicial não possui custo. Após a avaliação preliminar e a verificação da viabilidade do direito, poderá ser necessária a elaboração de cálculos judiciais para apuração dos valores eventualmente cobrados a maior. Esses cálculos são realizados por especialista e possuem custo simbólico, proporcional aos valores que podem ser recuperados. Antes de qualquer próximo passo, avaliamos toda a documentação e esclarecemos detalhadamente as opções disponíveis." },
+    { q: "A análise inicial tem algum custo?", a: "A análise jurídica inicial é feita sem nenhum compromisso. Após a avaliação preliminar e a verificação da viabilidade do direito, poderá ser necessária a elaboração de cálculos judiciais para apuração dos valores eventualmente cobrados a maior. Esses cálculos são realizados por especialista e possuem custo simbólico, proporcional aos valores que podem ser recuperados. Antes de qualquer próximo passo, avaliamos toda a documentação e esclarecemos detalhadamente as opções disponíveis." },
     { q: "Qual o valor médio que posso recuperar?", a: "Depende do contrato, mas casos reais já resultaram em restituições de valores substanciais. A equipe faz uma análise para estimar seu caso." },
     { q: "Isso é legal? É seguro?", a: "Totalmente! A tese é baseada na Lei nº 10.931/2004 e já foi aplicada com sucesso em diversos tribunais brasileiros. Seu direito está 100% amparado pela legislação." },
     { q: "Meu imóvel está financiado pelo banco, tenho direito assim mesmo?", a: "Sim! Muitos possuem imóveis financiados através de instituições financeiras, e isso não impede em nada no direito de recuperar seu dinheiro." },
@@ -843,7 +843,7 @@ const ContactFormSection = () => {
       <div ref={ref} className="reveal max-w-7xl mx-auto px-6 md:px-8 relative">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <div>
-            <span className="inline-block text-gold-dark text-xs font-bold tracking-[0.2em] uppercase mb-4 px-3 py-1 bg-gold/10 rounded-full">Análise Gratuita</span>
+            <span className="inline-block text-gold-dark text-xs font-bold tracking-[0.2em] uppercase mb-4 px-3 py-1 bg-gold/10 rounded-full">Avaliação Especializada</span>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-8 leading-[1.05]">
               Solicite sua <span className="text-gold-dark italic">avaliação.</span>
             </h2>
