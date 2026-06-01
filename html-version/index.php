@@ -274,8 +274,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
         </article>
         <article class="how-card">
           <div class="how-icon-wrap"><div class="how-icon"><i data-lucide="file-check"></i></div><span class="how-step">02</span></div>
-          <h3>Análise Gratuita</h3>
-          <p>Nossa equipe verifica se há cobrança indevida — sem nenhum custo.</p>
+          <h3>Avaliação Inicial</h3>
+          <p>Nossa equipe verifica se há cobrança indevida.</p>
         </article>
         <article class="how-card">
           <div class="how-icon-wrap"><div class="how-icon"><i data-lucide="gavel"></i></div><span class="how-step">03</span></div>
@@ -295,12 +295,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
   <section id="contato" class="contato reveal">
     <div class="container two-col">
       <div>
-        <span class="kicker">Análise Gratuita</span>
+        <span class="kicker">Avaliação Especializada</span>
         <h2>Solicite sua <span class="highlight italic">avaliação.</span></h2>
-        <p class="lead">Preencha o formulário e nossa equipe fará uma análise completa e gratuita do seu caso.</p>
+        <p class="lead">Preencha o formulário e nossa equipe fará uma análise completa do seu caso.</p>
         <div class="check-simple">
           <div><i data-lucide="check-circle"></i><span>Resposta em até 24 horas</span></div>
-          <div><i data-lucide="check-circle"></i><span>Análise 100% gratuita e sem compromisso</span></div>
+          <div><i data-lucide="check-circle"></i><span>Análise sem compromisso</span></div>
           <div><i data-lucide="check-circle"></i><span>Atendimento em todo o Brasil</span></div>
         </div>
       </div>
