@@ -848,10 +848,10 @@ const ContactFormSection = () => {
               Solicite sua <span className="text-gold-dark italic">avaliação.</span>
             </h2>
             <p className="text-navy/70 text-lg leading-relaxed mb-10 max-w-xl">
-              Preencha o formulário e nossa equipe fará uma análise completa e gratuita do seu caso.
+              Preencha o formulário e nossa equipe fará uma análise completa do seu caso.
             </p>
             <div className="space-y-4">
-              {["Resposta em até 24 horas", "Análise 100% gratuita e sem compromisso", "Atendimento em todo o Brasil"].map((t) => (
+              {["Resposta em até 24 horas", "Análise sem compromisso", "Atendimento em todo o Brasil"].map((t) => (
                 <div key={t} className="flex items-center gap-4 group">
                   <div className="w-8 h-8 rounded-full bg-gold/15 flex items-center justify-center group-hover:bg-gold-dark transition-colors">
                     <CheckCircle className="w-4 h-4 text-gold-dark group-hover:text-primary-foreground transition-colors" />
@@ -919,7 +919,7 @@ const ContactFormSection = () => {
                     className="w-full bg-navy text-primary-foreground py-4 rounded-xl text-sm font-bold uppercase tracking-wider hover:bg-gold hover:text-navy transition-all hover:scale-[1.02] flex items-center justify-center gap-3 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:scale-100 mt-2"
                   >
                     <Send className="w-5 h-5" />
-                    Solicitar Análise Gratuita
+                    Solicitar Avaliação
                   </button>
 
                   <p className="text-xs text-navy/40 text-center">
