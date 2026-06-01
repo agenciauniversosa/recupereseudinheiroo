@@ -417,12 +417,12 @@ const ZeroCostSection = () => {
               </span>.
             </h2>
             <p className="text-navy/70 text-lg leading-relaxed mb-10 max-w-xl">
-              Nossa equipe analisa seu contrato gratuitamente e mostra se você tem direito à restituição.
+              Nossa equipe analisa seu contrato e mostra se você tem direito à restituição.
               Tese fundamentada em lei, com casos reais vencidos no Brasil.
             </p>
             <ul className="space-y-5">
               {[
-                { title: "Análise Gratuita", desc: "Avaliamos seu contrato sem qualquer custo ou compromisso inicial." },
+                { title: "Avaliação Inicial", desc: "Avaliamos seu contrato sem compromisso inicial." },
                 { title: "Base Legal Sólida", desc: "Tese fundamentada na Lei nº 10.931/2004, com casos vencidos no Brasil." },
                 { title: "100% Remoto", desc: "Atendemos clientes em todo o território nacional, sem precisar sair de casa." },
               ].map((item) => (
@@ -453,7 +453,7 @@ const ZeroCostSection = () => {
               <div className="border-t border-border pt-6 flex items-center justify-between">
                 <div>
                   <p className="text-xs text-navy/50 uppercase tracking-wider mb-1 font-semibold">Avaliação inicial</p>
-                  <p className="text-gold-dark font-display text-2xl font-bold">Gratuita e sigilosa</p>
+                  <p className="text-gold-dark font-display text-2xl font-bold">Sigilosa e sem compromisso</p>
                 </div>
                 <div className="w-14 h-14 rounded-xl bg-navy flex items-center justify-center">
                   <Gavel className="w-7 h-7 text-gold" />
@@ -487,7 +487,7 @@ const HowItWorksSection = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { step: "01", title: "Entre em Contato", desc: "Fale conosco pelo WhatsApp ou formulário e envie os dados do seu contrato.", icon: MessageCircle },
-              { step: "02", title: "Análise Gratuita", desc: "Nossa equipe verifica se há cobrança indevida — sem nenhum custo.", icon: FileCheck },
+              { step: "02", title: "Avaliação Inicial", desc: "Nossa equipe verifica se há cobrança indevida.", icon: FileCheck },
               { step: "03", title: "Ação Judicial", desc: "Entramos com o processo para recuperar seus valores pagos a mais.", icon: Gavel },
               { step: "04", title: "Receba de Volta", desc: "Após a decisão favorável, você recebe a restituição do que pagou a mais.", icon: DollarSign },
             ].map((item, i) => (
