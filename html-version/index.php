@@ -232,11 +232,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
   <section class="zero-cost reveal">
     <div class="container two-col">
       <div>
-        <span class="kicker">Análise Gratuita</span>
+        <span class="kicker">Avaliação Especializada</span>
         <h2>Avaliamos seu caso <span class="highlight italic">sem compromisso</span>.</h2>
-        <p class="lead">Nossa equipe analisa seu contrato gratuitamente e mostra se você tem direito à restituição. Tese fundamentada em lei, com casos reais vencidos no Brasil.</p>
+        <p class="lead">Nossa equipe analisa seu contrato e mostra se você tem direito à restituição. Tese fundamentada em lei, com casos reais vencidos no Brasil.</p>
         <ul class="check-list">
-          <li><div class="check-ic"><i data-lucide="check-circle"></i></div><div><strong>Análise Gratuita</strong><span>Avaliamos seu contrato sem qualquer custo ou compromisso inicial.</span></div></li>
+          <li><div class="check-ic"><i data-lucide="check-circle"></i></div><div><strong>Avaliação Inicial</strong><span>Avaliamos seu contrato sem compromisso inicial.</span></div></li>
           <li><div class="check-ic"><i data-lucide="check-circle"></i></div><div><strong>Base Legal Sólida</strong><span>Tese fundamentada na Lei nº 10.931/2004, com casos vencidos no Brasil.</span></div></li>
           <li><div class="check-ic"><i data-lucide="check-circle"></i></div><div><strong>100% Remoto</strong><span>Atendemos clientes em todo o território nacional, sem precisar sair de casa.</span></div></li>
         </ul>
@@ -250,7 +250,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
           <div class="quote-foot">
             <div>
               <p class="quote-foot-kicker">Avaliação inicial</p>
-              <p class="quote-foot-value">Gratuita e sigilosa</p>
+              <p class="quote-foot-value">Sigilosa e sem compromisso</p>
             </div>
             <div class="quote-gavel"><i data-lucide="gavel"></i></div>
           </div>
