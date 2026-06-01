@@ -100,7 +100,7 @@ const HeroSection = () => {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-gold-dark" />
             </span>
             <span className="text-gold-dark text-xs font-bold tracking-wide uppercase">
-              Análise Gratuita • Sem Compromisso
+              Sem Compromisso
             </span>
           </div>
 
@@ -129,7 +129,7 @@ const HeroSection = () => {
           </div>
 
           <div className="mt-16 flex flex-wrap gap-x-10 gap-y-3 text-sm text-navy/60 animate-fade-up delay-500">
-            {["Análise gratuita", "100% dentro da Lei", "Para todo o Brasil"].map((t, i) => (
+            {["Avaliação especializada", "100% dentro da Lei", "Para todo o Brasil"].map((t, i) => (
               <div key={t} className="flex items-center gap-2 group cursor-default">
                 <CheckCircle className="w-4 h-4 text-gold-dark group-hover:scale-125 transition-transform" />
                 <span className="group-hover:text-navy transition-colors">{t}</span>
@@ -149,7 +149,7 @@ const HeroSection = () => {
 
 /* ---------- MARQUEE ---------- */
 const MarqueeSection = () => {
-  const items = ["Lei nº 10.931/2004", "Análise Gratuita", "100% Remoto", "Sem Compromisso", "Para todo Brasil", "Casos Reais Vencidos", "Atendimento Especializado", "Tese Consolidada"];
+  const items = ["Lei nº 10.931/2004", "Avaliação Especializada", "100% Remoto", "Sem Compromisso", "Para todo Brasil", "Casos Reais Vencidos", "Atendimento Especializado", "Tese Consolidada"];
   return (
     <section className="bg-navy py-6 overflow-hidden border-y-4 border-gold">
       <div className="flex animate-marquee whitespace-nowrap">
@@ -408,7 +408,7 @@ const ZeroCostSection = () => {
       <div ref={ref} className="reveal max-w-7xl mx-auto px-6 md:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div>
-            <span className="inline-block text-gold-dark text-xs font-bold tracking-[0.2em] uppercase mb-4 px-3 py-1 bg-gold/10 rounded-full">Análise Gratuita</span>
+            <span className="inline-block text-gold-dark text-xs font-bold tracking-[0.2em] uppercase mb-4 px-3 py-1 bg-gold/10 rounded-full">Avaliação Especializada</span>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-8 leading-[1.05]">
               Avaliamos seu caso{" "}
               <span className="relative inline-block">
