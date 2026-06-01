@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
     <div class="container hero-content">
       <div class="hero-badge fade-up">
         <span class="ping-dot"><span></span><span></span></span>
-        <span>Análise Gratuita • Sem Compromisso</span>
+        <span>Sem Compromisso</span>
       </div>
       <h1 class="hero-title fade-up delay-100">
         Quem compra imóvel <br class="hide-mobile" />na planta<br />
@@ -112,7 +112,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
         </a>
       </div>
       <div class="hero-checks fade-up delay-500">
-        <div><i data-lucide="check-circle"></i><span>Análise gratuita</span></div>
+        <div><i data-lucide="check-circle"></i><span>Avaliação especializada</span></div>
         <div><i data-lucide="check-circle"></i><span>100% dentro da Lei</span></div>
         <div><i data-lucide="check-circle"></i><span>Para todo o Brasil</span></div>
       </div>
