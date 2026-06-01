@@ -40,14 +40,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Recupere Seu Dinheiro | Cobranças Ilegais em Imóvel na Planta</title>
-  <meta name="description" content="Comprou imóvel na planta nos últimos 5 anos? Você pode ter sofrido cobranças ilegais. Análise gratuita e sem compromisso. Todo o Brasil." />
+  <meta name="description" content="Comprou imóvel na planta nos últimos 5 anos? Você pode ter sofrido cobranças ilegais. Sem compromisso. Todo o Brasil." />
   <meta name="author" content="Universo S.A." />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Recupere Seu Dinheiro | Cobranças Ilegais em Imóvel na Planta" />
-  <meta property="og:description" content="Comprou imóvel na planta nos últimos 5 anos? Você pode ter sofrido cobranças ilegais. Análise gratuita e sem compromisso. Todo o Brasil." />
+  <meta property="og:description" content="Comprou imóvel na planta nos últimos 5 anos? Você pode ter sofrido cobranças ilegais. Sem compromisso. Todo o Brasil." />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Recupere Seu Dinheiro | Cobranças Ilegais em Imóvel na Planta" />
-  <meta name="twitter:description" content="Comprou imóvel na planta nos últimos 5 anos? Você pode ter sofrido cobranças ilegais. Análise gratuita e sem compromisso. Todo o Brasil." />
+  <meta name="twitter:description" content="Comprou imóvel na planta nos últimos 5 anos? Você pode ter sofrido cobranças ilegais. Sem compromisso. Todo o Brasil." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
     <div class="container hero-content">
       <div class="hero-badge fade-up">
         <span class="ping-dot"><span></span><span></span></span>
-        <span>Análise Gratuita • Sem Compromisso</span>
+        <span>Sem Compromisso</span>
       </div>
       <h1 class="hero-title fade-up delay-100">
         Quem compra imóvel <br class="hide-mobile" />na planta<br />
@@ -112,7 +112,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
         </a>
       </div>
       <div class="hero-checks fade-up delay-500">
-        <div><i data-lucide="check-circle"></i><span>Análise gratuita</span></div>
+        <div><i data-lucide="check-circle"></i><span>Avaliação especializada</span></div>
         <div><i data-lucide="check-circle"></i><span>100% dentro da Lei</span></div>
         <div><i data-lucide="check-circle"></i><span>Para todo o Brasil</span></div>
       </div>
@@ -232,11 +232,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
   <section class="zero-cost reveal">
     <div class="container two-col">
       <div>
-        <span class="kicker">Análise Gratuita</span>
+        <span class="kicker">Avaliação Especializada</span>
         <h2>Avaliamos seu caso <span class="highlight italic">sem compromisso</span>.</h2>
-        <p class="lead">Nossa equipe analisa seu contrato gratuitamente e mostra se você tem direito à restituição. Tese fundamentada em lei, com casos reais vencidos no Brasil.</p>
+        <p class="lead">Nossa equipe analisa seu contrato e mostra se você tem direito à restituição. Tese fundamentada em lei, com casos reais vencidos no Brasil.</p>
         <ul class="check-list">
-          <li><div class="check-ic"><i data-lucide="check-circle"></i></div><div><strong>Análise Gratuita</strong><span>Avaliamos seu contrato sem qualquer custo ou compromisso inicial.</span></div></li>
+          <li><div class="check-ic"><i data-lucide="check-circle"></i></div><div><strong>Avaliação Inicial</strong><span>Avaliamos seu contrato sem compromisso inicial.</span></div></li>
           <li><div class="check-ic"><i data-lucide="check-circle"></i></div><div><strong>Base Legal Sólida</strong><span>Tese fundamentada na Lei nº 10.931/2004, com casos vencidos no Brasil.</span></div></li>
           <li><div class="check-ic"><i data-lucide="check-circle"></i></div><div><strong>100% Remoto</strong><span>Atendemos clientes em todo o território nacional, sem precisar sair de casa.</span></div></li>
         </ul>
@@ -250,7 +250,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
           <div class="quote-foot">
             <div>
               <p class="quote-foot-kicker">Avaliação inicial</p>
-              <p class="quote-foot-value">Gratuita e sigilosa</p>
+              <p class="quote-foot-value">Sigilosa e sem compromisso</p>
             </div>
             <div class="quote-gavel"><i data-lucide="gavel"></i></div>
           </div>
@@ -274,8 +274,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
         </article>
         <article class="how-card">
           <div class="how-icon-wrap"><div class="how-icon"><i data-lucide="file-check"></i></div><span class="how-step">02</span></div>
-          <h3>Análise Gratuita</h3>
-          <p>Nossa equipe verifica se há cobrança indevida — sem nenhum custo.</p>
+          <h3>Avaliação Inicial</h3>
+          <p>Nossa equipe verifica se há cobrança indevida.</p>
         </article>
         <article class="how-card">
           <div class="how-icon-wrap"><div class="how-icon"><i data-lucide="gavel"></i></div><span class="how-step">03</span></div>
@@ -295,12 +295,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
   <section id="contato" class="contato reveal">
     <div class="container two-col">
       <div>
-        <span class="kicker">Análise Gratuita</span>
+        <span class="kicker">Avaliação Especializada</span>
         <h2>Solicite sua <span class="highlight italic">avaliação.</span></h2>
-        <p class="lead">Preencha o formulário e nossa equipe fará uma análise completa e gratuita do seu caso.</p>
+        <p class="lead">Preencha o formulário e nossa equipe fará uma análise completa do seu caso.</p>
         <div class="check-simple">
           <div><i data-lucide="check-circle"></i><span>Resposta em até 24 horas</span></div>
-          <div><i data-lucide="check-circle"></i><span>Análise 100% gratuita e sem compromisso</span></div>
+          <div><i data-lucide="check-circle"></i><span>Análise sem compromisso</span></div>
           <div><i data-lucide="check-circle"></i><span>Atendimento em todo o Brasil</span></div>
         </div>
       </div>
@@ -322,7 +322,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
           <div><label>Valor do Imóvel</label><input type="text" name="propertyValue" id="fProp" maxlength="30" placeholder="Ex: R$ 500.000" /></div>
           <div><label>Detalhes do Imóvel</label><textarea name="details" id="fDetails" maxlength="500" rows="3" placeholder="Construtora, empreendimento, ano da compra, parcelas..."></textarea></div>
           <button type="submit" class="btn-dark" id="submitBtn">
-            <i data-lucide="send"></i> Solicitar Análise Gratuita
+            <i data-lucide="send"></i> Solicitar Avaliação
           </button>
           <p class="form-hint">Seus dados são confidenciais e usados apenas para análise do seu caso.</p>
         </form>

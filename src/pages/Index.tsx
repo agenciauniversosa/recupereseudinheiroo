@@ -100,7 +100,7 @@ const HeroSection = () => {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-gold-dark" />
             </span>
             <span className="text-gold-dark text-xs font-bold tracking-wide uppercase">
-              Análise Gratuita • Sem Compromisso
+              Sem Compromisso
             </span>
           </div>
 
@@ -129,7 +129,7 @@ const HeroSection = () => {
           </div>
 
           <div className="mt-16 flex flex-wrap gap-x-10 gap-y-3 text-sm text-navy/60 animate-fade-up delay-500">
-            {["Análise gratuita", "100% dentro da Lei", "Para todo o Brasil"].map((t, i) => (
+            {["Avaliação especializada", "100% dentro da Lei", "Para todo o Brasil"].map((t, i) => (
               <div key={t} className="flex items-center gap-2 group cursor-default">
                 <CheckCircle className="w-4 h-4 text-gold-dark group-hover:scale-125 transition-transform" />
                 <span className="group-hover:text-navy transition-colors">{t}</span>
@@ -149,7 +149,7 @@ const HeroSection = () => {
 
 /* ---------- MARQUEE ---------- */
 const MarqueeSection = () => {
-  const items = ["Lei nº 10.931/2004", "Análise Gratuita", "100% Remoto", "Sem Compromisso", "Para todo Brasil", "Casos Reais Vencidos", "Atendimento Especializado", "Tese Consolidada"];
+  const items = ["Lei nº 10.931/2004", "Avaliação Especializada", "100% Remoto", "Sem Compromisso", "Para todo Brasil", "Casos Reais Vencidos", "Atendimento Especializado", "Tese Consolidada"];
   return (
     <section className="bg-navy py-6 overflow-hidden border-y-4 border-gold">
       <div className="flex animate-marquee whitespace-nowrap">
@@ -408,7 +408,7 @@ const ZeroCostSection = () => {
       <div ref={ref} className="reveal max-w-7xl mx-auto px-6 md:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div>
-            <span className="inline-block text-gold-dark text-xs font-bold tracking-[0.2em] uppercase mb-4 px-3 py-1 bg-gold/10 rounded-full">Análise Gratuita</span>
+            <span className="inline-block text-gold-dark text-xs font-bold tracking-[0.2em] uppercase mb-4 px-3 py-1 bg-gold/10 rounded-full">Avaliação Especializada</span>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-8 leading-[1.05]">
               Avaliamos seu caso{" "}
               <span className="relative inline-block">
@@ -417,12 +417,12 @@ const ZeroCostSection = () => {
               </span>.
             </h2>
             <p className="text-navy/70 text-lg leading-relaxed mb-10 max-w-xl">
-              Nossa equipe analisa seu contrato gratuitamente e mostra se você tem direito à restituição.
+              Nossa equipe analisa seu contrato e mostra se você tem direito à restituição.
               Tese fundamentada em lei, com casos reais vencidos no Brasil.
             </p>
             <ul className="space-y-5">
               {[
-                { title: "Análise Gratuita", desc: "Avaliamos seu contrato sem qualquer custo ou compromisso inicial." },
+                { title: "Avaliação Inicial", desc: "Avaliamos seu contrato sem compromisso inicial." },
                 { title: "Base Legal Sólida", desc: "Tese fundamentada na Lei nº 10.931/2004, com casos vencidos no Brasil." },
                 { title: "100% Remoto", desc: "Atendemos clientes em todo o território nacional, sem precisar sair de casa." },
               ].map((item) => (
@@ -453,7 +453,7 @@ const ZeroCostSection = () => {
               <div className="border-t border-border pt-6 flex items-center justify-between">
                 <div>
                   <p className="text-xs text-navy/50 uppercase tracking-wider mb-1 font-semibold">Avaliação inicial</p>
-                  <p className="text-gold-dark font-display text-2xl font-bold">Gratuita e sigilosa</p>
+                  <p className="text-gold-dark font-display text-2xl font-bold">Sigilosa e sem compromisso</p>
                 </div>
                 <div className="w-14 h-14 rounded-xl bg-navy flex items-center justify-center">
                   <Gavel className="w-7 h-7 text-gold" />
@@ -487,7 +487,7 @@ const HowItWorksSection = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { step: "01", title: "Entre em Contato", desc: "Fale conosco pelo WhatsApp ou formulário e envie os dados do seu contrato.", icon: MessageCircle },
-              { step: "02", title: "Análise Gratuita", desc: "Nossa equipe verifica se há cobrança indevida — sem nenhum custo.", icon: FileCheck },
+              { step: "02", title: "Avaliação Inicial", desc: "Nossa equipe verifica se há cobrança indevida.", icon: FileCheck },
               { step: "03", title: "Ação Judicial", desc: "Entramos com o processo para recuperar seus valores pagos a mais.", icon: Gavel },
               { step: "04", title: "Receba de Volta", desc: "Após a decisão favorável, você recebe a restituição do que pagou a mais.", icon: DollarSign },
             ].map((item, i) => (
@@ -635,7 +635,7 @@ const CalculatorSection = () => {
                       className="w-full bg-navy text-primary-foreground py-4 rounded-xl text-sm font-bold uppercase tracking-wider hover:bg-gold hover:text-navy transition-all hover:scale-[1.02] flex items-center justify-center gap-3"
                     >
                       <MessageCircle className="w-5 h-5" />
-                      Quero Análise Gratuita
+                      Quero Análise Detalhada
                     </a>
                   </div>
                 ) : showLeadForm ? (
@@ -667,7 +667,7 @@ const CalculatorSection = () => {
                     <div className="text-center mb-2">
                       <p className="text-xs font-bold uppercase tracking-wider text-gold-dark mb-2">Última etapa</p>
                       <h4 className="font-display font-bold text-navy text-xl">Para ver sua estimativa</h4>
-                      <p className="text-navy/60 text-sm mt-1">Preencha seus dados — é rápido e gratuito.</p>
+                      <p className="text-navy/60 text-sm mt-1">Preencha seus dados — é rápido.</p>
                     </div>
                     <div>
                       <label className="block text-xs font-bold uppercase tracking-wider text-navy/60 mb-2">Nome *</label>
@@ -745,7 +745,7 @@ const FAQSection = () => {
   const [open, setOpen] = useState<number | null>(0);
   const faqs = [
     { q: "Quem tem direito à restituição?", a: "Qualquer pessoa que tenha adquirido imóvel na planta nos últimos 5 anos e pago parcelas com correção monetária mensal em contratos quitados perante a construtora em prazo inferior a 36 meses, independentemente de a quitação ter ocorrido por meio de financiamento bancário." },
-    { q: "A análise inicial tem algum custo?", a: "A análise jurídica inicial não possui custo. Após a avaliação preliminar e a verificação da viabilidade do direito, poderá ser necessária a elaboração de cálculos judiciais para apuração dos valores eventualmente cobrados a maior. Esses cálculos são realizados por especialista e possuem custo simbólico, proporcional aos valores que podem ser recuperados. Antes de qualquer próximo passo, avaliamos toda a documentação e esclarecemos detalhadamente as opções disponíveis." },
+    { q: "A análise inicial tem algum custo?", a: "A análise jurídica inicial é feita sem nenhum compromisso. Após a avaliação preliminar e a verificação da viabilidade do direito, poderá ser necessária a elaboração de cálculos judiciais para apuração dos valores eventualmente cobrados a maior. Esses cálculos são realizados por especialista e possuem custo simbólico, proporcional aos valores que podem ser recuperados. Antes de qualquer próximo passo, avaliamos toda a documentação e esclarecemos detalhadamente as opções disponíveis." },
     { q: "Qual o valor médio que posso recuperar?", a: "Depende do contrato, mas casos reais já resultaram em restituições de valores substanciais. A equipe faz uma análise para estimar seu caso." },
     { q: "Isso é legal? É seguro?", a: "Totalmente! A tese é baseada na Lei nº 10.931/2004 e já foi aplicada com sucesso em diversos tribunais brasileiros. Seu direito está 100% amparado pela legislação." },
     { q: "Meu imóvel está financiado pelo banco, tenho direito assim mesmo?", a: "Sim! Muitos possuem imóveis financiados através de instituições financeiras, e isso não impede em nada no direito de recuperar seu dinheiro." },
@@ -843,15 +843,15 @@ const ContactFormSection = () => {
       <div ref={ref} className="reveal max-w-7xl mx-auto px-6 md:px-8 relative">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <div>
-            <span className="inline-block text-gold-dark text-xs font-bold tracking-[0.2em] uppercase mb-4 px-3 py-1 bg-gold/10 rounded-full">Análise Gratuita</span>
+            <span className="inline-block text-gold-dark text-xs font-bold tracking-[0.2em] uppercase mb-4 px-3 py-1 bg-gold/10 rounded-full">Avaliação Especializada</span>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-8 leading-[1.05]">
               Solicite sua <span className="text-gold-dark italic">avaliação.</span>
             </h2>
             <p className="text-navy/70 text-lg leading-relaxed mb-10 max-w-xl">
-              Preencha o formulário e nossa equipe fará uma análise completa e gratuita do seu caso.
+              Preencha o formulário e nossa equipe fará uma análise completa do seu caso.
             </p>
             <div className="space-y-4">
-              {["Resposta em até 24 horas", "Análise 100% gratuita e sem compromisso", "Atendimento em todo o Brasil"].map((t) => (
+              {["Resposta em até 24 horas", "Análise sem compromisso", "Atendimento em todo o Brasil"].map((t) => (
                 <div key={t} className="flex items-center gap-4 group">
                   <div className="w-8 h-8 rounded-full bg-gold/15 flex items-center justify-center group-hover:bg-gold-dark transition-colors">
                     <CheckCircle className="w-4 h-4 text-gold-dark group-hover:text-primary-foreground transition-colors" />
@@ -919,7 +919,7 @@ const ContactFormSection = () => {
                     className="w-full bg-navy text-primary-foreground py-4 rounded-xl text-sm font-bold uppercase tracking-wider hover:bg-gold hover:text-navy transition-all hover:scale-[1.02] flex items-center justify-center gap-3 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:scale-100 mt-2"
                   >
                     <Send className="w-5 h-5" />
-                    Solicitar Análise Gratuita
+                    Solicitar Avaliação
                   </button>
 
                   <p className="text-xs text-navy/40 text-center">

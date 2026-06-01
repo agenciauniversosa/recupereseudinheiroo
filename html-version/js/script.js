@@ -47,7 +47,7 @@ function initNavbar() {
 
 /* ---------- MARQUEE ---------- */
 function initMarquee() {
-  const items = ["Lei nº 10.931/2004", "Análise Gratuita", "100% Remoto", "Sem Compromisso", "Para todo Brasil", "Casos Reais Vencidos", "Atendimento Especializado", "Tese Consolidada"];
+  const items = ["Lei nº 10.931/2004", "Avaliação Especializada", "100% Remoto", "Sem Compromisso", "Para todo Brasil", "Casos Reais Vencidos", "Atendimento Especializado", "Tese Consolidada"];
   const track = document.getElementById("marqueeTrack");
   const all = [...items, ...items, ...items];
   track.innerHTML = all
@@ -149,7 +149,7 @@ function initReveal() {
 function initFAQ() {
   const faqs = [
     { q: "Quem tem direito à restituição?", a: "Qualquer pessoa que tenha adquirido imóvel na planta nos últimos 5 anos e pago parcelas com correção monetária mensal em contratos quitados perante a construtora em prazo inferior a 36 meses, independentemente de a quitação ter ocorrido por meio de financiamento bancário." },
-    { q: "A análise inicial tem algum custo?", a: "A análise jurídica inicial não possui custo. Após a avaliação preliminar e a verificação da viabilidade do direito, poderá ser necessária a elaboração de cálculos judiciais para apuração dos valores eventualmente cobrados a maior. Esses cálculos são realizados por especialista e possuem custo simbólico, proporcional aos valores que podem ser recuperados. Antes de qualquer próximo passo, avaliamos toda a documentação e esclarecemos detalhadamente as opções disponíveis." },
+    { q: "A análise inicial tem algum custo?", a: "A análise jurídica inicial é feita sem nenhum compromisso. Após a avaliação preliminar e a verificação da viabilidade do direito, poderá ser necessária a elaboração de cálculos judiciais para apuração dos valores eventualmente cobrados a maior. Esses cálculos são realizados por especialista e possuem custo simbólico, proporcional aos valores que podem ser recuperados. Antes de qualquer próximo passo, avaliamos toda a documentação e esclarecemos detalhadamente as opções disponíveis." },
     { q: "Qual o valor médio que posso recuperar?", a: "Depende do contrato, mas casos reais já resultaram em restituições de valores substanciais. A equipe faz uma análise para estimar seu caso." },
     { q: "Isso é legal? É seguro?", a: "Totalmente! A tese é baseada na Lei nº 10.931/2004 e já foi aplicada com sucesso em diversos tribunais brasileiros. Seu direito está 100% amparado pela legislação." },
     { q: "Meu imóvel está financiado pelo banco, tenho direito assim mesmo?", a: "Sim! Muitos possuem imóveis financiados através de instituições financeiras, e isso não impede em nada no direito de recuperar seu dinheiro." },
@@ -314,7 +314,7 @@ function initCalculator() {
           <p class="note">*Estimativa simplificada</p>
         </div>
         <a href="https://wa.me/${window.WHATSAPP}?text=${msg}" target="_blank" rel="noopener" class="btn-dark" style="text-decoration:none;">
-          <i data-lucide="message-circle"></i> Quero Análise Gratuita
+          <i data-lucide="message-circle"></i> Quero Análise Detalhada
         </a>
       </div>`;
     resultArea.insertAdjacentHTML("beforeend", html);
