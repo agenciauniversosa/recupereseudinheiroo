@@ -1,6 +1,6 @@
 <?php
 // Configuração principal
-$WHATSAPP = "5500000000000";
+$WHATSAPP = "556199566564";
 $ANO_ATUAL = date("Y");
 
 // Processamento do formulário (envio para WhatsApp via PHP server-side opcional)
@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
         <a href="#faq">FAQ</a>
         <a href="#contato">Contato</a>
       </div>
-      <a href="https://wa.me/<?= htmlspecialchars($WHATSAPP) ?>" target="_blank" rel="noopener" class="nav-cta">
+      <a href="https://wa.me/<?= htmlspecialchars($WHATSAPP) ?>?text=<?= rawurlencode('Olá! Quero saber mais sobre a recuperação de cobranças ilegais em imóvel na planta.') ?>" target="_blank" rel="noopener" class="nav-cta">
         <i data-lucide="message-circle"></i> WhatsApp
       </a>
       <button class="nav-toggle" id="navToggle" aria-label="Menu">
@@ -79,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
       <a href="#como-funciona">Como Funciona</a>
       <a href="#faq">FAQ</a>
       <a href="#contato">Contato</a>
-      <a href="https://wa.me/<?= htmlspecialchars($WHATSAPP) ?>" target="_blank" rel="noopener" class="nav-cta-mobile">
+      <a href="https://wa.me/<?= htmlspecialchars($WHATSAPP) ?>?text=<?= rawurlencode('Olá! Quero saber mais sobre a recuperação de cobranças ilegais em imóvel na planta.') ?>" target="_blank" rel="noopener" class="nav-cta-mobile">
         <i data-lucide="message-circle"></i> Falar no WhatsApp
       </a>
     </div>
