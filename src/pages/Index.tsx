@@ -7,7 +7,7 @@ import logo from "@/assets/logo.png";
 import heroBg from "@/assets/hero-construction.jpg";
 import ctaBg from "@/assets/cta-blueprint.jpg";
 
-const WHATSAPP = "5500000000000";
+const WHATSAPP = "556199566564";
 
 /* ---------- NAVBAR ---------- */
 const Navbar = () => {
@@ -45,7 +45,7 @@ const Navbar = () => {
           ))}
         </div>
         <a
-          href={`https://wa.me/${WHATSAPP}`}
+          href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Olá! Quero saber mais sobre a recuperação de cobranças ilegais em imóvel na planta.")}`}
           target="_blank"
           rel="noopener noreferrer"
           className="hidden md:inline-flex items-center gap-2 bg-navy text-primary-foreground px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-gold hover:text-navy transition-all hover:scale-105 hover:shadow-lg"
@@ -63,7 +63,7 @@ const Navbar = () => {
             {links.map((l) => (
               <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-navy/80 hover:text-gold-dark hover:bg-muted/50 transition-all py-3 px-4 -mx-4 rounded-xl font-medium">{l.label}</a>
             ))}
-            <a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noopener noreferrer" className="bg-navy text-primary-foreground px-5 py-3.5 rounded-full text-sm font-semibold text-center mt-3 inline-flex items-center justify-center gap-2 hover:bg-gold hover:text-navy transition-colors">
+            <a href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Olá! Quero saber mais sobre a recuperação de cobranças ilegais em imóvel na planta.")}`} target="_blank" rel="noopener noreferrer" className="bg-navy text-primary-foreground px-5 py-3.5 rounded-full text-sm font-semibold text-center mt-3 inline-flex items-center justify-center gap-2 hover:bg-gold hover:text-navy transition-colors">
               <MessageCircle className="w-4 h-4" />
               Falar no WhatsApp
             </a>
