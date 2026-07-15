@@ -353,7 +353,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
       <h2>Não deixe seu dinheiro nas mãos da <span class="text-gradient-gold italic">construtora.</span></h2>
       <p>Cada dia que passa é um dia a menos do seu prazo de 5 anos. Fale conosco agora e descubra quanto você pode recuperar.</p>
       <div class="cta-actions">
-        <a href="https://wa.me/<?= htmlspecialchars($WHATSAPP) ?>?text=<?= rawurlencode('Olá! Quero saber se tenho direito à restituição.') ?>" target="_blank" rel="noopener" class="btn-gold">
+        <a href="https://wa.me/<?= htmlspecialchars($WHATSAPP) ?>?text=<?= rawurlencode('Olá! Quero saber se tenho direito à restituição de cobranças ilegais em imóvel na planta.') ?>" target="_blank" rel="noopener" class="btn-gold">
           <i data-lucide="message-circle"></i> Falar pelo WhatsApp <i data-lucide="arrow-right"></i>
         </a>
         <a href="tel:+<?= htmlspecialchars($WHATSAPP) ?>" class="btn-outline-light">
@@ -381,7 +381,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
   </footer>
 
   <!-- ================= WHATSAPP FAB ================= -->
-  <a href="https://wa.me/<?= htmlspecialchars($WHATSAPP) ?>?text=<?= rawurlencode('Olá! Quero saber mais sobre a recuperação de cobranças ilegais.') ?>" target="_blank" rel="noopener" class="fab" id="waFab" aria-label="Falar no WhatsApp">
+  <a href="https://wa.me/<?= htmlspecialchars($WHATSAPP) ?>?text=<?= rawurlencode('Olá! Quero saber mais sobre a recuperação de cobranças ilegais em imóvel na planta.') ?>" target="_blank" rel="noopener" class="fab" id="waFab" aria-label="Falar no WhatsApp">
     <span class="fab-ping"></span>
     <i data-lucide="message-circle"></i>
   </a>

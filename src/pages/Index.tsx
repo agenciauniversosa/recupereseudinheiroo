@@ -959,7 +959,7 @@ const CTASection = () => (
       </p>
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
         <a
-          href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Olá! Quero saber se tenho direito à restituição.")}`}
+          href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Olá! Quero saber se tenho direito à restituição de cobranças ilegais em imóvel na planta.")}`}
           target="_blank"
           rel="noopener noreferrer"
           className="group bg-gold text-navy px-8 py-4 rounded-full text-sm font-bold uppercase tracking-wider transition-all hover:scale-105 hover:shadow-2xl hover:shadow-gold/40 inline-flex items-center justify-center gap-3"
@@ -1027,7 +1027,7 @@ const WhatsAppFAB = () => {
   }, []);
   return (
     <a
-      href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Olá! Quero saber mais sobre a recuperação de cobranças ilegais.")}`}
+      href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Olá! Quero saber mais sobre a recuperação de cobranças ilegais em imóvel na planta.")}`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Falar no WhatsApp"
