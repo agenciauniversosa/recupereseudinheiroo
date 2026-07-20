@@ -1,3 +1,5 @@
+import { createClient } from "npm:@supabase/supabase-js@2";
+
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
@@ -47,6 +49,26 @@ Deno.serve(async (req) => {
       String(propertyValue).trim(),
       String(details).trim(),
     ];
+
+    // Persist to DB (service role bypasses RLS)
+    try {
+      const admin = createClient(
+        Deno.env.get("SUPABASE_URL")!,
+        Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
+      );
+      const { error: dbErr } = await admin.from("leads").insert({
+        name: name.trim(),
+        email: email.trim(),
+        phone,
+        city: String(city).trim() || null,
+        property_value: String(propertyValue).trim() || null,
+        details: String(details).trim() || null,
+        source: "site_form",
+      });
+      if (dbErr) console.error("DB insert error:", dbErr);
+    } catch (e) {
+      console.error("DB insert threw:", e);
+    }
 
     const range = `${SHEET_NAME}!A:G`;
     const url = `${GATEWAY_URL}/spreadsheets/${SPREADSHEET_ID}/values/${range}:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`;
