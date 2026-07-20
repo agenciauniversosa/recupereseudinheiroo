@@ -504,8 +504,83 @@ const Admin = () => {
                   <Button variant="outline" className="w-full">E-mail</Button>
                 </a>
               </div>
+
+              <div className="border-t pt-4">
+                <div className="flex items-center justify-between mb-2">
+                  <h4 className="font-semibold text-navy flex items-center gap-2"><MessageCircle className="w-4 h-4" /> Follow-ups automáticos</h4>
+                  <span className="text-xs text-muted-foreground">{followups.length} registro(s)</span>
+                </div>
+                {loadingFollowups ? (
+                  <div className="py-4 text-center"><Loader2 className="w-4 h-4 animate-spin inline" /></div>
+                ) : followups.length === 0 ? (
+                  <div className="text-xs text-muted-foreground py-2">Nenhum disparo registrado ainda.</div>
+                ) : (
+                  <div className="space-y-2 max-h-64 overflow-y-auto">
+                    {followups.map((f) => (
+                      <div key={f.id} className="border rounded p-3 text-xs space-y-2 bg-background">
+                        <div className="flex items-center justify-between gap-2">
+                          <div className="flex items-center gap-2">
+                            <Badge variant="outline">{EVENT_LABEL[f.event]}</Badge>
+                            <Badge className={
+                              f.status === "enviado" ? "bg-emerald-500 text-white" :
+                              f.status === "cancelado" ? "bg-slate-400 text-white" :
+                              "bg-amber-500 text-white"
+                            }>{f.status}</Badge>
+                          </div>
+                          <span className="text-muted-foreground">{fmtDate(f.created_at)}</span>
+                        </div>
+                        <div className="whitespace-pre-wrap text-foreground">{f.message}</div>
+                        {f.sent_at && (
+                          <div className="text-muted-foreground">Enviado em {fmtDate(f.sent_at)}</div>
+                        )}
+                        {f.status === "pendente" && (
+                          <div className="flex gap-2 pt-1">
+                            <Button size="sm" className="bg-emerald-600 hover:bg-emerald-700 h-8"
+                              onClick={() => markFollowupSent(f)} disabled={!f.wa_link}>
+                              <Send className="w-3.5 h-3.5 mr-1" /> Abrir WhatsApp e registrar
+                            </Button>
+                            <Button size="sm" variant="ghost" className="h-8" onClick={() => cancelFollowup(f)}>Cancelar</Button>
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
           )}
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={templatesOpen} onOpenChange={setTemplatesOpen}>
+        <DialogContent className="max-w-2xl">
+          <DialogHeader><DialogTitle>Templates de follow-up</DialogTitle></DialogHeader>
+          <p className="text-xs text-muted-foreground">
+            Variáveis disponíveis: <code>{"{{name}}"}</code>, <code>{"{{city}}"}</code>, <code>{"{{property_value}}"}</code>, <code>{"{{email}}"}</code>.
+            Alterações valem para os próximos disparos.
+          </p>
+          <div className="space-y-4 max-h-[60vh] overflow-y-auto">
+            {templates.map((t, idx) => (
+              <div key={t.id} className="border rounded p-3 space-y-2">
+                <div className="flex items-center justify-between">
+                  <div className="font-semibold text-navy text-sm">{EVENT_LABEL[t.event]}</div>
+                  <label className="flex items-center gap-2 text-xs">
+                    <input type="checkbox" checked={t.active}
+                      onChange={(e) => setTemplates((prev) => prev.map((x, i) => i === idx ? { ...x, active: e.target.checked } : x))} />
+                    Ativo
+                  </label>
+                </div>
+                <textarea
+                  className="w-full border rounded p-2 text-sm min-h-[100px]"
+                  value={t.message}
+                  onChange={(e) => setTemplates((prev) => prev.map((x, i) => i === idx ? { ...x, message: e.target.value } : x))}
+                />
+                <div className="flex justify-end">
+                  <Button size="sm" onClick={() => saveTemplate(t)}>Salvar</Button>
+                </div>
+              </div>
+            ))}
+          </div>
         </DialogContent>
       </Dialog>
     </div>
