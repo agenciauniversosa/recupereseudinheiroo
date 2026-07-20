@@ -14,6 +14,86 @@ export type Database = {
   }
   public: {
     Tables: {
+      followup_templates: {
+        Row: {
+          active: boolean
+          channel: string
+          created_at: string
+          event: string
+          id: string
+          message: string
+          updated_at: string
+        }
+        Insert: {
+          active?: boolean
+          channel?: string
+          created_at?: string
+          event: string
+          id?: string
+          message: string
+          updated_at?: string
+        }
+        Update: {
+          active?: boolean
+          channel?: string
+          created_at?: string
+          event?: string
+          id?: string
+          message?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      lead_followups: {
+        Row: {
+          channel: string
+          created_at: string
+          event: string
+          id: string
+          lead_id: string
+          message: string
+          sent_at: string | null
+          sent_by: string | null
+          status: string
+          updated_at: string
+          wa_link: string | null
+        }
+        Insert: {
+          channel?: string
+          created_at?: string
+          event: string
+          id?: string
+          lead_id: string
+          message: string
+          sent_at?: string | null
+          sent_by?: string | null
+          status?: string
+          updated_at?: string
+          wa_link?: string | null
+        }
+        Update: {
+          channel?: string
+          created_at?: string
+          event?: string
+          id?: string
+          lead_id?: string
+          message?: string
+          sent_at?: string | null
+          sent_by?: string | null
+          status?: string
+          updated_at?: string
+          wa_link?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "lead_followups_lead_id_fkey"
+            columns: ["lead_id"]
+            isOneToOne: false
+            referencedRelation: "leads"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       leads: {
         Row: {
           base_score: number
@@ -112,12 +192,23 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      build_wa_link: {
+        Args: { _message: string; _phone: string }
+        Returns: string
+      }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
           _user_id: string
         }
         Returns: boolean
+      }
+      render_followup_message: {
+        Args: {
+          _lead: Database["public"]["Tables"]["leads"]["Row"]
+          _tpl: string
+        }
+        Returns: string
       }
     }
     Enums: {
