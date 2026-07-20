@@ -1,0 +1,171 @@
+{
+  "version": 1,
+  "sdk_version": "0.24.0",
+  "path": "/functions/v1/mcp",
+  "auth": {
+    "type": "oauth",
+    "issuer": "https://uqzmhwzhkurcyyziujwe.supabase.co/auth/v1",
+    "accepted_audiences": [
+      "authenticated"
+    ]
+  },
+  "mcp": {
+    "server": {
+      "name": "seu-dinheiro-recuperado-mcp",
+      "version": "0.1.0",
+      "title": "Seu Dinheiro Recuperado — Painel de Leads"
+    },
+    "tools": [
+      {
+        "name": "list_leads",
+        "title": "Listar leads",
+        "description": "Lista leads capturados no site, com filtros opcionais por status, cidade e limite.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": [
+                "novo",
+                "em_contato",
+                "ganho",
+                "perdido"
+              ],
+              "description": "Filtra por status do lead."
+            },
+            "city": {
+              "type": "string",
+              "description": "Filtra por cidade (correspondência parcial)."
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 200,
+              "description": "Número máximo de leads a retornar (padrão 50)."
+            }
+          },
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_lead",
+        "title": "Detalhar lead",
+        "description": "Retorna os dados completos de um lead pelo id, incluindo follow-ups registrados.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid",
+              "description": "UUID do lead."
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "update_lead_status",
+        "title": "Atualizar status do lead",
+        "description": "Muda o status de um lead (novo, em_contato, ganho, perdido). Dispara automaticamente o follow-up configurado.",
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid",
+              "description": "UUID do lead."
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "novo",
+                "em_contato",
+                "ganho",
+                "perdido"
+              ],
+              "description": "Novo status do lead."
+            }
+          },
+          "required": [
+            "id",
+            "status"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "add_lead_note",
+        "title": "Adicionar nota ao lead",
+        "description": "Anexa uma anotação ao campo de notas do lead (concatena com as anotações existentes).",
+        "annotations": {
+          "readOnlyHint": false,
+          "idempotentHint": false,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid",
+              "description": "UUID do lead."
+            },
+            "note": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Texto da nota a adicionar."
+            }
+          },
+          "required": [
+            "id",
+            "note"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "leads_stats",
+        "title": "Estatísticas de leads",
+        "description": "Resumo agregado dos leads: total, contagem por status e score médio.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
