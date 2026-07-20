@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { lovable } from "@/integrations/lovable";
 import { Button } from "@/components/ui/button";
@@ -11,6 +11,10 @@ import { Loader2 } from "lucide-react";
 
 const Auth = () => {
   const navigate = useNavigate();
+  const [params] = useSearchParams();
+  const nextParam = params.get("next");
+  const safeNext = nextParam && nextParam.startsWith("/") && !nextParam.startsWith("//") ? nextParam : null;
+  const postAuthPath = safeNext ?? "/admin";
   const [mode, setMode] = useState<"signin" | "signup">("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,9 +24,9 @@ const Auth = () => {
   useEffect(() => {
     document.title = "Acesso ao Painel | Seu Dinheiro Recuperado";
     supabase.auth.getSession().then(({ data }) => {
-      if (data.session) navigate("/admin", { replace: true });
+      if (data.session) navigate(postAuthPath, { replace: true });
     });
-  }, [navigate]);
+  }, [navigate, postAuthPath]);
 
   const handleEmail = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,14 +36,17 @@ const Auth = () => {
         const { error } = await supabase.auth.signUp({
           email,
           password,
-          options: { emailRedirectTo: window.location.origin + "/admin", data: { full_name: name } },
+          options: {
+            emailRedirectTo: window.location.origin + postAuthPath,
+            data: { full_name: name },
+          },
         });
         if (error) throw error;
         toast.success("Conta criada! Verifique seu e-mail se necessário.");
       } else {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
-        navigate("/admin", { replace: true });
+        navigate(postAuthPath, { replace: true });
       }
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Erro ao autenticar");
@@ -50,7 +57,9 @@ const Auth = () => {
 
   const handleGoogle = async () => {
     setLoading(true);
-    const result = await lovable.auth.signInWithOAuth("google", { redirect_uri: window.location.origin + "/admin" });
+    const result = await lovable.auth.signInWithOAuth("google", {
+      redirect_uri: window.location.origin + postAuthPath,
+    });
     if (result.error) {
       toast.error("Erro no login com Google");
       setLoading(false);
