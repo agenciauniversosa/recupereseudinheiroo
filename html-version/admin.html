@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Painel de Leads | Admin</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script type="module">
+  import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.4";
+  const SUPABASE_URL = "https://uqzmhwzhkurcyyziujwe.supabase.co";
+  const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxem1od3poa3VyY3l5eml1andlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgwMTE5NjcsImV4cCI6MjA5MzU4Nzk2N30.1W6LciBc5fDQh508w__Kj077tVmUiqIUTGuevYAae4E";
+  window.supabase = createClient(SUPABASE_URL, SUPABASE_KEY, { auth: { persistSession: true, autoRefreshToken: true } });
+</script>
+<style>
+  :root { --navy:#0f2942; --gold:#fca412; }
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  .bg-navy { background-color: var(--navy); }
+  .text-navy { color: var(--navy); }
+  .text-gold { color: var(--gold); }
+  .bg-gold { background-color: var(--gold); }
+  .badge { display:inline-block; padding:2px 8px; font-size:11px; font-weight:600; border-radius:9999px; color:#fff; }
+  .b-novo{background:#3b82f6}.b-em_contato{background:#f59e0b}.b-ganho{background:#10b981}.b-perdido{background:#ef4444}
+</style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+<!-- LOGIN -->
+<div id="loginView" class="hidden min-h-screen flex items-center justify-center p-6">
+  <div class="bg-white shadow-xl rounded-2xl p-8 w-full max-w-md space-y-5">
+    <div class="text-center">
+      <h1 class="font-bold text-2xl text-navy">Painel de Leads</h1>
+      <p class="text-sm text-gray-500">Acesso restrito a administradores</p>
+    </div>
+    <div id="loginError" class="hidden text-sm p-3 rounded bg-red-50 text-red-700"></div>
+    <div class="space-y-3">
+      <input id="email" type="email" placeholder="E-mail" class="w-full px-4 py-2.5 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400" />
+      <input id="password" type="password" placeholder="Senha" class="w-full px-4 py-2.5 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400" />
+      <button id="btnLogin" class="w-full bg-navy text-white py-2.5 rounded-lg font-semibold hover:opacity-90">Entrar</button>
+      <button id="btnSignup" class="w-full border border-gray-300 text-gray-700 py-2.5 rounded-lg text-sm hover:bg-gray-50">Criar conta</button>
+      <button id="btnGoogle" class="w-full border border-gray-300 text-gray-700 py-2.5 rounded-lg font-medium hover:bg-gray-50 flex items-center justify-center gap-2">
+        <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.9 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.3-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 34.9 26.7 36 24 36c-5.3 0-9.7-3.1-11.3-7.5l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.3-2.3 4.3-4.1 5.6l6.2 5.2C41.1 35.1 44 30 44 24c0-1.3-.1-2.3-.4-3.5z"/></svg>
+        Entrar com Google
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- NO ADMIN -->
+<div id="noAdminView" class="hidden min-h-screen flex items-center justify-center p-6">
+  <div class="bg-white shadow-xl rounded-2xl p-8 max-w-md text-center space-y-3">
+    <div class="text-5xl">🔒</div>
+    <h2 class="text-2xl font-bold text-navy">Acesso restrito</h2>
+    <p class="text-gray-600" id="noAdminEmail"></p>
+    <p class="text-xs text-gray-500">Peça a um administrador para conceder o papel <code>admin</code>.</p>
+    <button id="btnSignOut1" class="mt-2 px-4 py-2 border rounded-lg text-sm">Sair</button>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app" class="hidden">
+  <header class="bg-navy text-white">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between flex-wrap gap-3">
+      <div>
+        <h1 class="text-2xl font-bold">Painel de Leads</h1>
+        <p class="text-xs text-white/60" id="userEmail"></p>
+      </div>
+      <div class="flex gap-2 flex-wrap">
+        <button id="btnRefresh" class="px-3 py-1.5 rounded bg-white/10 hover:bg-white/20 text-sm">↻ Atualizar</button>
+        <button id="btnCSV" class="px-3 py-1.5 rounded bg-white/10 hover:bg-white/20 text-sm">⬇ CSV</button>
+        <button id="btnSignOut" class="px-3 py-1.5 rounded hover:bg-white/10 text-sm">Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-6 space-y-6">
+    <!-- KPIs -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="bg-white p-5 rounded-xl shadow-sm border">
+        <div class="text-xs text-gray-500">Total (filtro)</div>
+        <div class="text-3xl font-bold text-navy mt-1" id="kpiTotal">0</div>
+      </div>
+      <div class="bg-white p-5 rounded-xl shadow-sm border">
+        <div class="text-xs text-gray-500">Últimas 24h</div>
+        <div class="text-3xl font-bold text-navy mt-1" id="kpi24">0</div>
+      </div>
+      <div class="bg-white p-5 rounded-xl shadow-sm border">
+        <div class="text-xs text-gray-500">Ganhos</div>
+        <div class="text-3xl font-bold text-navy mt-1" id="kpiWon">0</div>
+      </div>
+      <div class="bg-white p-5 rounded-xl shadow-sm border">
+        <div class="text-xs text-gray-500">Score médio</div>
+        <div class="text-3xl font-bold text-navy mt-1" id="kpiScore">0</div>
+      </div>
+    </div>
+
+    <!-- Charts -->
+    <div class="grid lg:grid-cols-2 gap-4">
+      <div class="bg-white p-5 rounded-xl shadow-sm border">
+        <h3 class="font-semibold text-navy mb-3">Leads por dia (30d)</h3>
+        <canvas id="chartDaily" height="120"></canvas>
+      </div>
+      <div class="bg-white p-5 rounded-xl shadow-sm border">
+        <h3 class="font-semibold text-navy mb-3">Top cidades</h3>
+        <canvas id="chartCities" height="120"></canvas>
+      </div>
+      <div class="bg-white p-5 rounded-xl shadow-sm border">
+        <h3 class="font-semibold text-navy mb-3">Por faixa de valor</h3>
+        <canvas id="chartBand" height="120"></canvas>
+      </div>
+      <div class="bg-white p-5 rounded-xl shadow-sm border">
+        <h3 class="font-semibold text-navy mb-3">Distribuição de score</h3>
+        <canvas id="chartScore" height="120"></canvas>
+      </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="bg-white p-4 rounded-xl shadow-sm border grid md:grid-cols-6 gap-3">
+      <input id="fSearch" placeholder="Buscar nome, e-mail, telefone..." class="md:col-span-2 px-3 py-2 border rounded-lg text-sm" />
+      <select id="fStatus" class="px-3 py-2 border rounded-lg text-sm">
+        <option value="all">Todos status</option>
+        <option value="novo">Novo</option><option value="em_contato">Em contato</option>
+        <option value="ganho">Ganho</option><option value="perdido">Perdido</option>
+      </select>
+      <select id="fCity" class="px-3 py-2 border rounded-lg text-sm"><option value="all">Todas cidades</option></select>
+      <select id="fDays" class="px-3 py-2 border rounded-lg text-sm">
+        <option value="1">24h</option><option value="7">7 dias</option>
+        <option value="30" selected>30 dias</option><option value="90">90 dias</option>
+        <option value="all">Todo período</option>
+      </select>
+      <select id="fScore" class="px-3 py-2 border rounded-lg text-sm">
+        <option value="0">Score ≥ 0</option><option value="40">≥ 40</option>
+        <option value="60">≥ 60</option><option value="80">≥ 80</option>
+      </select>
+    </div>
+
+    <!-- Table -->
+    <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead class="bg-gray-50 text-xs uppercase text-gray-500">
+            <tr>
+              <th class="px-4 py-3 text-left">Data</th>
+              <th class="px-4 py-3 text-left">Nome</th>
+              <th class="px-4 py-3 text-left">Contato</th>
+              <th class="px-4 py-3 text-left">Cidade</th>
+              <th class="px-4 py-3 text-left">Valor</th>
+              <th class="px-4 py-3 text-left">Score</th>
+              <th class="px-4 py-3 text-left">Status</th>
+              <th class="px-4 py-3"></th>
+            </tr>
+          </thead>
+          <tbody id="tbody" class="divide-y"></tbody>
+        </table>
+      </div>
+      <div id="emptyState" class="hidden p-8 text-center text-gray-500">Nenhum lead encontrado.</div>
+    </div>
+  </main>
+</div>
+
+<!-- Lead modal -->
+<div id="modal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+  <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+    <div class="p-6 border-b flex justify-between items-center">
+      <h3 class="font-bold text-xl text-navy" id="mName">Lead</h3>
+      <button id="mClose" class="text-2xl text-gray-400 hover:text-gray-600">×</button>
+    </div>
+    <div class="p-6 space-y-4">
+      <div class="grid grid-cols-2 gap-4 text-sm">
+        <div><div class="text-xs text-gray-500">E-mail</div><div id="mEmail" class="font-medium"></div></div>
+        <div><div class="text-xs text-gray-500">Telefone</div><div id="mPhone" class="font-medium"></div></div>
+        <div><div class="text-xs text-gray-500">Cidade</div><div id="mCity" class="font-medium"></div></div>
+        <div><div class="text-xs text-gray-500">Valor</div><div id="mValue" class="font-medium"></div></div>
+        <div><div class="text-xs text-gray-500">Score</div><div id="mScore" class="font-bold text-lg text-gold"></div></div>
+        <div><div class="text-xs text-gray-500">Recebido</div><div id="mCreated" class="font-medium"></div></div>
+      </div>
+      <div>
+        <div class="text-xs text-gray-500 mb-1">Detalhes</div>
+        <div id="mDetails" class="p-3 bg-gray-50 rounded text-sm whitespace-pre-wrap"></div>
+      </div>
+      <div>
+        <label class="text-xs text-gray-500">Status</label>
+        <select id="mStatus" class="w-full mt-1 px-3 py-2 border rounded-lg text-sm">
+          <option value="novo">Novo</option><option value="em_contato">Em contato</option>
+          <option value="ganho">Ganho</option><option value="perdido">Perdido</option>
+        </select>
+      </div>
+      <div>
+        <label class="text-xs text-gray-500">Observações</label>
+        <textarea id="mNotes" rows="3" class="w-full mt-1 px-3 py-2 border rounded-lg text-sm"></textarea>
+      </div>
+      <div class="flex justify-end gap-2 pt-2">
+        <a id="mWA" target="_blank" class="hidden px-4 py-2 bg-green-500 text-white rounded-lg text-sm hover:bg-green-600">WhatsApp</a>
+        <button id="mSave" class="px-4 py-2 bg-navy text-white rounded-lg text-sm hover:opacity-90">Salvar alterações</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+  const $ = (id) => document.getElementById(id);
+  const supabase = window.supabase;
+  let leads = [], charts = {}, current = null;
+
+  const STATUS_LABEL = { novo:"Novo", em_contato:"Em contato", ganho:"Ganho", perdido:"Perdido" };
+  const fmtDate = (iso) => new Date(iso).toLocaleString("pt-BR", { dateStyle:"short", timeStyle:"short" });
+  const parseValue = (v) => v ? Number(String(v).replace(/[^0-9]/g,"")) || 0 : 0;
+  const valueBand = (n) => n===0 ? "Não informado" : n>=1e6 ? "≥ 1M" : n>=5e5 ? "500k-1M" : n>=2e5 ? "200k-500k" : "< 200k";
+  const recencyBoost = (iso) => {
+    const h = (Date.now()-new Date(iso).getTime())/36e5;
+    return h<=24?30:h<=168?20:h<=720?10:0;
+  };
+
+  // ---------- AUTH ----------
+  async function checkAuth() {
+    const { data:{ session } } = await supabase.auth.getSession();
+    if (!session) return showLogin();
+    const { data:isAdmin } = await supabase.rpc("has_role", { _user_id: session.user.id, _role: "admin" });
+    if (!isAdmin) { $("noAdminEmail").textContent = session.user.email; showView("noAdminView"); return; }
+    $("userEmail").textContent = session.user.email;
+    showView("app");
+    load();
+  }
+  function showLogin(){ showView("loginView"); }
+  function showView(id){ ["loginView","noAdminView","app"].forEach(v => $(v).classList.toggle("hidden", v!==id)); }
+
+  $("btnLogin").onclick = async () => {
+    $("loginError").classList.add("hidden");
+    const { error } = await supabase.auth.signInWithPassword({ email:$("email").value, password:$("password").value });
+    if (error) { $("loginError").textContent = error.message; $("loginError").classList.remove("hidden"); return; }
+    checkAuth();
+  };
+  $("btnSignup").onclick = async () => {
+    $("loginError").classList.add("hidden");
+    const { error } = await supabase.auth.signUp({
+      email:$("email").value, password:$("password").value,
+      options:{ emailRedirectTo: window.location.href }
+    });
+    if (error) { $("loginError").textContent = error.message; $("loginError").classList.remove("hidden"); return; }
+    $("loginError").textContent = "Conta criada! Verifique seu e-mail para confirmar.";
+    $("loginError").className = "text-sm p-3 rounded bg-emerald-50 text-emerald-700";
+  };
+  $("btnGoogle").onclick = async () => {
+    await supabase.auth.signInWithOAuth({ provider:"google", options:{ redirectTo: window.location.href } });
+  };
+  $("btnSignOut").onclick = $("btnSignOut1").onclick = async () => {
+    await supabase.auth.signOut(); showLogin();
+  };
+
+  // ---------- DATA ----------
+  async function load() {
+    const { data, error } = await supabase.from("leads").select("*").order("created_at", { ascending:false });
+    if (error) return alert(error.message);
+    leads = (data||[]).map(l => ({
+      ...l,
+      score: Math.min(100, (l.base_score||0) + recencyBoost(l.created_at)),
+      value_num: parseValue(l.property_value),
+    }));
+    const cities = [...new Set(leads.map(l=>l.city).filter(Boolean))].sort();
+    $("fCity").innerHTML = '<option value="all">Todas cidades</option>' + cities.map(c=>`<option>${c}</option>`).join("");
+    render();
+  }
+
+  function filtered() {
+    const q = $("fSearch").value.trim().toLowerCase();
+    const st = $("fStatus").value, ct = $("fCity").value;
+    const days = $("fDays").value, min = +$("fScore").value;
+    const cutoff = days==="all" ? 0 : Date.now() - +days*864e5;
+    return leads.filter(l => {
+      if (st!=="all" && l.status!==st) return false;
+      if (ct!=="all" && l.city!==ct) return false;
+      if (cutoff && new Date(l.created_at).getTime() < cutoff) return false;
+      if (l.score < min) return false;
+      if (q && !((l.name||"").toLowerCase().includes(q) || (l.email||"").toLowerCase().includes(q) ||
+          (l.phone||"").toLowerCase().includes(q) || (l.city||"").toLowerCase().includes(q))) return false;
+      return true;
+    });
+  }
+
+  function render() {
+    const list = filtered();
+    // KPIs
+    $("kpiTotal").textContent = list.length;
+    $("kpi24").textContent = list.filter(l => Date.now()-new Date(l.created_at).getTime() <= 864e5).length;
+    $("kpiWon").textContent = list.filter(l => l.status==="ganho").length;
+    $("kpiScore").textContent = list.length ? Math.round(list.reduce((s,l)=>s+l.score,0)/list.length) : 0;
+
+    // Table
+    const tbody = $("tbody");
+    $("emptyState").classList.toggle("hidden", list.length>0);
+    tbody.innerHTML = list.map(l => `
+      <tr class="hover:bg-gray-50 cursor-pointer" data-id="${l.id}">
+        <td class="px-4 py-3 text-xs text-gray-500">${fmtDate(l.created_at)}</td>
+        <td class="px-4 py-3 font-medium">${escapeHtml(l.name||"")}</td>
+        <td class="px-4 py-3 text-xs"><div>${escapeHtml(l.email||"")}</div><div class="text-gray-500">${escapeHtml(l.phone||"")}</div></td>
+        <td class="px-4 py-3">${escapeHtml(l.city||"")}</td>
+        <td class="px-4 py-3">${escapeHtml(l.property_value||"")}</td>
+        <td class="px-4 py-3 font-bold text-gold">${l.score}</td>
+        <td class="px-4 py-3"><span class="badge b-${l.status}">${STATUS_LABEL[l.status]||l.status}</span></td>
+        <td class="px-4 py-3 text-right"><button class="text-navy hover:underline text-xs">Abrir →</button></td>
+      </tr>`).join("");
+    [...tbody.querySelectorAll("tr")].forEach(tr => tr.onclick = () => openLead(tr.dataset.id));
+
+    renderCharts(list);
+  }
+
+  function renderCharts(list) {
+    // Daily
+    const map = new Map();
+    for (let i=29;i>=0;i--) { const d=new Date(); d.setDate(d.getDate()-i); d.setHours(0,0,0,0); map.set(d.toISOString().slice(0,10),0); }
+    list.forEach(l=>{ const k=l.created_at.slice(0,10); if(map.has(k)) map.set(k, map.get(k)+1); });
+    upsertChart("chartDaily","line", { labels:[...map.keys()].map(k=>k.slice(5)),
+      datasets:[{ label:"Leads", data:[...map.values()], borderColor:"#fca412", backgroundColor:"rgba(252,164,18,.2)", tension:.3, fill:true }] });
+
+    // Cities
+    const cm = new Map(); list.forEach(l=>{ const c=l.city||"Sem cidade"; cm.set(c,(cm.get(c)||0)+1); });
+    const top = [...cm.entries()].sort((a,b)=>b[1]-a[1]).slice(0,8);
+    upsertChart("chartCities","bar", { labels:top.map(x=>x[0]), datasets:[{ data:top.map(x=>x[1]), backgroundColor:"#0f2942" }] });
+
+    // Bands
+    const bm = new Map(); list.forEach(l=>{ const b=valueBand(l.value_num); bm.set(b,(bm.get(b)||0)+1); });
+    upsertChart("chartBand","bar", { labels:[...bm.keys()], datasets:[{ data:[...bm.values()], backgroundColor:"#fca412" }] });
+
+    // Score buckets
+    const buckets = [["0-39 Frio",0,39,"#94a3b8"],["40-59 Morno",40,59,"#fca412"],["60-79 Quente",60,79,"#f97316"],["80-100 Hot",80,100,"#dc2626"]];
+    const counts = buckets.map(([,mn,mx])=> list.filter(l=>l.score>=mn && l.score<=mx).length);
+    upsertChart("chartScore","doughnut", { labels:buckets.map(b=>b[0]), datasets:[{ data:counts, backgroundColor:buckets.map(b=>b[3]) }] });
+  }
+
+  function upsertChart(id, type, data) {
+    if (charts[id]) charts[id].destroy();
+    charts[id] = new Chart($(id), { type, data, options:{ responsive:true, plugins:{ legend:{ display:type==="doughnut" } } } });
+  }
+
+  // ---------- MODAL ----------
+  function openLead(id) {
+    const l = leads.find(x=>x.id===id); if (!l) return;
+    current = l;
+    $("mName").textContent = l.name || "Lead";
+    $("mEmail").textContent = l.email || "-";
+    $("mPhone").textContent = l.phone || "-";
+    $("mCity").textContent = l.city || "-";
+    $("mValue").textContent = l.property_value || "-";
+    $("mScore").textContent = l.score;
+    $("mCreated").textContent = fmtDate(l.created_at);
+    $("mDetails").textContent = l.details || "-";
+    $("mStatus").value = l.status;
+    $("mNotes").value = l.notes || "";
+    if (l.phone) {
+      const digits = String(l.phone).replace(/\D/g,"");
+      $("mWA").href = `https://wa.me/${digits.startsWith("55")?digits:"55"+digits}?text=${encodeURIComponent(`Olá ${l.name}, tudo bem?`)}`;
+      $("mWA").classList.remove("hidden");
+    } else $("mWA").classList.add("hidden");
+    $("modal").classList.remove("hidden");
+  }
+  $("mClose").onclick = () => $("modal").classList.add("hidden");
+  $("mSave").onclick = async () => {
+    if (!current) return;
+    const patch = { status: $("mStatus").value, notes: $("mNotes").value };
+    const { error } = await supabase.from("leads").update(patch).eq("id", current.id);
+    if (error) return alert(error.message);
+    Object.assign(current, patch);
+    $("modal").classList.add("hidden");
+    render();
+  };
+
+  // ---------- MISC ----------
+  function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c])); }
+
+  ["fSearch","fStatus","fCity","fDays","fScore"].forEach(id => $(id).addEventListener("input", render));
+  $("btnRefresh").onclick = load;
+  $("btnCSV").onclick = () => {
+    const rows = [["Data","Nome","E-mail","Telefone","Cidade","Valor","Detalhes","Status","Score","Observações"],
+      ...filtered().map(l=>[fmtDate(l.created_at), l.name, l.email, l.phone, l.city||"", l.property_value||"",
+        (l.details||"").replace(/\n/g," "), STATUS_LABEL[l.status]||l.status, l.score, (l.notes||"").replace(/\n/g," ")])];
+    const csv = rows.map(r => r.map(v => `"${String(v).replace(/"/g,'""')}"`).join(",")).join("\n");
+    const blob = new Blob(["\uFEFF"+csv], { type:"text/csv;charset=utf-8;" });
+    const a = document.createElement("a"); a.href = URL.createObjectURL(blob);
+    a.download = `leads-${new Date().toISOString().slice(0,10)}.csv`; a.click();
+  };
+
+  supabase.auth.onAuthStateChange(() => checkAuth());
+  checkAuth();
+</script>
+</body>
+</html>
