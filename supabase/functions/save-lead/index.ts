@@ -21,11 +21,9 @@ Deno.serve(async (req) => {
       name = "",
       email = "",
       phone = "",
+      city = "",
       propertyValue = "",
-      monthlyInstallment = "",
-      installmentsPaid = "",
-      estimateMin = "",
-      estimateMax = "",
+      details = "",
     } = body ?? {};
 
     if (
@@ -45,14 +43,12 @@ Deno.serve(async (req) => {
       name.trim(),
       email.trim(),
       phone,
-      String(propertyValue),
-      String(monthlyInstallment),
-      String(installmentsPaid),
-      String(estimateMin),
-      String(estimateMax),
+      String(city).trim(),
+      String(propertyValue).trim(),
+      String(details).trim(),
     ];
 
-    const range = `${SHEET_NAME}!A:I`;
+    const range = `${SHEET_NAME}!A:G`;
     const url = `${GATEWAY_URL}/spreadsheets/${SPREADSHEET_ID}/values/${range}:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`;
 
     const resp = await fetch(url, {

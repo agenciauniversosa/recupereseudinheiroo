@@ -827,9 +827,23 @@ const ContactFormSection = () => {
 
   const isValid = form.name.trim().length >= 2 && form.phone.replace(/\D/g, "").length >= 10 && form.email.includes("@") && form.email.includes(".");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!isValid) return;
+    try {
+      await supabase.functions.invoke("save-lead", {
+        body: {
+          name: form.name.trim(),
+          email: form.email.trim(),
+          phone: form.phone,
+          city: form.city.trim(),
+          propertyValue: form.propertyValue.trim(),
+          details: form.details.trim(),
+        },
+      });
+    } catch (err) {
+      console.error("save-lead failed:", err);
+    }
     const message = encodeURIComponent(
       `Olá! Preenchi o formulário no site.\n\nNome: ${form.name.trim()}\nTelefone: ${form.phone}\nE-mail: ${form.email.trim()}\nCidade: ${form.city.trim()}\nValor do Imóvel: ${form.propertyValue.trim()}\nDetalhes: ${form.details.trim()}`
     );
