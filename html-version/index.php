@@ -42,9 +42,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["form_type"]) && $_POS
   <title>Recupere Seu Dinheiro | Cobranças Ilegais em Imóvel na Planta</title>
   <meta name="description" content="Comprou imóvel na planta nos últimos 5 anos? Você pode ter sofrido cobranças ilegais. Sem compromisso. Todo o Brasil." />
   <meta name="author" content="Universo S.A." />
-  <link rel="canonical" href="https://recupereseudinheiro.com.br/" />
+  <link rel="canonical" href="https://seudinheirorecuperado.com.br/" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://recupereseudinheiro.com.br/" />
+  <meta property="og:url" content="https://seudinheirorecuperado.com.br/" />
   <meta property="og:title" content="Recupere Seu Dinheiro | Cobranças Ilegais em Imóvel na Planta" />
   <meta property="og:description" content="Comprou imóvel na planta nos últimos 5 anos? Você pode ter sofrido cobranças ilegais. Sem compromisso. Todo o Brasil." />
   <meta name="twitter:card" content="summary_large_image" />
