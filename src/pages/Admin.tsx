@@ -19,7 +19,7 @@ import {
   BarChart, Bar, LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer,
   PieChart, Pie, Cell, CartesianGrid, Legend,
 } from "recharts";
-import { Download, LogOut, Loader2, TrendingUp, Users, Trophy, Clock, ShieldAlert, RefreshCw } from "lucide-react";
+import { Download, LogOut, Loader2, TrendingUp, Users, Trophy, Clock, ShieldAlert, RefreshCw, MessageCircle, Send, Settings2 } from "lucide-react";
 import { toast } from "sonner";
 
 type Lead = {
@@ -36,6 +36,30 @@ type Lead = {
   notes: string | null;
   created_at: string;
   updated_at: string;
+};
+
+type Followup = {
+  id: string;
+  lead_id: string;
+  event: "novo_lead" | "em_contato" | "ganho" | "perdido";
+  channel: string;
+  message: string;
+  wa_link: string | null;
+  status: "pendente" | "enviado" | "cancelado";
+  sent_at: string | null;
+  created_at: string;
+};
+
+type Template = {
+  id: string;
+  event: "novo_lead" | "em_contato" | "ganho" | "perdido";
+  channel: string;
+  message: string;
+  active: boolean;
+};
+
+const EVENT_LABEL: Record<Followup["event"], string> = {
+  novo_lead: "Novo lead", em_contato: "Em contato", ganho: "Ganho", perdido: "Perdido",
 };
 
 const STATUS_LABEL: Record<Lead["status"], string> = {
@@ -81,6 +105,10 @@ const Admin = () => {
   const [days, setDays] = useState<string>("30");
   const [minScore, setMinScore] = useState<string>("0");
   const [selected, setSelected] = useState<Lead | null>(null);
+  const [followups, setFollowups] = useState<Followup[]>([]);
+  const [loadingFollowups, setLoadingFollowups] = useState(false);
+  const [templatesOpen, setTemplatesOpen] = useState(false);
+  const [templates, setTemplates] = useState<Template[]>([]);
 
   useEffect(() => {
     document.title = "Painel de Leads | Admin";
@@ -96,6 +124,49 @@ const Admin = () => {
   };
 
   useEffect(() => { if (isAdmin) load(); }, [isAdmin]);
+
+  const loadFollowups = async (leadId: string) => {
+    setLoadingFollowups(true);
+    const { data, error } = await supabase.from("lead_followups")
+      .select("*").eq("lead_id", leadId).order("created_at", { ascending: false });
+    if (error) toast.error(error.message);
+    setFollowups((data ?? []) as Followup[]);
+    setLoadingFollowups(false);
+  };
+
+  useEffect(() => {
+    if (selected) loadFollowups(selected.id); else setFollowups([]);
+  }, [selected]);
+
+  const markFollowupSent = async (f: Followup) => {
+    const { error } = await supabase.from("lead_followups")
+      .update({ status: "enviado", sent_at: new Date().toISOString(), sent_by: session?.user.id })
+      .eq("id", f.id);
+    if (error) return toast.error(error.message);
+    if (f.wa_link) window.open(f.wa_link, "_blank", "noopener");
+    setFollowups((prev) => prev.map((x) => x.id === f.id ? { ...x, status: "enviado", sent_at: new Date().toISOString() } : x));
+    toast.success("Registrado como enviado");
+  };
+
+  const cancelFollowup = async (f: Followup) => {
+    const { error } = await supabase.from("lead_followups").update({ status: "cancelado" }).eq("id", f.id);
+    if (error) return toast.error(error.message);
+    setFollowups((prev) => prev.map((x) => x.id === f.id ? { ...x, status: "cancelado" } : x));
+  };
+
+  const openTemplates = async () => {
+    const { data, error } = await supabase.from("followup_templates").select("*").order("event");
+    if (error) return toast.error(error.message);
+    setTemplates((data ?? []) as Template[]);
+    setTemplatesOpen(true);
+  };
+
+  const saveTemplate = async (t: Template) => {
+    const { error } = await supabase.from("followup_templates")
+      .update({ message: t.message, active: t.active }).eq("id", t.id);
+    if (error) return toast.error(error.message);
+    toast.success("Template salvo");
+  };
 
   const enriched = useMemo(() =>
     leads.map((l) => {
@@ -229,6 +300,7 @@ const Admin = () => {
               <RefreshCw className={`w-4 h-4 mr-2 ${loadingLeads ? "animate-spin" : ""}`} />Atualizar
             </Button>
             <Button variant="secondary" size="sm" onClick={exportCSV}><Download className="w-4 h-4 mr-2" />CSV</Button>
+            <Button variant="secondary" size="sm" onClick={openTemplates}><Settings2 className="w-4 h-4 mr-2" />Templates</Button>
             <Button variant="ghost" size="sm" className="text-white hover:bg-white/10" onClick={signOut}><LogOut className="w-4 h-4 mr-2" />Sair</Button>
           </div>
         </div>
@@ -432,8 +504,83 @@ const Admin = () => {
                   <Button variant="outline" className="w-full">E-mail</Button>
                 </a>
               </div>
+
+              <div className="border-t pt-4">
+                <div className="flex items-center justify-between mb-2">
+                  <h4 className="font-semibold text-navy flex items-center gap-2"><MessageCircle className="w-4 h-4" /> Follow-ups automáticos</h4>
+                  <span className="text-xs text-muted-foreground">{followups.length} registro(s)</span>
+                </div>
+                {loadingFollowups ? (
+                  <div className="py-4 text-center"><Loader2 className="w-4 h-4 animate-spin inline" /></div>
+                ) : followups.length === 0 ? (
+                  <div className="text-xs text-muted-foreground py-2">Nenhum disparo registrado ainda.</div>
+                ) : (
+                  <div className="space-y-2 max-h-64 overflow-y-auto">
+                    {followups.map((f) => (
+                      <div key={f.id} className="border rounded p-3 text-xs space-y-2 bg-background">
+                        <div className="flex items-center justify-between gap-2">
+                          <div className="flex items-center gap-2">
+                            <Badge variant="outline">{EVENT_LABEL[f.event]}</Badge>
+                            <Badge className={
+                              f.status === "enviado" ? "bg-emerald-500 text-white" :
+                              f.status === "cancelado" ? "bg-slate-400 text-white" :
+                              "bg-amber-500 text-white"
+                            }>{f.status}</Badge>
+                          </div>
+                          <span className="text-muted-foreground">{fmtDate(f.created_at)}</span>
+                        </div>
+                        <div className="whitespace-pre-wrap text-foreground">{f.message}</div>
+                        {f.sent_at && (
+                          <div className="text-muted-foreground">Enviado em {fmtDate(f.sent_at)}</div>
+                        )}
+                        {f.status === "pendente" && (
+                          <div className="flex gap-2 pt-1">
+                            <Button size="sm" className="bg-emerald-600 hover:bg-emerald-700 h-8"
+                              onClick={() => markFollowupSent(f)} disabled={!f.wa_link}>
+                              <Send className="w-3.5 h-3.5 mr-1" /> Abrir WhatsApp e registrar
+                            </Button>
+                            <Button size="sm" variant="ghost" className="h-8" onClick={() => cancelFollowup(f)}>Cancelar</Button>
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
           )}
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={templatesOpen} onOpenChange={setTemplatesOpen}>
+        <DialogContent className="max-w-2xl">
+          <DialogHeader><DialogTitle>Templates de follow-up</DialogTitle></DialogHeader>
+          <p className="text-xs text-muted-foreground">
+            Variáveis disponíveis: <code>{"{{name}}"}</code>, <code>{"{{city}}"}</code>, <code>{"{{property_value}}"}</code>, <code>{"{{email}}"}</code>.
+            Alterações valem para os próximos disparos.
+          </p>
+          <div className="space-y-4 max-h-[60vh] overflow-y-auto">
+            {templates.map((t, idx) => (
+              <div key={t.id} className="border rounded p-3 space-y-2">
+                <div className="flex items-center justify-between">
+                  <div className="font-semibold text-navy text-sm">{EVENT_LABEL[t.event]}</div>
+                  <label className="flex items-center gap-2 text-xs">
+                    <input type="checkbox" checked={t.active}
+                      onChange={(e) => setTemplates((prev) => prev.map((x, i) => i === idx ? { ...x, active: e.target.checked } : x))} />
+                    Ativo
+                  </label>
+                </div>
+                <textarea
+                  className="w-full border rounded p-2 text-sm min-h-[100px]"
+                  value={t.message}
+                  onChange={(e) => setTemplates((prev) => prev.map((x, i) => i === idx ? { ...x, message: e.target.value } : x))}
+                />
+                <div className="flex justify-end">
+                  <Button size="sm" onClick={() => saveTemplate(t)}>Salvar</Button>
+                </div>
+              </div>
+            ))}
+          </div>
         </DialogContent>
       </Dialog>
     </div>
